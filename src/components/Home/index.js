@@ -8,8 +8,8 @@ export const Home2 = () => {
         
     }
     useEffect(() => {
-        if( window.Telegram.WebApp) {
-            const { initialData } = window.Telegram.WebApp;
+        if( window.Telegram?.WebApp) {
+            const { initialData } = window.Telegram?.WebApp;
             alert(initialData.user.username)
             //setUser(initialData.user)
         }

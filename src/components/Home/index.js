@@ -28,7 +28,7 @@ export const Home2 = () => {
         <div className="w-[100%] h-12 flex  py-3 ">
             <div className="w-[85%]">
             <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-s-gray-200/85 rounded-full h-8">
-                <p className="text-black font-light ml-auto mr-auto ">{user?.initDataUnsafe?.user?.id}</p>
+                <p className="text-black font-light ml-auto mr-auto ">{user?.initDataUnsafe?.user?.username}</p>
             </div>
             </div>
             <div className="w-[15%]">

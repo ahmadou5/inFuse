@@ -1,12 +1,23 @@
+import { useEffect, useState } from "react";
 import { IoSettings } from "react-icons/io5";
 
 export const Home2 = () => {
+    const [user,setUser ] = useState(null)
+    const getUser = () => {
+        if(window.TelegramWebApp) {
+            const { initialData } = window.TelegramWebApp;
+            setUser(initialData.user)
+        }
+    }
+    useEffect(() => {
+        getUser()
+    },[])
     return(
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
         <div className="w-[100%] h-12 flex  py-3 ">
             <div className="w-[85%]">
             <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-s-gray-200/85 rounded-full h-8">
-                <p className="text-black font-light ml-auto mr-auto ">Wallet</p>
+                <p className="text-black font-light ml-auto mr-auto ">{user?.username}</p>
             </div>
             </div>
             <div className="w-[15%]">

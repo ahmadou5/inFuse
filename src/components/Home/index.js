@@ -35,9 +35,9 @@ export const Home2 = () => {
              <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-gothic-600/85"/>
             </div>
         </div>
-        <div className="bg-gothic-950/0 mt-12 flex items-center justify-center w-[100%] h-auto">
+        <div className="bg-gothic-950/0 mt-8 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
-                <p className="text-6xl  text-gothic-200/85">{`$${50}`}</p>
+                <p className="text-4xl  text-gothic-200/85">{`$${50}`}</p>
             </div>
         </div>
         <div className="bg-gothic-950/0 mt-7 flex items-center justify-center w-[100%] h-auto">

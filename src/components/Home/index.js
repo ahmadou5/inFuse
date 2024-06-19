@@ -10,7 +10,7 @@ export const Home2 = () => {
             </div>
             </div>
             <div className="w-[15%]">
-             <IoSettings className="w-7 h-7 ml-auto mr-5 text-s-gray-200/60"/>
+             <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-s-gray-200/70"/>
             </div>
         </div>
     </div>

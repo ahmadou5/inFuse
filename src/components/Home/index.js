@@ -43,8 +43,8 @@ export const Home2 = () => {
         <div className="bg-gothic-950/0 mt-7 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-gothic-300/5 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
                 <div className="text-xl bg-gothic-600/0 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowUp className="text-3xl text-gothic-600/85" />
-                  <p className="text-xl font-light ">Send</p>
+                    <IoArrowUp className="text-2xl text-gothic-600/85" />
+                  <p className="text-sm font-light ">Send</p>
                 </div>
                 <div className="text-3xl bg-gothic-600/0 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
                     <IoArrowDown className="text-3xl text-gothic-600/85" />

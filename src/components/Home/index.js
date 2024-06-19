@@ -5,14 +5,14 @@ import { IoSettings } from "react-icons/io5";
 export const Home2 = () => {
     const [user,setUser ] = useState(null)
     const getUser = () => {
+        
+    }
+    useEffect(() => {
         if(window.TelegramWebApp) {
             const { initialData } = window.TelegramWebApp;
             alert(initialData.user.username)
             //setUser(initialData.user)
         }
-    }
-    useEffect(() => {
-        getUser()
     },[])
     return(
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">

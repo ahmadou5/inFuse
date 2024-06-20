@@ -51,7 +51,7 @@ export const Menu = () => {
         {/**for desktop view **/}
         <div
           style={{ "backdrop-filter": "blur(12px)" }}
-          className=" w-[90%] ml-auto mr-auto rounded-full bg-s-gray-300/0 py-1 px-1.5 z-100 mt-[550px]  fixed inset-x-0 top-2 flex justify-center items-center"
+          className=" w-[97%] ml-auto mr-auto rounded-full bg-s-gray-300/10 py-1 px-1.5 z-100 mt-[560px]  fixed inset-x-0 top-2 flex justify-center items-center"
         >
           <div className="lg:py-2.5 py-1.5 lg:px-2.5 px-1.5  mt-auto mb-auto ml-auto mr-auto w-[98%] flex flex-row  h-[90%]">
             <div className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>

@@ -57,7 +57,7 @@ export const Home2 = () => {
                 </div>
             </div>
         </div>
-        <div className="bg-gothic-950/0 mt-16 flex items-center justify-center w-[100%] h-auto">
+        {/**<div className="bg-gothic-950/0 mt-16 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-gothic-300/5 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
                 <div className="bg-gothic-600/85 w-9 flex items-center justify-center h-9 ml-[40px] mr-[20px] rounded-full">
                     <IoKey className="text-white/90 text-2xl" />
@@ -66,7 +66,7 @@ export const Home2 = () => {
                     <p className="text-sm">BackUp Your Seed Phrases</p>
                 </div>
             </div>
-        </div>
+    </div> **/}
         <div className="bg-gothic-950/0 mt-5 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-gothic-300/5 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
                 <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">

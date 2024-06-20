@@ -26,7 +26,7 @@ export const Create = () => {
    
     return(
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
-        <div className="bg-gothic-950/0 mt-[160px] mb-[60px] flex items-center justify-center w-[100%] h-auto">
+        <div className="bg-gothic-950/0 mt-[100px] mb-[60px] flex items-center justify-center w-[100%] h-auto">
             <img src="./assets/chain1.svg" className="w-[55%] h-[210px]" />
         </div>
         <div className="bg-gothic-950/0 mt-3 mb-8 flex items-center justify-center w-[100%] h-auto">

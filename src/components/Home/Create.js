@@ -32,7 +32,7 @@ export const Create = () => {
         <div className="bg-gothic-950/0 mt-3 mb-8 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] px-10 flex flex-col items-center justify-center rounded-3xl h-[140px]">
                 <p className="text-4xl font-extrabold mb-6 text-gothic-200/85">{`Infuse Wallet`}</p>
-                <p className="text-xl font-extrabold text-center mt-4 text-gothic-200/85">{`Hi ${user?  user?.initDataUnsafe?.user?.username : 'user'} Create a new wallet or import an existing one`}</p>
+                <p className="text-xl font-extrabold text-center mt-4 text-gothic-200/85">{`Hi ${user?.initDataUnsafe?.user?.username} Create a new wallet or import an existing one`}</p>
             </div>
         </div>
         <div className="bg-s-gray-300/0 w-[95%] ml-auto mr-auto mt-16 px-2 flex flex-col items-center justify-center rounded-2xl h-auto">

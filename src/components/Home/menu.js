@@ -5,6 +5,7 @@ import Link from "next/link";
 import { IoFlash, IoHome, IoWallet } from "react-icons/io5";
 import { GiTwoCoins } from "react-icons/gi";
 import { RiCoinsLine } from "react-icons/ri";
+import { BsCoin } from "react-icons/bs";
 
 
 
@@ -64,7 +65,7 @@ export const Menu = () => {
                 {isHistory && <p className={`font-light ${isHistory ? 'text-white' : 'text-gothic-200'} text-[15px]`}>Transaction</p>}
             </div>
             <div className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <RiCoinsLine size={28} className={`${ isTokens ? 'text-white' : 'text-gothic-600/85'}`} />
+                <BsCoin size={28} className={`${ isTokens ? 'text-white' : 'text-gothic-600/85'}`} />
                 {isTokens && <p className={`font-light ${isTokens ? 'text-white' : 'text-gothic-200'} text-[15px]`}>Tokens</p>}
             </div>
           </div>          

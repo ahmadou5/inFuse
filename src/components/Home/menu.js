@@ -62,7 +62,7 @@ export const Menu = () => {
               setIsHome(true)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
                 <IoWallet size={28} className={`${ isHome ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isHome && <p className={`font-light ${isHome ? 'text-white' : 'text-gothic-200'} text-[15px]`}>wallet</p>}
+                {isHome && <p className={`font-light ${isHome ? 'text-white' : 'text-gothic-200'} text-[12px]`}>Wallet</p>}
             </div>
             <div onClick={() => {
               setIsHistory(true)
@@ -71,7 +71,7 @@ export const Menu = () => {
             }}
              className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
                 <IoFlash size={28} className={`${ isHistory ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isHistory && <p className={`font-light ${isHistory ? 'text-white' : 'text-gothic-200'} text-[15px]`}>activity</p>}
+                {isHistory && <p className={`font-light ${isHistory ? 'text-white' : 'text-gothic-200'} text-[12px]`}>History</p>}
             </div>
             <div onClick={() => {
               setIsHistory(false)
@@ -79,7 +79,7 @@ export const Menu = () => {
               setIsHome(false)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
                 <BsCoin size={28} className={`${ isTokens ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isTokens && <p className={`font-light ${isTokens ? 'text-white' : 'text-gothic-200'} text-[15px]`}>tokens</p>}
+                {isTokens && <p className={`font-light ${isTokens ? 'text-white' : 'text-gothic-200'} text-[12px]`}>Tokens</p>}
             </div>
           </div>          
         </div>

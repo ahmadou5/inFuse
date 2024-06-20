@@ -43,17 +43,17 @@ export const Home2 = () => {
         </div>
         <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-gothic-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
-                <div className="text-xl bg-gothic-600/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowUp className="text-2xl text-gothic-600/85" />
-                  <p className="text-sm mt-2 font-light ">Send</p>
+                <div className="text-xl bg-gothic-600 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoArrowUp className="text-2xl text-gothic-950" />
+                  <p className="text-sm mt-2.5 text-gothic-950 font-light ">Send</p>
                 </div>
-                <div className="text-3xl bg-gothic-600/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowDown className="text-2xl text-gothic-600/85" />
-                  <p className="text-sm mt-2 font-light ">Receive</p>
+                <div className="text-3xl bg-gothic-600 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoArrowDown className="text-2xl text-gothic-950" />
+                  <p className="text-sm mt-2.5 text-gothic-950 font-light ">Receive</p>
                 </div>
-                <div className="text-xl bg-gothic-600/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoScan className="text-2xl text-gothic-600/85"/>
-                  <p className="text-sm mt-2 font-light ">Scan</p>
+                <div className="text-xl bg-gothic-600 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoScan className="text-2xl text-gothic-950"/>
+                  <p className="text-sm mt-2.5 text-gothic-950 font-light ">Scan</p>
                 </div>
             </div>
         </div>
@@ -82,6 +82,7 @@ export const Home2 = () => {
                 </div>
             </div>
         </div>
+        <Menu />
     </div>
 )
 }

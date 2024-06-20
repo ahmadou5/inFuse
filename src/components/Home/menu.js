@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { IoFlash, IoHome } from "react-icons/io5";
+import { IoFlash, IoHome, IoWallet } from "react-icons/io5";
 import { GiTwoCoins } from "react-icons/gi";
 
 
@@ -55,8 +55,8 @@ export const Menu = () => {
         >
           <div className="lg:py-2.5 py-1.5 lg:px-2.5 px-1.5  mt-auto mb-auto ml-auto mr-auto w-[98%] flex flex-row  h-[90%]">
             <div className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoHome size={28} className={`${ isHome ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isHome && <p className={`font-light ${isHome ? 'text-white' : 'text-gothic-200'} text-[15px]`}>Home</p>}
+                <IoWallet size={28} className={`${ isHome ? 'text-white' : 'text-gothic-600/85'}`} />
+                {isHome && <p className={`font-light ${isHome ? 'text-white' : 'text-gothic-200'} text-[15px]`}>Wallet</p>}
             </div>
             <div className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
                 <IoFlash size={28} className={`${ isHistory ? 'text-white' : 'text-gothic-600/85'}`} />

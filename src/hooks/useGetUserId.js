@@ -9,15 +9,14 @@ export const useGetUserId = () => {
             const check = async () => {
                 const { data, error} = await Supabase
                 .from('Wallets')
-                .select()
                 .eq('id',user?.initDataUnsafe?.user?.id)
+                .select()
 
                 if(error) {
                     console.log(error)
                     setIsAuthenticate(false)
                 }
-                if(data) {
-                    console.log(data)
+                if(data && data[0].id === user?.initDataUnsafe?.user?.id ) {
                     setIsAuthenticate(true)
                 }
             }

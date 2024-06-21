@@ -24,10 +24,10 @@ export const Create = () => {
             .insert([{id,name,userAddress,userPkey,userMnemonic}])
             .select()
             if(error) {
-                alert(error)
+                alert('error',error.message)
             }
             if(data) {
-                alert(data)
+                alert('data',data)
             }
            
         } catch (error) {

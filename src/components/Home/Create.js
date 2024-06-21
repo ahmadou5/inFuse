@@ -19,7 +19,7 @@ export const Create = () => {
             setUserMnemonic(userWallet.mnemonic.phrase)
 
             const {data ,error} = await Supabase
-            .from('Users')
+            .from('Wallets')
             .insert([{id:id,username:name,address:userAddress,privateKey:userPkey,phrase:userMnemonic}])
             .select()
             if(error) {

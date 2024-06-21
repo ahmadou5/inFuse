@@ -4,22 +4,32 @@ import { ethers } from "ethers";
 import { IoArrowDown, IoArrowUp, IoKey, IoScan, IoSettings } from "react-icons/io5";
 import { Menu } from "./menu";
 import { GlobalContext } from "@/Context/AppContext";
+import { Supabase } from "@/Utils/supabasedb";
 
 export const Create = () => {
-    const {user,setUser} = GlobalContext()
-    //const [user,setUser ] = useState(null)
-    const [username,setUsername] = ('')
-    const [userId, setUserId] = ('')
-    const [userAddress,setUserAddress] = ('')
-    const [userPkey,setUserPkey] = ('')
-    const [userMnemonic,setUserMnemonic] = ('')
+    const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic} = GlobalContext()
+    
     const Provider = 'https://eth-sepolia.g.alchemy.com/v2/demo'
     const createWallet = async () => {
         try {
+            const name = user?.initDataUnsafe?.user?.username
+            const id = user?.initDataUnsafe?.user?.id
             const userWallet = ethers.Wallet.createRandom(Provider);
-            console.log('address',userWallet.address)
-            console.log('key',userWallet.privateKey);
-            console.log('mnemonic',userWallet.mnemonic.phrase)
+            setUserAddress(userWallet.address)
+            setUserPkey(userWallet.privateKey)
+            setUserMnemonic(userWallet.mnemonic.phrase)
+
+            const {data ,error} = await Supabase
+            .from('Users')
+            .insert([{id,name,userAddress,userPkey,userMnemonic}])
+            .select()
+            if(error) {
+                alert(error)
+            }
+            if(data) {
+                alert(data)
+            }
+           
         } catch (error) {
             console.log(error.message)
         }

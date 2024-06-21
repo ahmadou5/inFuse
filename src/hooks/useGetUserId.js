@@ -21,8 +21,8 @@ export const useGetUserId = () => {
                     setIsAuthenticate(true)
                 }
             }
+            check()
          }
-         check()
     },[user])
     return true
 }

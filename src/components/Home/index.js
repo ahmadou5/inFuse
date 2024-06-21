@@ -2,9 +2,18 @@
 import { useEffect, useState } from "react";
 import { IoArrowDown, IoArrowUp, IoKey, IoScan, IoSettings } from "react-icons/io5";
 import { Menu } from "./menu";
+import { SendModal } from "../Modals/SendModal";
+import { GlobalContext } from "@/Context/AppContext";
+import { ReceiveModal } from "../Modals/ReceiveModal";
 
 export const Home2 = () => {
     const [user,setUser ] = useState(null)
+    const { isSend,
+        isReceive,
+        isScan,
+        setIsScan,
+        setIsReceive,
+        setIsSend} = GlobalContext()
     const getUser = () => {
         
     }
@@ -28,7 +37,7 @@ export const Home2 = () => {
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
         <div className="w-[100%] h-12 flex  py-3 ">
             <div className="w-[85%]">
-            <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-gothic-600 rounded-full h-9">
+            <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
                 <p className="text-white font-light ml-auto mr-auto ">{user?.initDataUnsafe?.user?.username}</p>
             </div>
             </div>
@@ -43,17 +52,17 @@ export const Home2 = () => {
         </div>
         <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-gothic-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
-                <div className="text-xl bg-gothic-600 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowUp className="text-2xl text-gothic-950" />
-                  <p className="text-sm mt-2.5 text-gothic-950 font-light ">Send</p>
+                <div onClick={() => setIsSend(true)} className="text-xl bg-white/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoArrowUp className="text-2xl text-white" />
+                  <p className="text-sm mt-2.5 text-white font-light ">Send</p>
                 </div>
-                <div className="text-3xl bg-gothic-600 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowDown className="text-2xl text-gothic-950" />
-                  <p className="text-sm mt-2.5 text-gothic-950 font-light ">Receive</p>
+                <div onClick={() => setIsReceive(true)} className="text-3xl  bg-white/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoArrowDown className="text-2xl text-white" />
+                  <p className="text-sm mt-2.5 ttext-white font-light ">Receive</p>
                 </div>
-                <div className="text-xl bg-gothic-600 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoScan className="text-2xl text-gothic-950"/>
-                  <p className="text-sm mt-2.5 text-gothic-950 font-light ">Scan</p>
+                <div className="text-xl  bg-white/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoScan className="text-2xl text-white"/>
+                  <p className="text-sm mt-2.5 text-white font-light ">Scan</p>
                 </div>
             </div>
         </div>
@@ -68,7 +77,7 @@ export const Home2 = () => {
             </div>
     </div> **/}
         <div className="bg-gothic-950/0 mt-12 flex items-center justify-center w-[100%] h-auto">
-            <div className="bg-gothic-300/5 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
+            <div className="bg-white/10 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
                 <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                     <img src="./assets/chain1.svg" className="text-white/90 w-full h-full text-2xl" />
                 </div>
@@ -83,6 +92,8 @@ export const Home2 = () => {
             </div>
         </div>
         <Menu />
+        {isSend && <SendModal/>}
+        {isReceive && <ReceiveModal/>}
     </div>
 )
 }

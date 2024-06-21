@@ -16,11 +16,8 @@ export const useGetUserId = () => {
                 if(error) {
                     console.log(error)
                     setIsAuthenticate(false)
-                }
-                if(data) {
-                    if(data[0].id === user?.initDataUnsafe?.user?.id ) {
-                        setIsAuthenticate(true)
-                    }
+                } else if(data?.id === user?.initDataUnsafe?.user?.id) {
+                    setIsAuthenticate(true)
                 }
             }
             check()

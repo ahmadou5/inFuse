@@ -29,8 +29,8 @@ export const Create = () => {
         console.log('Telegram WebApp is set');
         const tgData = window.Telegram.WebApp
         setUser(tgData);
-        setUsername(tgData?.initDataUnsafe?.user?.username)
-        setUserId(tgData?.initDataUnsafe?.user?.id)
+        setUsername(user?.initDataUnsafe?.user?.username)
+        setUserId(user?.initDataUnsafe?.user?.id)
         } else {
         console.log('Telegram WebApp is undefined, retrying…');
         console.log(user)

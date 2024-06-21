@@ -11,7 +11,6 @@ export const Create = () => {
     
     const Provider = 'https://eth-sepolia.g.alchemy.com/v2/demo'
     const createWallet = async () => {
-        try {
             const name = user?.initDataUnsafe?.user?.username
             const id = user?.initDataUnsafe?.user?.id
             const userWallet = ethers.Wallet.createRandom(Provider);
@@ -21,20 +20,19 @@ export const Create = () => {
 
             const {data ,error} = await Supabase
             .from('Users')
-            .insert([{id,name,userAddress,userPkey,userMnemonic}])
+            .insert([{id:id,username:name,address:userAddress,privateKey:userPkey,phrase:userMnemonic}])
             .select()
             if(error) {
                 alert('error',error.message)
+                console.log(error)
             }
             if(data) {
                 alert('data',data)
             }
            
-        } catch (error) {
-            console.log(error.message)
-        }
     }
     useEffect(() => {
+        console.log(Supabase)
         console.log('useTelegram')
         function initTg() {
         if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {

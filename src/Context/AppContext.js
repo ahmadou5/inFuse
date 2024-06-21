@@ -10,7 +10,7 @@ export const MiniContextProvider = ({children}) => {
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
     const [userPkey,setUserPkey] = useState('')
-    const [userMnemonic,setUserMnemonic] = useState('')
+    const [userMnemonic,setUserMnemonic] = useState([])
    const value = {
     user,
     userAddress,

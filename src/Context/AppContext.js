@@ -1,12 +1,16 @@
 'use client'
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 
 const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
-   const value = {}
+    const [user,setUser ] = useState(null)
+   const value = {
+    user,
+    setUser
+   }
    return(
    <MiniContext.Provider value={value}>
     {children}

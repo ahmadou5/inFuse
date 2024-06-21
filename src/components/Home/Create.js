@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { IoArrowDown, IoArrowUp, IoKey, IoScan, IoSettings } from "react-icons/io5";
 import { Menu } from "./menu";
+import { GlobalContext } from "@/Context/AppContext";
 
 export const Create = () => {
-    const [user,setUser ] = useState(null)
+    const {user,setUser} = GlobalContext()
+    //const [user,setUser ] = useState(null)
     const [username,setUsername] = ('')
     const [userId, setUserId] = ('')
     const [userAddress,setUserAddress] = ('')

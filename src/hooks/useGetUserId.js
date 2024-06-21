@@ -10,7 +10,7 @@ export const useGetUserId = () => {
                 const { data, error} = await Supabase
                 .from('Wallets')
                 .select('id')
-                .eq(user?.initDataUnsafe?.user?.id)
+                .eq('id',user?.initDataUnsafe?.user?.id)
                 .single()
 
                 if(error) {

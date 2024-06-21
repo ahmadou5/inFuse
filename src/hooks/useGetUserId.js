@@ -5,24 +5,23 @@ import { useEffect } from "react"
 export const useGetUserId = () => {
     const {setIsAuthenticate, isAuthenticate, user} = GlobalContext()
     useEffect(() => {
-         if(user) {
-            const check = async () => {
-                const { data, error} = await Supabase
+        const fetchUser = async () => {
+            try {
+              const {data ,error} = await Supabase
                 .from('Wallets')
-                .select()
+                .select('*')
                 .eq('id',user?.initDataUnsafe?.user?.id)
-               
-
-                if(error) {
-                    console.log(error)
-                } 
-                if(data?.id) {
-                    setIsAuthenticate(true)
-                    console.log('auth',isAuthenticate)
-                }
-            }
-            check()
-         }
-    },[])
+                .single()
+               if(error) throw error
+               if(data) {
+                alert('data',data)
+                setIsAuthenticate(true)
+               }
+             } catch (error) {
+                console.log(error)
+             }
+        }
+        fetchUser()
+    },[user])
     return true
 }

@@ -3,7 +3,7 @@ import { Supabase } from "@/Utils/supabasedb"
 import { useEffect } from "react"
 
 export const useGetUserId = () => {
-    const {setIsAuthenticate, user} = GlobalContext()
+    const {setIsAuthenticate, isAuthenticate, user} = GlobalContext()
     useEffect(() => {
          if(user) {
             const check = async () => {
@@ -18,6 +18,7 @@ export const useGetUserId = () => {
                 } 
                 if(data?.id) {
                     setIsAuthenticate(true)
+                    console.log('auth',isAuthenticate)
                 }
             }
             check()

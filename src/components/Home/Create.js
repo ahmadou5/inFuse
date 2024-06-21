@@ -8,7 +8,7 @@ import { Supabase } from "@/Utils/supabasedb";
 import { useGetUserId } from "@/hooks/useGetUserId";
 
 export const Create = () => {
-    const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic} = GlobalContext()
+    const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
     const Provider = 'https://eth-sepolia.g.alchemy.com/v2/demo'
@@ -30,9 +30,11 @@ export const Create = () => {
             }
             if(data) {
                 alert('data',data)
+                setIsAuthenticate(true)
             }
            
     }
+    
     useEffect(() => {
         console.log(Supabase)
         console.log('useTelegram')

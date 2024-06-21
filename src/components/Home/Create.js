@@ -9,8 +9,7 @@ import { useGetUserId } from "@/hooks/useGetUserId";
 
 export const Create = () => {
     const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic} = GlobalContext()
-    const userID = useGetUserId()
-    console.log('....user',userID)
+  
     const Provider = 'https://eth-sepolia.g.alchemy.com/v2/demo'
     const createWallet = async () => {
             const name = user?.initDataUnsafe?.user?.username

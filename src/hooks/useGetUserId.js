@@ -9,8 +9,9 @@ export const useGetUserId = () => {
             const check = async () => {
                 const { data, error} = await Supabase
                 .from('Wallets')
-                .eq('id',user?.initDataUnsafe?.user?.id)
-                .select()
+                .select('id')
+                .eq(user?.initDataUnsafe?.user?.id)
+                .single()
 
                 if(error) {
                     console.log(error)
@@ -24,6 +25,6 @@ export const useGetUserId = () => {
             }
             check()
          }
-    },[user])
+    },[])
     return true
 }

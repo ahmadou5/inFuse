@@ -7,7 +7,7 @@ import { Menu } from "./menu";
 export const Create = () => {
     const [user,setUser ] = useState(null)
     const [username,setUsername] = ('')
-    const [userId, setUserId] = (0)
+    const [userId, setUserId] = ('')
     const [userAddress,setUserAddress] = ('')
     const [userPkey,setUserPkey] = ('')
     const [userMnemonic,setUserMnemonic] = ('')

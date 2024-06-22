@@ -47,7 +47,7 @@ export const Home2 = () => {
         </div>
         <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
-                <p className="text-4xl  text-gothic-200/85">{`$${0}`}</p>
+                <p className="text-4xl  text-gothic-200/85">{`$ ${0}`}</p>
             </div>
         </div>
         <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">

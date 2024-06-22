@@ -5,7 +5,7 @@ export const SendModal = () => {
     const { setIsSend } = GlobalContext()
     return(
     <div className="inset-0 fixed bg-black/15 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
-        <div className="w-[100%] py-4 px-4 bg-s-gray-950 rounded-t-3xl h-auto mt-[180px]">
+        <div className="w-[100%] py-4 px-4 bg-s-gray-950 rounded-t-3xl h-auto mt-[130px]">
             <div className="">
                 <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white/5">
                     <p>esc</p>
@@ -16,12 +16,12 @@ export const SendModal = () => {
                  <p className="">Send</p>
                </div>
                <div className="mt-20 w-[100%] ml-auto mr-auto">
-                <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/10 h-14">
+                <div className="w-[100%] ml-auto mr-auto rounded-xl border border-black bg-black/10 h-14">
                     <input type="text" className="outline-none bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="0x Receiver`s Address" />
                 </div>
                </div>
                <div className="mt-7 w-[100%] ml-auto mr-auto">
-                <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/10 h-14">
+                <div className="w-[100%] ml-auto mr-auto rounded-xl border border-black bg-black/10 h-14">
                     <input type="text" className="outline-none bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Comment" />
                 </div>
                </div>

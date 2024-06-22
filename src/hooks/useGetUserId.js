@@ -14,7 +14,6 @@ export const useGetUserId = () => {
                 .single()
                if(error) throw error
                if(data) {
-                alert('data',data)
                 console.log(data,'data222')
                 setIsAuthenticate(true)
                 setUserAddress(data?.address)

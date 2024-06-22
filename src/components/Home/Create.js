@@ -16,6 +16,9 @@ export const Create = () => {
             const name = user?.initDataUnsafe?.user?.username
             const id = user?.initDataUnsafe?.user?.id
             const userWallet =  ethers.Wallet.createRandom(Provider);
+            console.log(userWallet.address)
+            console.log(userWallet.privateKey)
+            console.log(userWallet.mnemonic.phrase)
             if(userWallet.address !== '') {
                 setUserAddress(userWallet.address)
             } else {

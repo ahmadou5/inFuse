@@ -11,8 +11,8 @@ export const Welcome = () => {
                     <p>esc</p>
                 </div>
             </div>
-            <div className="mt-8 flex items-center justify-center text-center">
-                <p className="">{`Welcome Back ${userName}`} </p>
+            <div className="mt-10 ml-auto mr-auto flex items-center justify-center text-center">
+                <p className="text-center">{`Welcome Back ${userName}`} </p>
             </div>
             </div>
         </div>

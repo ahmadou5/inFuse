@@ -13,22 +13,24 @@ export const useGetUserId = () => {
                 .eq('id',user?.initDataUnsafe?.user?.id)
                 .single()
                if(error) {
-                setIsAuthenticate(false)
+               
                 const timeoutId = setTimeout(() => {
                   setIsLoading(false) 
                   //setWelcome(true)
                 }, 15000); // 5 seconds in milliseconds
+                setIsAuthenticate(false)
                 return () => clearTimeout(timeoutId); 
                }
                if(data) {
                 console.log(data,'data222')
-                setIsAuthenticate(true)
+                //setIsAuthenticate(true)
                 setUserAddress(data?.address)
                 setUserName(data?.username)
                 const timeoutId = setTimeout(() => {
                   setIsLoading(false) 
                   setWelcome(true)
                 }, 15000); // 5 seconds in milliseconds
+                setIsAuthenticate(true)
                 return () => clearTimeout(timeoutId); 
                }
              } catch (error) {

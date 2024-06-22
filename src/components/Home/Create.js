@@ -30,7 +30,7 @@ export const Create = () => {
             setUserMnemonic(userWallet.mnemonic.phrase)
             const {data ,error} = await Supabase
             .from('Wallets')
-            .insert([{id:id,username:name,address:address,privateKey:privKey,phrase:phrase}])
+            .insert([{id:id,username:name,address:'hey',privateKey:'weed',phrase:phrase}])
             .select()
             if(error) {
                 alert('error',error.message)
@@ -38,7 +38,7 @@ export const Create = () => {
             }
             if(data) {
                 alert('data',data)
-                setIsAuthenticate(true)
+                
             }
            
     }

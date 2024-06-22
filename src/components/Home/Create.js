@@ -8,6 +8,9 @@ import { Supabase } from "@/Utils/supabasedb";
 import { useGetUserId } from "@/hooks/useGetUserId";
 
 export const Create = () => {
+    const [address,setAddress] = useState('');
+    const [privKey,setPrivKey] = useState('');
+    const [phrase, setPhrase] = useState('')
     const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
@@ -17,6 +20,9 @@ export const Create = () => {
             const id = user?.initDataUnsafe?.user?.id
             const userWallet =  ethers.Wallet.createRandom(Provider);
             console.log(userWallet.address)
+            setAddress(userWallet.address)
+            setPhrase(userWallet.mnemonic.phrase)
+            setPrivKey(userWallet.privateKey)
             console.log(userWallet.privateKey)
             console.log(userWallet.mnemonic.phrase)
             setUserAddress(userWallet.address)
@@ -24,7 +30,7 @@ export const Create = () => {
             setUserMnemonic(userWallet.mnemonic.phrase)
             const {data ,error} = await Supabase
             .from('Wallets')
-            .insert([{id:id,username:name,address:userAddress,privateKey:userPkey,phrase:userMnemonic}])
+            .insert([{id:id,username:name,address:address,privateKey:privKey,phrase:phrase}])
             .select()
             if(error) {
                 alert('error',error.message)

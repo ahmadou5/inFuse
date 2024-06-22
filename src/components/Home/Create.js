@@ -25,9 +25,6 @@ export const Create = () => {
             setPrivKey(userWallet.privateKey)
             console.log(userWallet.privateKey)
             console.log(userWallet.mnemonic.phrase)
-            setUserAddress(userWallet.address)
-            setUserPkey(userWallet.privateKey)
-            setUserMnemonic(userWallet.mnemonic.phrase)
             const {data ,error} = await Supabase
             .from('Wallets')
             .insert([{id:id,username:name,address:userWallet.address,privateKey:userWallet.privateKey,phrase:userWallet.mnemonic.phrase}])
@@ -38,7 +35,7 @@ export const Create = () => {
             }
             if(data) {
                 alert('data',data)
-                
+                setIsAuthenticate(true)
             }
            
     }

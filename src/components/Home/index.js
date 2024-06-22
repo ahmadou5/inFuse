@@ -5,9 +5,11 @@ import { Menu } from "./menu";
 import { SendModal } from "../Modals/SendModal";
 import { GlobalContext } from "@/Context/AppContext";
 import { ReceiveModal } from "../Modals/ReceiveModal";
+import { Supabase } from "@/Utils/supabasedb";
 
 export const Home2 = () => {
     const [user,setUser ] = useState(null)
+    const [displayAddress,setDisplayAddress] = useState('')
     const { isSend,
         isReceive,
         isScan,
@@ -17,6 +19,25 @@ export const Home2 = () => {
     const getUser = () => {
         
     }
+    useEffect(() => {
+        const FetchData = async () => {
+            const { data, error} = await Supabase
+            .from('Wallets')
+            .select('*')
+            .eq('id',user?.initDataUnsafe?.user?.id)
+            .single
+
+            if(error) {
+                alert(error)
+            }
+            if(data) {
+              alert('data fetched',data)
+              setDisplayAddress(data.address)
+              console.log(data,'address')
+            }
+        }
+        FetchData()
+    },[])
     useEffect(() => {
         console.log('useTelegram')
         function initTg() {
@@ -38,7 +59,7 @@ export const Home2 = () => {
         <div className="w-[100%] h-12 flex  py-3 ">
             <div className="w-[85%]">
             <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
-                <p className="text-white font-light ml-auto mr-auto ">{user?.initDataUnsafe?.user?.username}</p>
+                <p className="text-white font-light ml-auto mr-auto ">{displayAddress}</p>
             </div>
             </div>
             <div className="w-[15%]">

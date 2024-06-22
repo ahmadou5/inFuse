@@ -29,11 +29,10 @@ export const useGetUserId = () => {
                 setUserPkey(data?.privateKey)
                 setPri
                 const timeoutId = setTimeout(() => {
-                  setIsAuthenticate(true)
                   setIsLoading(false) 
                   setWelcome(true)
                 }, 10000); // 5 seconds in milliseconds
-                
+                setIsAuthenticate(true)
                 return () => clearTimeout(timeoutId); 
                }
              } catch (error) {

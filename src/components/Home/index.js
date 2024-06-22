@@ -7,6 +7,7 @@ import { GlobalContext } from "@/Context/AppContext";
 import { ReceiveModal } from "../Modals/ReceiveModal";
 import { Supabase } from "@/Utils/supabasedb";
 import { Welcome } from "../Modals/WelcomeModal";
+import { formatAddress, handleCopy } from "@/Utils/format";
 
 export const Home2 = () => {
     const { user, setUser, userAddress, welcome} = GlobalContext()
@@ -38,17 +39,18 @@ export const Home2 = () => {
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
         <div className="w-[100%] h-12 flex  py-3 ">
             <div className="w-[85%]">
-            <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
-                <p className="text-white font-light ml-auto mr-auto ">{userAddress}</p>
-            </div>
+            
             </div>
             <div className="w-[15%]">
              <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-gothic-600/85"/>
             </div>
         </div>
-        <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">
+        <div className="bg-gothic-950/0 mt-3 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
                 <p className="text-4xl  text-gothic-200/85">{`$ ${0}`}</p>
+            </div>
+            <div onClick={() => handleCopy(userAddress)} className="w-[185px] mb-5  ml-auto mr-auto py-1 mt-2 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
+                <p className="text-white font-light ml-auto mr-auto ">{formatAddress(userAddress)}</p>
             </div>
         </div>
         <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">

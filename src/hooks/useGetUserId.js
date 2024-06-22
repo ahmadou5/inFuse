@@ -27,10 +27,11 @@ export const useGetUserId = () => {
                 setUserAddress(data?.address)
                 setUserName(data?.username)
                 const timeoutId = setTimeout(() => {
+                  setIsAuthenticate(true)
                   setIsLoading(false) 
                   setWelcome(true)
-                }, 15000); // 5 seconds in milliseconds
-                setIsAuthenticate(true)
+                }, 10000); // 5 seconds in milliseconds
+                
                 return () => clearTimeout(timeoutId); 
                }
              } catch (error) {

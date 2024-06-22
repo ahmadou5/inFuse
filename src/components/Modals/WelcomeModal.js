@@ -11,8 +11,8 @@ export const Welcome = () => {
                     <p className="text-black">esc</p>
                 </div>
             </div>
-            <div className="mt-5 ml-auto mr-auto flex items-center justify-center text-center">
-                <p className="text-center mb-2">{`👋 hi Welcome Back`} </p>
+            <div className="mt-5 ml-auto mr-auto flex flex-col items-center justify-center text-center">
+                <p className="text-center mb-2">{`👋Hi Welcome Back`} </p>
                 <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
                   <p className="text-white font-light ml-auto mr-auto ">{userName}</p>
                 </div>

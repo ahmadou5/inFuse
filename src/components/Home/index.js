@@ -25,7 +25,7 @@ export const Home2 = () => {
             .from('Wallets')
             .select('*')
             .eq('id',user?.initDataUnsafe?.user?.id)
-            .single
+            .single()
 
             if(error) {
                 alert(error)

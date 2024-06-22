@@ -20,23 +20,23 @@ export const Home2 = () => {
         
     }
     useEffect(() => {
-        const FetchData = async () => {
-            const { data, error} = await Supabase
-            .from('Wallets')
-            .select('*')
-            .eq('id',user?.initDataUnsafe?.user?.id)
-            .single()
-
-            if(error) {
-                alert(error)
-            }
-            if(data) {
-              alert('data fetched',data)
-              setDisplayAddress(data.address)
-              console.log(data,'address')
-            }
+        const fetchUser = async () => {
+            try {
+              const {data ,error} = await Supabase
+                .from('Wallets')
+                .select('*')
+                .eq('id',user?.initDataUnsafe?.user?.id)
+                .single()
+               if(error) throw error
+               if(data) {
+                alert('data',data)
+                setIsAuthenticate(true)
+               }
+             } catch (error) {
+                console.log(error)
+             }
         }
-        FetchData()
+        fetchUser()
     },[])
     useEffect(() => {
         console.log('useTelegram')

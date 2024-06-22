@@ -12,8 +12,8 @@ export const Create = () => {
     const [address,setAddress] = useState('');
     const [privKey,setPrivKey] = useState('');
     const [phrase, setPhrase] = useState('')
-    const [isLoading,setIsLoading] = useState(true)
-    const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
+   // const [isLoading,setIsLoading] = useState(true)
+    const {user,setUser,userPkey, isLoading, setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
     const Provider = 'https://eth-sepolia.g.alchemy.com/v2/demo'
@@ -38,10 +38,7 @@ export const Create = () => {
             if(data) {
                 alert('data',data)
                 setIsAuthenticate(true)
-                const timeoutId = setTimeout(() => {
-                    setIsLoading(false) 
-                  }, 3000); // 5 seconds in milliseconds
-                  return () => clearTimeout(timeoutId); 
+                
             }
            
     }

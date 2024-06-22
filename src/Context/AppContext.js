@@ -14,6 +14,8 @@ export const MiniContextProvider = ({children}) => {
     const [userAddress,setUserAddress] = useState('')
     const [userPkey,setUserPkey] = useState('')
     const [userMnemonic,setUserMnemonic] = useState([])
+    const [welcome,setWelcome] = useState(false)
+    const [isLoading,setIsLoading] = useState(true)
    const value = {
     user,
     userAddress,
@@ -23,6 +25,10 @@ export const MiniContextProvider = ({children}) => {
     isSend,
     isReceive,
     isScan,
+    welcome,
+    isLoading,
+    setIsLoading,
+    setWelcome,
     setIsScan,
     setIsReceive,
     setIsSend,

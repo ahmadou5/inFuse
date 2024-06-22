@@ -6,9 +6,10 @@ import { SendModal } from "../Modals/SendModal";
 import { GlobalContext } from "@/Context/AppContext";
 import { ReceiveModal } from "../Modals/ReceiveModal";
 import { Supabase } from "@/Utils/supabasedb";
+import { Welcome } from "../Modals/WelcomeModal";
 
 export const Home2 = () => {
-    const { user, setUser, userAddress} = GlobalContext()
+    const { user, setUser, userAddress, welcome} = GlobalContext()
     
     const { isSend,
         isReceive,
@@ -16,10 +17,7 @@ export const Home2 = () => {
         setIsScan,
         setIsReceive,
         setIsSend} = GlobalContext()
-    const getUser = () => {
-        
-    }
-    
+     
     useEffect(() => {
         console.log('useTelegram')
         function initTg() {
@@ -96,6 +94,7 @@ export const Home2 = () => {
         </div>
         <Menu />
         {isSend && <SendModal/>}
+        {welcome && <Welcome/>}
         {isReceive && <ReceiveModal/>}
     </div>
 )

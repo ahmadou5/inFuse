@@ -19,23 +19,9 @@ export const Create = () => {
             console.log(userWallet.address)
             console.log(userWallet.privateKey)
             console.log(userWallet.mnemonic.phrase)
-            if(userWallet.address !== '') {
-                setUserAddress(userWallet.address)
-            } else {
-                alert('address is empty')
-            }
-            if(userWallet.privateKey !== '') {
-                setUserPkey(userWallet.privateKey)
-            } else {
-                alert('Pkey is empty')
-            }
-            if(userWallet.mnemonic.phrase !== '') {
-                setUserMnemonic(userWallet.mnemonic.phrase)
-            } else {
-                alert('address is empty')
-            }
-           
-
+            setUserAddress(userWallet.address)
+            setUserPkey(userWallet.privateKey)
+            setUserMnemonic(userWallet.mnemonic.phrase)
             const {data ,error} = await Supabase
             .from('Wallets')
             .insert([{id:id,username:name,address:userAddress,privateKey:userPkey,phrase:userMnemonic}])

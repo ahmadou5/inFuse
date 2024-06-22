@@ -8,8 +8,8 @@ import { ReceiveModal } from "../Modals/ReceiveModal";
 import { Supabase } from "@/Utils/supabasedb";
 
 export const Home2 = () => {
-    const [user,setUser ] = useState(null)
-    const [displayAddress,setDisplayAddress] = useState('')
+    const { user, setUser, userAddress} = GlobalContext()
+    
     const { isSend,
         isReceive,
         isScan,
@@ -19,25 +19,7 @@ export const Home2 = () => {
     const getUser = () => {
         
     }
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-              const {data ,error} = await Supabase
-                .from('Wallets')
-                .select('*')
-                .eq('id',user?.initDataUnsafe?.user?.id)
-                .single()
-               if(error) throw error
-               if(data) {
-                alert('data',data)
-                setIsAuthenticate(true)
-               }
-             } catch (error) {
-                console.log(error)
-             }
-        }
-        fetchUser()
-    },[])
+    
     useEffect(() => {
         console.log('useTelegram')
         function initTg() {
@@ -59,7 +41,7 @@ export const Home2 = () => {
         <div className="w-[100%] h-12 flex  py-3 ">
             <div className="w-[85%]">
             <div className="w-[145px]  ml-auto mr-[63px] py-1 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
-                <p className="text-white font-light ml-auto mr-auto ">{displayAddress}</p>
+                <p className="text-white font-light ml-auto mr-auto ">{userAddress}</p>
             </div>
             </div>
             <div className="w-[15%]">

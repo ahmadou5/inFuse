@@ -17,7 +17,7 @@ export const useGetUserId = () => {
                 alert('data',data)
                 console.log(data,'data222')
                 setIsAuthenticate(true)
-                //setUserAddress(data)
+                setUserAddress(data?.address)
                }
              } catch (error) {
                 console.log(error)

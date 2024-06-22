@@ -17,7 +17,7 @@ export const useGetUserId = () => {
                 const timeoutId = setTimeout(() => {
                   setIsLoading(false) 
                   //setWelcome(true)
-                }, 3000); // 5 seconds in milliseconds
+                }, 15000); // 5 seconds in milliseconds
                 return () => clearTimeout(timeoutId); 
                }
                if(data) {
@@ -27,7 +27,7 @@ export const useGetUserId = () => {
                 const timeoutId = setTimeout(() => {
                   setIsLoading(false) 
                   setWelcome(true)
-                }, 3000); // 5 seconds in milliseconds
+                }, 15000); // 5 seconds in milliseconds
                 return () => clearTimeout(timeoutId); 
                }
              } catch (error) {

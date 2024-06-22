@@ -27,7 +27,6 @@ export const useGetUserId = () => {
                 setUserAddress(data?.address)
                 setUserName(data?.username)
                 setUserPkey(data?.privateKey)
-                setPri
                 const timeoutId = setTimeout(() => {
                   setIsLoading(false) 
                   setWelcome(true)

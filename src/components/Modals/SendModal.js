@@ -27,7 +27,7 @@ export const SendModal = () => {
                </div>
                <div className="mt-20 w-[100%] ml-auto mr-auto">
                 <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
-                    <button className="outline-none bg-transparent w-[100%] h-[100%]  py-2 px-4">Continue</button>
+                    <button className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">Continue</button>
                 </div>
                </div>
             </div>

@@ -2,27 +2,34 @@
 import { GlobalContext } from "@/Context/AppContext"
 import { useState } from "react"
 import { formatAddress } from "@/Utils/format"
-import { ethers } from "ethers"
+import { ethers, parseUnits } from "ethers"
 export const SendModal = () => {
-    const { setIsSend } = GlobalContext()
+    const { setIsSend, userPkey } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
     const [amount,setAmount] = useState(0)
+    const Provider = new ethers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/demo')
+    const wallet = new ethers.Wallet(userPkey,Provider)
 
     const handleSendETH = async() => {
-        try {
-            
-        } catch (error) {
-            
+        const tx = {
+            from: wallet.address,
+            to: receiveAddress,
+            value: parseUnits(amount, 'ether'),
+            gasLimit: 210000,
+            gasPrice: await Provider.estimateGas()
         }
+        const signedTx = await wallet.signTransaction(tx)
+        const txHash = await Provider._send(signedTx)
+        console.log(txHash)
     }
     return(
     <div className="inset-0 fixed bg-black/15 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
-        <div className="w-[100%] py-4 px-4 bg-white rounded-t-3xl h-auto mt-[180px]">
+        <div className="w-[100%] py-4 px-4 bg-black border-white rounded-t-3xl h-auto mt-[180px]">
             <div className="">
-                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-[14px] font-light flex items-center justify-center h-9 bg-black/25">
-                    <p className="text-black">esc</p>
+                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white/5">
+                    <p>esc</p>
                 </div>
             </div>
             {
@@ -40,7 +47,11 @@ export const SendModal = () => {
                <div>
                <div className="mt-10 w-[100%] ml-auto mr-auto">
              <div className="w-[98%] ml-auto mr-auto rounded-xl bg-white/90 h-14">
-                 <button className="outline-none bg-transparent w-[100%] h-[100%] text-black  py-2 px-4">Send</button>
+                 <button onClick={() => {
+                    if(receiveAddress == '' && amount > 0) {
+                        handleSendETH()
+                    }
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-black  py-2 px-4">Send</button>
              </div>
             </div>
                </div>
@@ -57,14 +68,14 @@ export const SendModal = () => {
              </div>
             </div>
             <div className="mt-20 w-[100%] ml-auto mr-auto">
-             <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
+             <div className="w-[97%] ml-auto mr-auto rounded-xl bg-white/90 h-14">
                  <button onClick={() => {
                     if(receiveAddress.length < 42) {
                         alert('not Valid ETH Address')
                     } else {
                         setIsConfirmed(true)
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">Continue</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-black  py-2 px-4">Continue</button>
              </div>
             </div>
          </div>

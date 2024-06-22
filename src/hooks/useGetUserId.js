@@ -3,7 +3,7 @@ import { Supabase } from "@/Utils/supabasedb"
 import { useEffect } from "react"
 
 export const useGetUserId = () => {
-    const {setIsAuthenticate, isAuthenticate, userName, setUserName, setUserAddress, isLoading,setIsLoading, setWelcome,  user} = GlobalContext()
+    const {setIsAuthenticate, isAuthenticate, userPkey,setUserPkey, userName, setUserName, setUserAddress, isLoading,setIsLoading, setWelcome,  user} = GlobalContext()
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -26,6 +26,8 @@ export const useGetUserId = () => {
                 //setIsAuthenticate(true)
                 setUserAddress(data?.address)
                 setUserName(data?.username)
+                setUserPkey(data?.privateKey)
+                setPri
                 const timeoutId = setTimeout(() => {
                   setIsAuthenticate(true)
                   setIsLoading(false) 

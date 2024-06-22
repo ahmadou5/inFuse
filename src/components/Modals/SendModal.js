@@ -25,6 +25,11 @@ export const SendModal = () => {
                     <input type="text" className="outline-none bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Comment" />
                 </div>
                </div>
+               <div className="mt-20 w-[100%] ml-auto mr-auto">
+                <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
+                    <button className="outline-none bg-transparent w-[100%] h-[100%]  py-2 px-4">Continue</button>
+                </div>
+               </div>
             </div>
         </div>
     </div>

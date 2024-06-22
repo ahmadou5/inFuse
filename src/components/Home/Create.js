@@ -15,10 +15,23 @@ export const Create = () => {
     const createWallet = async () => {
             const name = user?.initDataUnsafe?.user?.username
             const id = user?.initDataUnsafe?.user?.id
-            const userWallet = ethers.Wallet.createRandom(Provider);
-            setUserAddress(userWallet.address)
-            setUserPkey(userWallet.privateKey)
-            setUserMnemonic(userWallet.mnemonic.phrase)
+            const userWallet =  ethers.Wallet.createRandom(Provider);
+            if(userWallet.address !== '') {
+                setUserAddress(userWallet.address)
+            } else {
+                alert('address is empty')
+            }
+            if(userWallet.privateKey !== '') {
+                setUserPkey(userWallet.privateKey)
+            } else {
+                alert('Pkey is empty')
+            }
+            if(userWallet.mnemonic.phrase !== '') {
+                setUserMnemonic(userWallet.mnemonic.phrase)
+            } else {
+                alert('address is empty')
+            }
+           
 
             const {data ,error} = await Supabase
             .from('Wallets')
@@ -60,12 +73,12 @@ export const Create = () => {
         <div className="bg-gothic-950/0 mt-3 mb-8 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] px-10 flex flex-col items-center justify-center rounded-3xl h-[140px]">
                 <p className="text-3xl font-extrabold mb-6 text-gothic-200/85">{`infuse`}</p>
-                <p className="text-[17px] font-extrabold text-center mt-4 text-gothic-200/85">{`Hi ${user?.initDataUnsafe?.user?.username} Create a new wallet or import an existing one`}</p>
+                <p className="text-[15px] font-extrabold text-center mt-4 text-gothic-200/85">{`Hi ${user?.initDataUnsafe?.user?.username} Create a new wallet or import an existing one`}</p>
             </div>
         </div>
-        <div className="bg-s-gray-300/0 w-[95%] ml-auto mr-auto mt-7 mb-20 px-2 flex flex-col items-center justify-center rounded-2xl h-auto">
-                <button onClick={() => createWallet()} className="text-[17px] bg-s-gray-900/75 w-[310px] mb-2 h-16 text-gothic-200 rounded-xl font-extrabold ">{`Create New Wallet`}</button>
-                <button className="text-[17px] bg-gothic-200 w-[310px] text-s-gray-700 mt-1 h-16 rounded-xl font-extrabold ">{`Import Existing Wallet`}</button>
+        <div className="bg-s-gray-300/0 w-[95%] ml-auto mr-auto mt-5 mb-20 px-2 flex flex-col items-center justify-center rounded-2xl h-auto">
+                <button onClick={() => createWallet()} className="text-[15px] bg-s-gray-900/75 w-[310px] mb-2 h-12 text-gothic-200 rounded-xl font-extrabold ">{`Create New Wallet`}</button>
+                <button className="text-[15px] bg-gothic-200 w-[310px] text-s-gray-700 mt-1 h-12 rounded-xl font-extrabold ">{`Import Existing Wallet`}</button>
         </div>
     </div>
 )

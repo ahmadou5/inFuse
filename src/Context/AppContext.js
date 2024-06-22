@@ -12,6 +12,7 @@ export const MiniContextProvider = ({children}) => {
     const [isAuthenticate,setIsAuthenticate] = useState(false)
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
+    const [userName, setUserName] = useState('')
     const [userPkey,setUserPkey] = useState('')
     const [userMnemonic,setUserMnemonic] = useState([])
     const [welcome,setWelcome] = useState(false)
@@ -27,6 +28,8 @@ export const MiniContextProvider = ({children}) => {
     isScan,
     welcome,
     isLoading,
+    userName, 
+    setUserName,
     setIsLoading,
     setWelcome,
     setIsScan,

@@ -6,11 +6,13 @@ import { Menu } from "./menu";
 import { GlobalContext } from "@/Context/AppContext";
 import { Supabase } from "@/Utils/supabasedb";
 import { useGetUserId } from "@/hooks/useGetUserId";
+import { Loading } from "../Modals/LoadingModal";
 
 export const Create = () => {
     const [address,setAddress] = useState('');
     const [privKey,setPrivKey] = useState('');
     const [phrase, setPhrase] = useState('')
+    const [isLoading,setIsLoading] = useState(true)
     const {user,setUser,userPkey,setUserPkey,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
@@ -36,6 +38,10 @@ export const Create = () => {
             if(data) {
                 alert('data',data)
                 setIsAuthenticate(true)
+                const timeoutId = setTimeout(() => {
+                    setIsLoading(false) 
+                  }, 3000); // 5 seconds in milliseconds
+                  return () => clearTimeout(timeoutId); 
             }
            
     }
@@ -72,6 +78,7 @@ export const Create = () => {
                 <button onClick={() => createWallet()} className="text-[15px] bg-s-gray-900/75 w-[310px] mb-2 h-12 text-gothic-200 rounded-xl font-extrabold ">{`Create New Wallet`}</button>
                 <button className="text-[15px] bg-gothic-200 w-[310px] text-s-gray-700 mt-1 h-12 rounded-xl font-extrabold ">{`Import Existing Wallet`}</button>
         </div>
+        {isLoading && <Loading/>}
     </div>
 )
 }

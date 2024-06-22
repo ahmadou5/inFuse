@@ -84,11 +84,11 @@ export const Home2 = () => {
                 <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                     <img src="./assets/chain1.svg" className="text-white/90 w-full h-full text-2xl" />
                 </div>
-                <div className="ml-[5px] mr-auto px-3">
+                <div className="ml-[5px] text-white/80 mr-auto px-3">
                     <p className="text-sm mb-1.5">Ethereum</p>
                     <p className="text-sm">$234</p>
                 </div>
-                <div className="ml-[10px] mr-4 px-3">
+                <div className="ml-[10px]  text-white/80 mr-4 px-3">
                     <p className="text-sm mb-1.5">0</p>
                     <p className="text-sm">$0</p>
                 </div>

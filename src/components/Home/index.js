@@ -42,30 +42,30 @@ export const Home2 = () => {
             
             </div>
             <div className="w-[15%]">
-             <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-gothic-600/85"/>
+             <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-black/85"/>
             </div>
         </div>
         <div className="bg-gothic-950/0 mt-3 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
-                <p className="text-4xl  text-gothic-200/85">{`$ ${0}`}</p>
+                <p className="text-4xl  text-black/85">{`$ ${0}`}</p>
             </div>
             <div onClick={() => handleCopy(userAddress)} className="w-[185px] mb-5  ml-auto mr-auto py-1 mt-2 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
-                <p className="text-white font-light ml-auto mr-auto ">{formatAddress(userAddress)}</p>
+                <p className="text-black/60 font-light ml-auto mr-auto ">{formatAddress(userAddress)}</p>
             </div>
         </div>
         <div className="bg-gothic-950/0 mt-3 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-gothic-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
-                <div onClick={() => setIsSend(true)} className="text-xl bg-white/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowUp className="text-2xl text-white" />
-                  <p className="text-sm mt-2.5 text-white font-light ">Send</p>
+                <div onClick={() => setIsSend(true)} className="text-xl bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoArrowUp className="text-2xl text-black/85" />
+                  <p className="text-sm mt-2.5 text-black/85 font-light ">Send</p>
                 </div>
-                <div onClick={() => setIsReceive(true)} className="text-3xl  bg-white/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoArrowDown className="text-2xl text-white" />
-                  <p className="text-sm mt-2.5 ttext-white font-light ">Receive</p>
+                <div onClick={() => setIsReceive(true)} className="text-3xl  bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoArrowDown className="text-2xl text-black/85" />
+                  <p className="text-sm mt-2.5 text-black/85 font-light ">Receive</p>
                 </div>
-                <div className="text-xl  bg-white/10 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                    <IoScan className="text-2xl text-white"/>
-                  <p className="text-sm mt-2.5 text-white font-light ">Scan</p>
+                <div className="text-xl  bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+                    <IoScan className="text-2xl text-black/85"/>
+                  <p className="text-sm mt-2.5 text-black/85 font-light ">Scan</p>
                 </div>
             </div>
         </div>
@@ -80,15 +80,15 @@ export const Home2 = () => {
             </div>
     </div> **/}
         <div className="bg-gothic-950/0 mt-8 flex items-center justify-center w-[100%] h-auto">
-            <div className="bg-white/10 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
+            <div className="bg-white/55 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
                 <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                     <img src="./assets/chain1.svg" className="text-white/90 w-full h-full text-2xl" />
                 </div>
-                <div className="ml-[5px] text-white/80 mr-auto px-3">
+                <div className="ml-[5px] text-black/85 mr-auto px-3">
                     <p className="text-sm mb-1.5">Ethereum</p>
                     <p className="text-sm">$234</p>
                 </div>
-                <div className="ml-[10px]  text-white/80 mr-4 px-3">
+                <div className="ml-[10px]  text-black/85 mr-4 px-3">
                     <p className="text-sm mb-1.5">0</p>
                     <p className="text-sm">$0</p>
                 </div>

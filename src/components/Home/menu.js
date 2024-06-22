@@ -61,8 +61,8 @@ export const Menu = () => {
               setIsTokens(false)
               setIsHome(true)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoWallet size={28} className={`${ isHome ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isHome && <p className={`font-light ${isHome ? 'text-white' : 'text-gothic-200'} text-[12px]`}>Wallet</p>}
+                <IoWallet size={28} className={`${ isHome ? 'text-white/85' : 'text-gothic-600/85'}`} />
+                {isHome && <p className={`font-light ${isHome ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Wallet</p>}
             </div>
             <div onClick={() => {
               setIsHistory(true)
@@ -70,16 +70,16 @@ export const Menu = () => {
               setIsHome(false)
             }}
              className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoFlash size={28} className={`${ isHistory ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isHistory && <p className={`font-light ${isHistory ? 'text-white' : 'text-gothic-200'} text-[12px]`}>History</p>}
+                <IoFlash size={28} className={`${ isHistory ? 'text-white/85' : 'text-gothic-600/85'}`} />
+                {isHistory && <p className={`font-light ${isHistory ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>History</p>}
             </div>
             <div onClick={() => {
               setIsHistory(false)
               setIsTokens(true)
               setIsHome(false)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <BsCoin size={28} className={`${ isTokens ? 'text-white' : 'text-gothic-600/85'}`} />
-                {isTokens && <p className={`font-light ${isTokens ? 'text-white' : 'text-gothic-200'} text-[12px]`}>Tokens</p>}
+                <BsCoin size={28} className={`${ isTokens ? 'text-white/85' : 'text-gothic-600/85'}`} />
+                {isTokens && <p className={`font-light ${isTokens ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Tokens</p>}
             </div>
           </div>          
         </div>

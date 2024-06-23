@@ -9,7 +9,7 @@ export const useGetUserId = () => {
     useEffect(() => {
       const getPrice = async () => {
         const response = await axios.get(Url);
-        setEthPrice(response.data?.attributes.token_price)
+       // setEthPrice(response.data?.attributes)
         console.log('response',response)
     }
     getPrice()

@@ -1,67 +1,74 @@
-import { GlobalContext } from "@/Context/AppContext"
-import { Supabase } from "@/Utils/supabasedb"
-import { useEffect } from "react"
+import { GlobalContext } from "@/Context/AppContext";
+import { Supabase } from "@/Utils/supabasedb";
+import { useEffect } from "react";
 import axios from "axios";
 export const useGetUserId = () => {
-    const baseUrl = 'https://api.coingecko.com/api/v3/simple/price';
-    const Url = 'https://api.geckoterminal.com/api/v2/simple/networks/eth/token_price/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2';
-    const {setIsAuthenticate, isAuthenticate, userPkey,setUserPkey, ethPrice,
-      setEthPrice, userName, setUserName, setUserAddress, isLoading,setIsLoading, setWelcome,  user} = GlobalContext()
-    useEffect(() => {
-      const getPrice = async () => {
-        const response = await axios.get(Url);
-        //setEthPrice(response.data.data?.attributes?.token_prices)
-        //console.log('response',JSON.stringify(response.data.data?.attributes?.token_prices.0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2))
-    }
-    
-
-
-  const getEthPrice = async () => {
-  try {
-    const response = await axios.get(`${baseUrl}?ids=ethereum&vs_currencies=usd`);
-    //const price = response.data.ethereum.usd;
-    console.log('Current ETH/USD price:', response);
-    return price;
-  } catch (error) {
-    console.error('Error fetching ETH/USD price:', error);
-    return null; // Handle errors gracefully
-  }
-}
-getEthPrice()
-        const fetchUser = async () => {
-            try {
-              const {data ,error} = await Supabase
-                .from('Wallets')
-                .select('*')
-                .eq('id',user?.initDataUnsafe?.user?.id)
-                .single()
-               if(error) {
-               
-                const timeoutId = setTimeout(() => {
-                  setIsLoading(false) 
-                  //setWelcome(true)
-                }, 15000); // 5 seconds in milliseconds
-                setIsAuthenticate(false)
-                return () => clearTimeout(timeoutId); 
-               }
-               if(data) {
-                console.log(data,'data222')
-                //setIsAuthenticate(true)
-                setUserAddress(data?.address)
-                setUserName(data?.username)
-                setUserPkey(data?.privateKey)
-                const timeoutId = setTimeout(() => {
-                  setIsLoading(false) 
-                  setWelcome(true)
-                }, 10000); // 5 seconds in milliseconds
-                setIsAuthenticate(true)
-                return () => clearTimeout(timeoutId); 
-               }
-             } catch (error) {
-                console.log(error)
-             }
+  const baseUrl = "https://api.coingecko.com/api/v3/simple/price";
+  const Url =
+    "https://api.geckoterminal.com/api/v2/simple/networks/eth/token_price/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+  const {
+    setIsAuthenticate,
+    isAuthenticate,
+    userPkey,
+    setUserPkey,
+    ethPrice,
+    setEthPrice,
+    userName,
+    setUserName,
+    setUserAddress,
+    isLoading,
+    setIsLoading,
+    setWelcome,
+    user,
+  } = GlobalContext();
+  useEffect(() => {
+    const getEthPrice = async () => {
+      try {
+        const response = await axios.get(
+          `${baseUrl}?ids=ethereum&vs_currencies=usd`
+        );
+        const price = response.data.ethereum.usd;
+        setEthPrice(price);
+        console.log("Current ETH/USD price:", price);
+        return price;
+      } catch (error) {
+        console.error("Error fetching ETH/USD price:", error);
+        return null; // Handle errors gracefully
+      }
+    };
+    getEthPrice();
+    const fetchUser = async () => {
+      try {
+        const { data, error } = await Supabase.from("Wallets")
+          .select("*")
+          .eq("id", user?.initDataUnsafe?.user?.id)
+          .single();
+        if (error) {
+          const timeoutId = setTimeout(() => {
+            setIsLoading(false);
+            //setWelcome(true)
+          }, 15000); // 5 seconds in milliseconds
+          setIsAuthenticate(false);
+          return () => clearTimeout(timeoutId);
         }
-        fetchUser()
-    },[user])
-    return true
-}
+        if (data) {
+          console.log(data, "data222");
+          //setIsAuthenticate(true)
+          setUserAddress(data?.address);
+          setUserName(data?.username);
+          setUserPkey(data?.privateKey);
+          const timeoutId = setTimeout(() => {
+            setIsLoading(false);
+            setWelcome(true);
+          }, 10000); // 5 seconds in milliseconds
+          setIsAuthenticate(true);
+          return () => clearTimeout(timeoutId);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUser();
+  }, [user]);
+  return true;
+};

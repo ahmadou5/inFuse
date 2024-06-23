@@ -8,7 +8,7 @@ import { ReceiveModal } from "../Modals/ReceiveModal";
 import { Supabase } from "@/Utils/supabasedb";
 import { Welcome } from "../Modals/WelcomeModal";
 import { formatAddress, handleCopy } from "@/Utils/format";
-import { ethers } from "ethers";
+import { ethers, formatEther } from "ethers";
 
 export const Home2 = () => {
     const { user, setUser, userAddress,ethPrice, ethBalance,setEthBalance,welcome} = GlobalContext()
@@ -26,9 +26,9 @@ export const Home2 = () => {
             try {
               const balance = await Provider.getBalance(userAddress);
               console.log(balance,'1 blnc')
-              //const formattedBalance = ethers.utils.formatEther(balance);
-              //console.log('User ETH balance:', formattedBalance);
-              //setEthBalance(formattedBalance)
+              const formattedBalance = formatEther(balance);
+              console.log('User ETH balance:', formattedBalance);
+              setEthBalance(formattedBalance)
               return formattedBalance;
             } catch (error) {
               console.error('Error fetching ETH balance:', error);

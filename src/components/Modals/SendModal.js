@@ -23,12 +23,13 @@ export const SendModal = () => {
         const signedTx = await wallet.signTransaction(tx)
         const txHash = await Provider._send(signedTx)
         console.log(txHash)
+        alert(txHash,'Hash')
     }
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
         <div className="w-[100%] py-4 px-4 bg-white/85 border-white rounded-t-3xl h-auto mt-[100px]">
             <div className="">
-                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white/5">
+                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white">
                     <p>esc</p>
                 </div>
             </div>
@@ -40,8 +41,8 @@ export const SendModal = () => {
                </div>
                <div className="w-[98%] mt-4 ml-auto mr-auto h-[230px] py-3 px-2 flex flex-col items-center justify-center rounded-2xl bg-black/20">
                 <div className="w-[100%] ml-auto mr-auto text-black rounded-xl  flex  h-16">
-                 <input onChange={(e) => setAmount(e.target.value)} type="number" className="outline-none bg-transparent text-end text-7xl ml- w-[50%] h-[100%] " value={amount} />
-                 <p className="mt-5 text-4xl font-light ml-1 mr-auto">ETH</p>
+                 <input onChange={(e) => setAmount(e.target.value)} type="number" className="outline-none bg-transparent text-end text-3xl ml- w-[50%] h-[100%] " value={amount} />
+                 <p className="mt-5 text-xl font-light ml-1 mr-auto">ETH</p>
                 </div>
                </div>
                <div>

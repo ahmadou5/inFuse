@@ -17,8 +17,7 @@ export const SendModal = () => {
             from: wallet.address,
             to: receiveAddress,
             value: parseUnits(amount, 'ether'),
-            gasLimit: 210000,
-            gasPrice: await Provider.estimateGas()
+            
         }
         const signedTx = await wallet.signTransaction(tx)
         const txHash = await Provider._send(signedTx)

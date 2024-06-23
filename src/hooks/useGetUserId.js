@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 export const useGetUserId = () => {
   const baseUrl = "https://api.coingecko.com/api/v3/simple/price";
-  const Url =
-    "https://api.geckoterminal.com/api/v2/simple/networks/eth/token_price/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+  
   const {
     setIsAuthenticate,
     isAuthenticate,
@@ -22,21 +21,29 @@ export const useGetUserId = () => {
     user,
   } = GlobalContext();
   useEffect(() => {
-    const getEthPrice = async () => {
-      try {
-        const response = await axios.get(
-          `${baseUrl}?ids=ethereum&vs_currencies=usd`
-        );
-        const price = response.data.ethereum.usd;
-        setEthPrice(price);
-        console.log("Current ETH/USD price:", price);
-        return price;
-      } catch (error) {
-        console.error("Error fetching ETH/USD price:", error);
-        return null; // Handle errors gracefully
-      }
-    };
-    getEthPrice();
+    const intervalId = setInterval(() => {
+      const getEthPrice = async () => {
+        try {
+          const response = await axios.get(
+            `${baseUrl}?ids=ethereum&vs_currencies=usd`
+          );
+          const price = response.data.ethereum.usd;
+          setEthPrice(price);
+          console.log("Current ETH/USD price:", price);
+          return price;
+        } catch (error) {
+          console.error("Error fetching ETH/USD price:", error);
+          return null; // Handle errors gracefully
+        }
+      };
+      getEthPrice();
+    }, 60000); // 60000 milliseconds = 1 minute
+
+    return () => clearInterval(intervalId);
+    
+  },[])
+  useEffect(() => {
+    
     const fetchUser = async () => {
       try {
         const { data, error } = await Supabase.from("Wallets")

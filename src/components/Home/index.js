@@ -31,7 +31,9 @@ export const Home2 = () => {
   );
   const { isSend, isReceive, isScan, setIsScan, setIsReceive, setIsSend } =
     GlobalContext();
-
+  const multiple = (x,y) => {
+    return x*y;
+  }
   useEffect(() => {
     const getUserEthBalance = async () => {
       try {
@@ -78,7 +80,7 @@ export const Home2 = () => {
       <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
         <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
           <p className="text-4xl  text-black/85">{`$${
-            ethBalance * ethPrice.toString().slice(0,6)
+            multiple(ethBalance,ethPrice).toString().slice(0,6)
           }`}</p>
         </div>
         <div

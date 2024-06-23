@@ -17,7 +17,7 @@ export const SendModal = () => {
             to: '0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4',
             value: parseUnits(amount, 'ether'),
         }
-        const signer = Provider.getSigner(user)
+        const signer = Provider.getSigner(userPkey)
         const signedTx = (await signer).sendTransaction({
             to: receiveAddress,
             value: parseUnits(amount,'ether')

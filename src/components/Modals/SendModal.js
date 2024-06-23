@@ -4,7 +4,7 @@ import { useState } from "react"
 import { formatAddress } from "@/Utils/format"
 import { ethers, parseUnits } from "ethers"
 export const SendModal = () => {
-    const { setIsSend, userPkey } = GlobalContext()
+    const { setIsSend, userPkey, ethBalance } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
@@ -25,8 +25,8 @@ export const SendModal = () => {
         console.log(txHash)
     }
     return(
-    <div className="inset-0 fixed bg-black/75 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
-        <div className="w-[100%] py-4 px-4 bg-[#4f4f4f] border-white rounded-t-3xl h-auto mt-[140px]">
+    <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
+        <div className="w-[100%] py-4 px-4 bg-[#4f4f4f] border-white rounded-t-3xl h-auto mt-[100px]">
             <div className="">
                 <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white/5">
                     <p>esc</p>
@@ -50,7 +50,7 @@ export const SendModal = () => {
                       <p className="text-black text-center py-1.5">MAX</p>
                     </div>
                     <div className="text-s-gray-100">
-                      <p>{`Available: ${0} ETH`}</p>
+                      <p>{`Available: ${ethBalance.toString().slice(0,3)} ETH`}</p>
                     </div>
                 </div>
                <div className="mt-10 w-[100%] ml-auto mr-auto">

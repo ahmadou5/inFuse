@@ -7,7 +7,7 @@ export const ReceiveModal = () => {
     const { setIsReceive, userAddress } = GlobalContext()
     const { Canvas } = useQRCode()
     return(
-    <div className="inset-0 fixed bg-black/75 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
+    <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
         <div className="w-[100%] py-4 px-4 bg-[#4f4f4f] rounded-t-3xl h-auto mt-[140px]">
             <div>
                 <div onClick={() => setIsReceive(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white/5">

@@ -1,10 +1,18 @@
 import { GlobalContext } from "@/Context/AppContext"
 import { Supabase } from "@/Utils/supabasedb"
 import { useEffect } from "react"
-
+import axios from "axios";
 export const useGetUserId = () => {
-    const {setIsAuthenticate, isAuthenticate, userPkey,setUserPkey, userName, setUserName, setUserAddress, isLoading,setIsLoading, setWelcome,  user} = GlobalContext()
+    const Url = 'https://api.geckoterminal.com/api/v2/simple/networks/eth/token_price/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2';
+    const {setIsAuthenticate, isAuthenticate, userPkey,setUserPkey, ethPrice,
+      setEthPrice, userName, setUserName, setUserAddress, isLoading,setIsLoading, setWelcome,  user} = GlobalContext()
     useEffect(() => {
+      const getPrice = async () => {
+        const response = await axios.get(Url);
+        setEthPrice(response.data?.attributes.token_price)
+        console.log('response',response)
+    }
+    getPrice()
         const fetchUser = async () => {
             try {
               const {data ,error} = await Supabase

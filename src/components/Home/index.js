@@ -10,7 +10,7 @@ import { Welcome } from "../Modals/WelcomeModal";
 import { formatAddress, handleCopy } from "@/Utils/format";
 
 export const Home2 = () => {
-    const { user, setUser, userAddress, welcome} = GlobalContext()
+    const { user, setUser, userAddress,ethPrice, welcome} = GlobalContext()
     
     const { isSend,
         isReceive,
@@ -86,7 +86,7 @@ export const Home2 = () => {
                 </div>
                 <div className="ml-[5px] text-black/85 mr-auto px-3">
                     <p className="text-sm mb-1.5">Ethereum</p>
-                    <p className="text-sm">$234</p>
+                    <p className="text-sm">{`$${ethPrice}`}</p>
                 </div>
                 <div className="ml-[10px]  text-black/85 mr-4 px-3">
                     <p className="text-sm mb-1.5">0</p>

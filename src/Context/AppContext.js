@@ -6,10 +6,11 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [ethPrice,setEthPrice] = useState(0)
     const [isSend,setIsSend] = useState(false)
     const [isReceive,setIsReceive] = useState(false)
     const [isScan,setIsScan] = useState(false)
-    const [isAuthenticate,setIsAuthenticate] = useState(true)
+    const [isAuthenticate,setIsAuthenticate] = useState(false)
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
     const [userName, setUserName] = useState('')
@@ -29,6 +30,8 @@ export const MiniContextProvider = ({children}) => {
     welcome,
     isLoading,
     userName, 
+    ethPrice,
+    setEthPrice,
     setUserName,
     setIsLoading,
     setWelcome,

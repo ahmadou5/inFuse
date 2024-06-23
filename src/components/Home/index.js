@@ -45,7 +45,7 @@ export const Home2 = () => {
              <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-black/85"/>
             </div>
         </div>
-        <div className="bg-gothic-950/0 mt-3 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
+        <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
                 <p className="text-4xl  text-black/85">{`$ ${0}`}</p>
             </div>
@@ -94,7 +94,10 @@ export const Home2 = () => {
                 </div>
             </div>
         </div>
+        <div className="mt-auto mb-auto">
         <Menu />
+        </div>
+        
         {isSend && <SendModal/>}
         {welcome && <Welcome/>}
         {isReceive && <ReceiveModal/>}

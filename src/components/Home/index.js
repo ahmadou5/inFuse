@@ -39,18 +39,8 @@ export const Home2 = () => {
         console.log(balance, "1 blnc");
         const formattedBalance = formatEther(balance);
         console.log("User ETH balance:", formattedBalance);
-        const parts = formattedBalance.split(".");
-
-        // If there's no decimal part, add ".00"
-        if (!parts[1]) {
-          parts.push("00");
-        } else {
-          // Truncate the decimal part to 2 places
-          parts[1] = parts[1].slice(0, 2);
-        }
-
-        const finalBalance = parts.join(".");
-        setEthBalance(finalBalance);
+        
+        setEthBalance(formattedBalance);
         return formattedBalance;
       } catch (error) {
         console.error("Error fetching ETH balance:", error);
@@ -88,7 +78,7 @@ export const Home2 = () => {
       <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
         <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
           <p className="text-4xl  text-black/85">{`$${
-            ethBalance * ethPrice
+            ethBalance * ethPrice.slice(0,6)
           }`}</p>
         </div>
         <div
@@ -145,7 +135,7 @@ export const Home2 = () => {
             <p className="text-sm">{`$${ethPrice}`}</p>
           </div>
           <div className="ml-[10px]  text-black/85 mr-4 px-3">
-            <p className="text-sm mb-1.5">{ethBalance}</p>
+            <p className="text-sm mb-1.5">{ethBalance.slice(0,6)}</p>
           </div>
         </div>
       </div>

@@ -19,6 +19,8 @@ export const Home2 = () => {
         setIsScan,
         setIsReceive,
         setIsSend} = GlobalContext()
+  
+ 
     useEffect(() => {
         const getUserEthBalance = async() => {
             try {
@@ -33,8 +35,6 @@ export const Home2 = () => {
             }
           }
           getUserEthBalance()
-    },[])
-    useEffect(() => {
         console.log('useTelegram')
         function initTg() {
         if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {

@@ -10,6 +10,9 @@ export const formatAddress = (value) => {
    
     return value.substring(0,15) + "..." + value.substring(value.length -8,);
   }
+  export const truncate = (value) => {
+    return value.trim(0,5)
+  }
   export const handleCopy = (value) => {
     navigator.clipboard.writeText(value).then(
       () => {

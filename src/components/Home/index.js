@@ -7,7 +7,7 @@ import { GlobalContext } from "@/Context/AppContext";
 import { ReceiveModal } from "../Modals/ReceiveModal";
 import { Supabase } from "@/Utils/supabasedb";
 import { Welcome } from "../Modals/WelcomeModal";
-import { formatAddress, handleCopy } from "@/Utils/format";
+import { formatAddress,truncate, handleCopy } from "@/Utils/format";
 import { ethers, formatEther } from "ethers";
 
 export const Home2 = () => {
@@ -105,7 +105,7 @@ export const Home2 = () => {
                     <p className="text-sm">{`$${ethPrice}`}</p>
                 </div>
                 <div className="ml-[10px]  text-black/85 mr-4 px-3">
-                    <p className="text-sm mb-1.5">{ethBalance}</p>
+                    <p className="text-sm mb-1.5">{ethBalance.length() > 7 ? truncate(ethBalance) : ethBalance}</p>
                    
                 </div>
             </div>

@@ -22,7 +22,21 @@ export const useGetUserId = () => {
   } = GlobalContext();
   
   useEffect(() => {
-    
+    const getEthPrice = async () => {
+      try {
+        const response = await axios.get(
+          `${baseUrl}?ids=ethereum&vs_currencies=usd`
+        );
+        const price = response.data.ethereum.usd;
+        setEthPrice(price);
+        console.log("Current ETH/USD price:", price);
+        return price;
+      } catch (error) {
+        console.error("Error fetching ETH/USD price:", error);
+        return null; // Handle errors gracefully
+      }
+    };
+    getEthPrice();
     const fetchUser = async () => {
       try {
         const { data, error } = await Supabase.from("Wallets")
@@ -53,25 +67,7 @@ export const useGetUserId = () => {
       } catch (error) {
         console.log(error);
       }
-      const intervalId = setInterval(() => {
-        const getEthPrice = async () => {
-          try {
-            const response = await axios.get(
-              `${baseUrl}?ids=ethereum&vs_currencies=usd`
-            );
-            const price = response.data.ethereum.usd;
-            setEthPrice(price);
-            console.log("Current ETH/USD price:", price);
-            return price;
-          } catch (error) {
-            console.error("Error fetching ETH/USD price:", error);
-            return null; // Handle errors gracefully
-          }
-        };
-        getEthPrice();
-      }, 60000); // 60000 milliseconds = 1 minute
-  
-      return () => clearInterval(intervalId);
+     
     };
     fetchUser();
   }, [user]);

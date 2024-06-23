@@ -16,11 +16,12 @@ export const SendModal = () => {
         const tx = {
             to: '0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4',
             value: parseUnits(amount, 'ether'),
-            gasLimit: 210000,
-            gasPrice: await Provider.estimateGas()
         }
         const signer = Provider.getSigner(userPkey)
-        const signedTx = await signer.sendTransaction(tx)
+        const signedTx = await signer.sendTransaction({
+            to: receiveAddress,
+            value: parseUnits(amount,'ether')
+        })
         const txHash = await signedTx.hash
         const receipt = await Provider.getTransactionReceipt(txHash)
         console.log(txHash, receipt)

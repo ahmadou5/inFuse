@@ -6,7 +6,7 @@ import { ethers, parseUnits } from "ethers"
 export const SendModal = () => {
     const { setIsSend, userPkey, ethBalance } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
-    const [receiveAddress, setReceiveAddress] = useState('')
+    const [receiveAddress, setReceiveAddress] = useState('0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4')
     const [comment, setComment] = useState('')
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/demo')
@@ -20,7 +20,7 @@ export const SendModal = () => {
             gasPrice: await Provider.estimateGas()
         }
         const signer = Provider.getSigner(userPkey)
-        const signedTx = await signer.sendTransaction()
+        const signedTx = await signer.sendTransaction(tx)
         const txHash = await signedTx.hash
         const receipt = await Provider.getTransactionReceipt(txHash)
         console.log(txHash, receipt)

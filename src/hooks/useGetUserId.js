@@ -3,16 +3,31 @@ import { Supabase } from "@/Utils/supabasedb"
 import { useEffect } from "react"
 import axios from "axios";
 export const useGetUserId = () => {
+    const baseUrl = 'https://api.coingecko.com/api/v3/simple/price';
     const Url = 'https://api.geckoterminal.com/api/v2/simple/networks/eth/token_price/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2';
     const {setIsAuthenticate, isAuthenticate, userPkey,setUserPkey, ethPrice,
       setEthPrice, userName, setUserName, setUserAddress, isLoading,setIsLoading, setWelcome,  user} = GlobalContext()
     useEffect(() => {
       const getPrice = async () => {
         const response = await axios.get(Url);
-        setEthPrice(response.data.data?.attributes?.token_prices)
-        console.log('response',JSON.stringify(response.data.data?.attributes?.token_prices.0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2))
+        //setEthPrice(response.data.data?.attributes?.token_prices)
+        //console.log('response',JSON.stringify(response.data.data?.attributes?.token_prices.0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2))
     }
-    getPrice()
+    
+
+
+  const getEthPrice = async () => {
+  try {
+    const response = await axios.get(`${baseUrl}?ids=ethereum&vs_currencies=usd`);
+    //const price = response.data.ethereum.usd;
+    console.log('Current ETH/USD price:', response);
+    return price;
+  } catch (error) {
+    console.error('Error fetching ETH/USD price:', error);
+    return null; // Handle errors gracefully
+  }
+}
+getEthPrice()
         const fetchUser = async () => {
             try {
               const {data ,error} = await Supabase

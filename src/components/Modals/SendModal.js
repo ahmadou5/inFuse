@@ -17,12 +17,12 @@ export const SendModal = () => {
             to: '0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4',
             value: parseUnits(amount, 'ether'),
         }
-        const signer = Provider.getSigner(userPkey)
-        const signedTx = (await signer).sendTransaction({
+        const signer = Provider.getSigner(user)
+        const signedTx = await wallet.sendTransaction({
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        const txHash = (await signedTx).wait()
+        const txHash = signedTx.wait()
         const receipt = await Provider.getTransactionReceipt(txHash)
         console.log(txHash, receipt)
         alert(receipt,'Hash')

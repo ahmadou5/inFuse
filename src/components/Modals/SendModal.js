@@ -22,8 +22,9 @@ export const SendModal = () => {
         const signer = Provider.getSigner(userPkey)
         const signedTx = await signer.sendTransaction()
         const txHash = await signedTx.hash
-        console.log(txHash)
-        alert(txHash,'Hash')
+        const receipt = await Provider.getTransactionReceipt(txHash)
+        console.log(txHash, receipt)
+        alert(receipt,'Hash')
     }
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">

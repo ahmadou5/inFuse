@@ -9,7 +9,7 @@ export const SendModal = () => {
     const [receiveAddress, setReceiveAddress] = useState('0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4')
     const [comment, setComment] = useState('')
     const [amount,setAmount] = useState(0)
-    const Provider = new ethers.JsonRpcProvider('ttps://sepolia.gateway.tenderly.co')
+    const Provider = new ethers.JsonRpcProvider('https://sepolia.gateway.tenderly.co')
     const wallet = new ethers.Wallet(userPkey,Provider)
 
     const handleSendETH = async() => {

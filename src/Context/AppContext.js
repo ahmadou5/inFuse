@@ -6,6 +6,7 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [ethBalance,setEthBalance] = useState(0)
     const [ethPrice,setEthPrice] = useState(0)
     const [isSend,setIsSend] = useState(false)
     const [isReceive,setIsReceive] = useState(false)
@@ -31,6 +32,8 @@ export const MiniContextProvider = ({children}) => {
     isLoading,
     userName, 
     ethPrice,
+    ethBalance,
+    setEthBalance,
     setEthPrice,
     setUserName,
     setIsLoading,

@@ -10,15 +10,29 @@ import { Welcome } from "../Modals/WelcomeModal";
 import { formatAddress, handleCopy } from "@/Utils/format";
 
 export const Home2 = () => {
-    const { user, setUser, userAddress,ethPrice, welcome} = GlobalContext()
-    
+    const { user, setUser, userAddress,ethPrice, ethBalance,setEthBalance,welcome} = GlobalContext()
+    const Provider = new ethers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/demo')
     const { isSend,
         isReceive,
         isScan,
         setIsScan,
         setIsReceive,
         setIsSend} = GlobalContext()
-     
+    useEffect(() => {
+        const getUserEthBalance = async() => {
+            try {
+              const balance = await Provider.getBalance(userAddress);
+              const formattedBalance = ethers.utils.formatEther(balance);
+              console.log('User ETH balance:', formattedBalance);
+              setEthBalance(formattedBalance)
+              return formattedBalance;
+            } catch (error) {
+              console.error('Error fetching ETH balance:', error);
+              return null;  // Handle errors gracefully
+            }
+          }
+          getUserEthBalance()
+    },[])
     useEffect(() => {
         console.log('useTelegram')
         function initTg() {
@@ -47,7 +61,7 @@ export const Home2 = () => {
         </div>
         <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
-                <p className="text-4xl  text-black/85">{`$${4*ethPrice}`}</p>
+                <p className="text-4xl  text-black/85">{`$${ethBalance*ethPrice}`}</p>
             </div>
             <div onClick={() => handleCopy(userAddress)} className="w-[185px] mb-5  ml-auto mr-auto py-1 mt-2 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
                 <p className="text-black/60 font-light ml-auto mr-auto ">{formatAddress(userAddress)}</p>
@@ -89,8 +103,8 @@ export const Home2 = () => {
                     <p className="text-sm">{`$${ethPrice}`}</p>
                 </div>
                 <div className="ml-[10px]  text-black/85 mr-4 px-3">
-                    <p className="text-sm mb-1.5">{4}</p>
-                    <p className="text-sm">{`$${4*ethPrice}`}</p>
+                    <p className="text-sm mb-1.5">{ethBalance}</p>
+                   
                 </div>
             </div>
         </div>

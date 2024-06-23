@@ -8,6 +8,7 @@ import { ReceiveModal } from "../Modals/ReceiveModal";
 import { Supabase } from "@/Utils/supabasedb";
 import { Welcome } from "../Modals/WelcomeModal";
 import { formatAddress, handleCopy } from "@/Utils/format";
+import { ethers } from "ethers";
 
 export const Home2 = () => {
     const { user, setUser, userAddress,ethPrice, ethBalance,setEthBalance,welcome} = GlobalContext()

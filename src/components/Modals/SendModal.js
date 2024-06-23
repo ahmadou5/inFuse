@@ -10,7 +10,7 @@ export const SendModal = () => {
     const [comment, setComment] = useState('')
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/demo')
-   // const wallet = new ethers.Wallet(userPkey,Provider)
+    const wallet = new ethers.Wallet(userPkey,Provider)
 
     const handleSendETH = async() => {
         const tx = {
@@ -50,7 +50,7 @@ export const SendModal = () => {
                       <p className="text-black text-center py-1.5">MAX</p>
                     </div>
                     <div className="text-s-gray-100">
-                      <p>{`Available: ${ethBalance.toString().slice(0,3)} ETH`}</p>
+                      <p>{`Available: ${ethBalance.toString().slice(0,4)} ETH`}</p>
                     </div>
                 </div>
                <div className="mt-10 w-[100%] ml-auto mr-auto">

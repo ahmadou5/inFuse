@@ -25,9 +25,10 @@ export const Home2 = () => {
         const getUserEthBalance = async() => {
             try {
               const balance = await Provider.getBalance(userAddress);
-              const formattedBalance = ethers.utils.formatEther(balance);
-              console.log('User ETH balance:', formattedBalance);
-              setEthBalance(formattedBalance)
+              console.log(balance,'1 blnc')
+              //const formattedBalance = ethers.utils.formatEther(balance);
+              //console.log('User ETH balance:', formattedBalance);
+              //setEthBalance(formattedBalance)
               return formattedBalance;
             } catch (error) {
               console.error('Error fetching ETH balance:', error);

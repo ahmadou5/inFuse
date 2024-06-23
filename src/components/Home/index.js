@@ -27,7 +27,7 @@ export const Home2 = () => {
     welcome,
   } = GlobalContext();
   const Provider = new ethers.JsonRpcProvider(
-    "https://eth-sepolia.g.alchemy.com/v2/demo"
+    "https://sepolia.gateway.tenderly.co"
   );
   const { isSend, isReceive, isScan, setIsScan, setIsReceive, setIsSend } =
     GlobalContext();

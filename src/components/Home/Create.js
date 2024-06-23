@@ -16,7 +16,7 @@ export const Create = () => {
     const {user,setUser,userPkey, isLoading, setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
-    const Provider = 'https://eth-sepolia.g.alchemy.com/v2/demo'
+    const Provider = 'https://sepolia.gateway.tenderly.co'
     const createWallet = async () => {
             const name = user?.initDataUnsafe?.user?.username
             const id = user?.initDataUnsafe?.user?.id

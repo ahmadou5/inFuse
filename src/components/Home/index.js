@@ -78,7 +78,7 @@ export const Home2 = () => {
       <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
         <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
           <p className="text-4xl  text-black/85">{`$${
-            ethBalance * ethPrice
+            ethBalance * ethPrice.toString().slice(0,6)
           }`}</p>
         </div>
         <div
@@ -135,7 +135,7 @@ export const Home2 = () => {
             <p className="text-sm">{`$${ethPrice}`}</p>
           </div>
           <div className="ml-[10px]  text-black/85 mr-4 px-3">
-            <p className="text-sm mb-1.5">{ethBalance.slice(0,6)}</p>
+            <p className="text-sm mb-1.5">{ethBalance.toString().slice(0,6)}</p>
           </div>
         </div>
       </div>

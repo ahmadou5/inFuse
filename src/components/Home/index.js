@@ -137,7 +137,7 @@ export const Home2 = () => {
             <p className="text-sm">{`$${ethPrice}`}</p>
           </div>
           <div className="ml-[10px]  text-black/85 mr-4 px-3">
-            <p className="text-sm mb-1.5">{ethBalance.toString().slice(0,6)}</p>
+            <p className="text-[23] mb-1.5">{ethBalance.toString().slice(0,4)}</p>
           </div>
         </div>
       </div>

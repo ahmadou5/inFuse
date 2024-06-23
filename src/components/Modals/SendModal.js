@@ -22,8 +22,8 @@ export const SendModal = () => {
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        const txHash = signedTx.wait()
-        const receipt = await Provider.getTransactionReceipt(txHash)
+        const txHash = signedTx.hash()
+        //const receipt = await Provider.getTransactionReceipt(txHash)
         console.log(txHash, receipt)
         alert(receipt,'Hash')
     }

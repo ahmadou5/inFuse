@@ -63,7 +63,7 @@ export const Home2 = () => {
         </div>
         <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
-                <p className="text-4xl  text-black/85">{`$${ethBalance*ethPrice}`}</p>
+                <p className="text-4xl  text-black/85">{`$${ethBalance*ethPrice.length() >  6 ? truncate(ethBalance*ethPrice) : ethBalance*ethPrice}`}</p>
             </div>
             <div onClick={() => handleCopy(userAddress)} className="w-[185px] mb-5  ml-auto mr-auto py-1 mt-2 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
                 <p className="text-black/60 font-light ml-auto mr-auto ">{formatAddress(userAddress)}</p>

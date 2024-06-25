@@ -13,7 +13,7 @@ export const Welcome = () => {
             </div>
             <div className="mt-5 ml-auto mr-auto flex flex-col items-center justify-center text-center">
                 <p className="text-center text-black/95 font-light text-[22px] mb-2">{`👋 Hi Welcome Back`} </p>
-                <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/10 rounded-full h-9">
+                <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-black/30 rounded-full h-9">
                   <p className="text-black font-light ml-auto mr-auto ">{userName}</p>
                 </div>
             </div>

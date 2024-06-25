@@ -15,16 +15,16 @@ export const SendModal = () => {
     const wallet = new ethers.Wallet(userPkey,Provider)
 
     const handleSendETH = async() => {
-        const tx = {
-            to: '0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4',
-            value: parseUnits(amount, 'ether'),
-        }
+       
         //const signer = Provider.getSigner(user)
         const signedTx = await wallet.sendTransaction({
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        const txHash = signedTx.hash()
+        const tx = await signedTx.wait()
+
+        const txHash = tx.hash()
+        alert(txHash)
         //const receipt = await Provider.getTransactionReceipt(txHash)
         setComment(txHash)
         setIsTxSuccess(true)

@@ -20,7 +20,7 @@ export const ReceiveModal = () => {
                </div>
                <div className="w-[98%] mt-1 ml-auto mr-auto h-[290px] py-3 px-2 flex flex-col items-center justify-center rounded-2xl bg-white/90">
                 <div className="w-[100%] h-[100%] flex items-center justify-center">
-                    <Canvas text={'hggjhg'} options={{width:275}} className='w-[100%] ml-auto mr-auto rounded-xl h-[100%] text-blue-600' />
+                    <Canvas text={userAddress} options={{width:275}} className='w-[100%] ml-auto mr-auto rounded-xl h-[100%] text-blue-600' />
                 </div>
                </div>
                <div>

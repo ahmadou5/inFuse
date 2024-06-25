@@ -6,7 +6,7 @@ import { ethers, parseUnits } from "ethers"
 import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
 export const SendModal = () => {
-    const { setIsSend, userPkey, ethBalance, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
+    const { setIsSend, userPkey, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
@@ -55,17 +55,17 @@ export const SendModal = () => {
                     <div className="bg-black/20 rounded-2xl w-20 h-9">
                       <p className="text-black text-center py-1.5">MAX</p>
                     </div>
-                    <div className="text-s-gray-100">
+                    <div className="text-s-gray-950">
                       <p>{`Available: ${ethBalance.toString().slice(0,4)} ETH`}</p>
                     </div>
                 </div>
                <div className="mt-10 w-[100%] ml-auto mr-auto">
-             <div className="w-[98%] ml-auto mr-auto rounded-xl bg-white/90 h-14">
+             <div className="w-[98%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
                  <button onClick={() => {
                     if(receiveAddress !== '' && amount > 0) {
                         handleSendETH()
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-black  py-2 px-4">Continue</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">Continue</button>
              </div>
             </div>
             {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}
@@ -74,24 +74,28 @@ export const SendModal = () => {
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">
             <div className="mt-12 w-[100%] ml-auto mr-auto">
-             <div className="w-[100%] ml-auto mr-auto rounded-xl text-xl border border-black bg-white/55 h-16">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[25px] text-black bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Address" />
+            <div className="w-[100%] ml-auto mr-auto flex rounded-xl text-xl border border-black bg-black/25 h-16">
+               <p>From:</p>
+               <p>{userAddress}</p>
+             </div>
+             <div className="w-[100%] ml-auto mr-auto rounded-xl text-xl border border-black bg-black/25 h-16">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[18px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Address" />
              </div>
             </div>
             <div className="mt-4 w-[100%] ml-auto mr-auto">
-             <div className="w-[100%] ml-auto mr-auto rounded-xl border border-black bg-white/55 h-16">
-                 <input type="text" className="outline-none bg-transparent text-[25px] text-black w-[100%] h-[100%]  py-2 px-4" placeholder="Comment" />
+             <div className="w-[100%] ml-auto mr-auto rounded-xl border border-black bg-black/25 h-16">
+                 <input type="text" className="outline-none bg-transparent text-[18px] text-white w-[100%] h-[100%]  py-2 px-4" placeholder="Comment" />
              </div>
             </div>
             <div className="mt-20 w-[100%] ml-auto mr-auto">
-             <div className="w-[97%] ml-auto mr-auto rounded-xl bg-white/90 h-14">
+             <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
                  <button onClick={() => {
                     if(receiveAddress.length < 42) {
                         alert('not Valid ETH Address')
                     } else {
                         setIsConfirmed(true)
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-black  py-2 px-4">Continue</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white/95  py-2 px-4">Continue</button>
              </div>
             </div>
          </div>

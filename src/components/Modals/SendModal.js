@@ -38,8 +38,8 @@ export const SendModal = () => {
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        setIsTxSuccess(true)
         handleSaveTransaction()
+        setIsTxSuccess(true)
         const tx = signedTx.hash
 
        

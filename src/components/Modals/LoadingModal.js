@@ -5,7 +5,7 @@ export const Loading = () => {
         <div className="w-[100%] h-[auto] flex items-center justify-center">
            <div className="w-auto h-auto mt-4">
             <SpinningCircles />
-            <p className="text-center mt-2 text-white">Loading</p>
+            <p className="text-center mt-5 text-white">Loading</p>
            </div>
         </div>
     </div>

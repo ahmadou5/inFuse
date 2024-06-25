@@ -3,10 +3,12 @@ import { GlobalContext } from "@/Context/AppContext"
 import { useState } from "react"
 import { formatAddress } from "@/Utils/format"
 import { ethers, parseUnits } from "ethers"
+import { TransactionSuccessModal } from "./TransactionSuccess"
+import { FailedTxModal } from "./TransactionFailed"
 export const SendModal = () => {
-    const { setIsSend, userPkey, ethBalance } = GlobalContext()
+    const { setIsSend, userPkey, ethBalance, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
-    const [receiveAddress, setReceiveAddress] = useState('0x31Fe9fE81BfFD55F8C442CB022dcF8f65fFD26B4')
+    const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://sepolia.gateway.tenderly.co')
@@ -24,8 +26,9 @@ export const SendModal = () => {
         })
         const txHash = signedTx.hash()
         //const receipt = await Provider.getTransactionReceipt(txHash)
-        console.log(txHash, receipt)
-        window.alert(receipt,'Hash')
+        setComment(txHash)
+        setIsTxSuccess(true)
+        console.log(txHash)
     }
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
@@ -65,6 +68,8 @@ export const SendModal = () => {
                  }} className="outline-none bg-transparent w-[100%] h-[100%] text-black  py-2 px-4">Continue</button>
              </div>
             </div>
+            {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}
+            {isTxFail && <FailedTxModal/>}
                </div>
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">

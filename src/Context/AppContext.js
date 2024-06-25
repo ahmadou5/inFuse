@@ -6,6 +6,8 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [isTxSuccess,setIsTxSuccess] = useState(false)
+    const [isTxFail,setIsTxFail] = useState(false)
     const [isErrorM,setIsErrorM] = useState(false)
     const [isSuccess,setIsSuccess] = useState(false)
     const [ethBalance,setEthBalance] = useState(0)
@@ -13,7 +15,7 @@ export const MiniContextProvider = ({children}) => {
     const [isSend,setIsSend] = useState(false)
     const [isReceive,setIsReceive] = useState(false)
     const [isScan,setIsScan] = useState(false)
-    const [isAuthenticate,setIsAuthenticate] = useState(true)
+    const [isAuthenticate,setIsAuthenticate] = useState(false)
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
     const [userName, setUserName] = useState('')
@@ -37,6 +39,10 @@ export const MiniContextProvider = ({children}) => {
     ethBalance,
     isSuccess,
     isErrorM,
+    isTxSuccess,
+    isTxFail,
+    setIsTxFail,
+    setIsTxSuccess,
     setIsErrorM,
     setIsSuccess,
     setEthBalance,

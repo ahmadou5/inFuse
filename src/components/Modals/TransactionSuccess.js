@@ -14,7 +14,7 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                 <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
                   <p className="text-black/85 font-light ml-auto mr-auto ">{`You just send ${amount} ETH now`}</p>
                 </div>
-                <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
+                <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
                   <p className="text-black/85 font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
                 </div>
                 <div onClick={() => {

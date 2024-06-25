@@ -21,7 +21,7 @@ export const SendModal = () => {
     const handleSaveTransaction = async () => {
         const {data, error} = await Supabase
         .from('Transaction')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:'hash'}])
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:parseUnits(amount,'ether'),hash:'hash'}])
         .select()
         if(data) {
             alert('saved')
@@ -40,7 +40,7 @@ export const SendModal = () => {
         })
         setIsTxSuccess(true)
         handleSaveTransaction()
-        const tx = await Provider.getTransactionReceipt(signedTx.wait())
+        const tx = await signedTx.hash()
 
        
         //const receipt = await Provider.getTransactionReceipt(txHash)

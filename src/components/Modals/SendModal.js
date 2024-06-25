@@ -21,7 +21,7 @@ export const SendModal = () => {
     const handleSaveTransaction = async () => {
         const {data, error} = await Supabase
         .from('Transaction')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:parseUnits(amount,'ether'),hash:'hash'}])
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:parseUnits(amount,'ether'),hash:comment}])
         .select()
         if(data) {
             alert('saved')

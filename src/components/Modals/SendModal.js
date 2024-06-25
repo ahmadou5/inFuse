@@ -20,7 +20,7 @@ export const SendModal = () => {
     const id = user?.initDataUnsafe?.user?.id
     const handleSaveTransaction = async () => {
         const {data, error} = await Supabase
-        .from('Transactions')
+        .from('History')
         .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:comment}])
         .select()
         if(data) {

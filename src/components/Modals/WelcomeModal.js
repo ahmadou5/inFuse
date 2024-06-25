@@ -7,7 +7,7 @@ export const Welcome = () => {
         <div className="w-[100%] flex items-center px- justify-center">
             <div className="h-[190px] ml-auto mr-auto py-2 px-2 w-[90%] bg-white/95 rounded-xl">
             <div>
-                <div onClick={() => setWelcome(false)} className="w-16 rounded-xl  font-light flex items-center justify-center h-8 bg-black/95">
+                <div onClick={() => setWelcome(false)} className="w-16 rounded-xl text-white font-light flex items-center justify-center h-8 bg-black/95">
                     <p className="text-black text-[14]">esc</p>
                 </div>
             </div>

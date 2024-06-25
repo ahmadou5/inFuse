@@ -74,19 +74,15 @@ export const SendModal = () => {
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">
             <div className="mt-12 w-[100%] ml-auto mr-auto">
-            <div className="w-[100%] ml-auto mr-auto flex rounded-xl text-xl border border-black bg-black/25 h-16">
-               <p>From:</p>
-               <p>{userAddress}</p>
+            <div className="w-[100%] ml-auto mr-auto mb-4 flex rounded-xl text-xl py-2 px-3 border border-black bg-black/0 h-16">
+               <p className="font-light">From:</p>
+               <p className="font-light">{formatAddress(userAddress)}</p>
              </div>
-             <div className="w-[100%] ml-auto mr-auto rounded-xl text-xl border border-black bg-black/25 h-16">
+             <div className="w-[100%] ml-auto mr-auto rounded-xl text-xl border border-black bg-black/0 h-16">
                  <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[18px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Address" />
              </div>
             </div>
-            <div className="mt-4 w-[100%] ml-auto mr-auto">
-             <div className="w-[100%] ml-auto mr-auto rounded-xl border border-black bg-black/25 h-16">
-                 <input type="text" className="outline-none bg-transparent text-[18px] text-white w-[100%] h-[100%]  py-2 px-4" placeholder="Comment" />
-             </div>
-            </div>
+            
             <div className="mt-20 w-[100%] ml-auto mr-auto">
              <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
                  <button onClick={() => {

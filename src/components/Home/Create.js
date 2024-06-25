@@ -7,13 +7,16 @@ import { GlobalContext } from "@/Context/AppContext";
 import { Supabase } from "@/Utils/supabasedb";
 import { useGetUserId } from "@/hooks/useGetUserId";
 import { Loading } from "../Modals/LoadingModal";
+import { SuccessModal } from "../Modals/Success";
+import { ErrorModal } from "../Modals/Error";
 
 export const Create = () => {
+    const [errorMess,setErrorMess] = useState('')
     const [address,setAddress] = useState('');
     const [privKey,setPrivKey] = useState('');
     const [phrase, setPhrase] = useState('')
    // const [isLoading,setIsLoading] = useState(true)
-    const {user,setUser,userPkey, isLoading, setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
+    const {user,setUser,userPkey, isLoading, isErrorM,setIsErrorM, isSuccess,setIsSuccess,setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
     const Provider = 'https://sepolia.gateway.tenderly.co'
@@ -32,11 +35,13 @@ export const Create = () => {
             .insert([{id:id,username:name,address:userWallet.address,privateKey:userWallet.privateKey,phrase:userWallet.mnemonic.phrase}])
             .select()
             if(error) {
-                alert('error',error.message)
+                setIsErrorM(true)
+                setErrorMess(error.message)
                 console.log(error)
             }
             if(data) {
-                alert('data',data)
+                //alert('data',data)
+                setIsSuccess(true)
                 setIsAuthenticate(true)
                 
             }
@@ -44,7 +49,7 @@ export const Create = () => {
     }
     
     useEffect(() => {
-        console.log(Supabase)
+        //console.log(Supabase)
         console.log('useTelegram')
         function initTg() {
         if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
@@ -76,6 +81,8 @@ export const Create = () => {
                 <button className="text-[15px] bg-gothic-200 w-[310px] text-s-gray-700 mt-1 h-12 rounded-xl font-extrabold ">{`Import Existing Wallet`}</button>
         </div>
         {isLoading && <Loading/>}
+        {isSuccess && <SuccessModal />}
+        {isErrorM && <ErrorModal message={errorMess}/>}
     </div>
 )
 }

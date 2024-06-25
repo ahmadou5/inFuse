@@ -5,6 +5,7 @@ import { formatAddress } from "@/Utils/format"
 import { ethers, parseUnits } from "ethers"
 import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
+import { Supabase } from "@/Utils/supabasedb"
 export const SendModal = () => {
     const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
@@ -16,6 +17,20 @@ export const SendModal = () => {
     const multiple = (x,y) => {
         return x*y;
       }
+    const id = user?.initDataUnsafe?.user?.id
+    const handleSaveTransaction = async () => {
+        const {data, error} = await Supabase
+        .from('Transaction')
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:'hash'}])
+        .select()
+        if(data) {
+            alert('saved')
+        }
+        if(error) {
+            console.log(error)
+        }
+       
+    }
     const handleSendETH = async() => {
        
         //const signer = Provider.getSigner(user)
@@ -24,7 +39,8 @@ export const SendModal = () => {
             value: parseUnits(amount,'ether')
         })
         setIsTxSuccess(true)
-        const tx = await Provider.getTransactionReceipt(signedTx.hash())
+        handleSaveTransaction()
+        const tx = await Provider.getTransactionReceipt(signedTx.wait())
 
        
         //const receipt = await Provider.getTransactionReceipt(txHash)
@@ -35,7 +51,7 @@ export const SendModal = () => {
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
         <div className="w-[100%] py-4 px-4 bg-white/95 rounded-t-3xl h-auto mt-[70px]">
             <div className="">
-                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-black/85">
+                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-white text-xl font-light flex items-center justify-center h-9 bg-black/85">
                     <p>esc</p>
                 </div>
             </div>

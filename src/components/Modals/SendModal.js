@@ -6,7 +6,7 @@ import { ethers, parseUnits } from "ethers"
 import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
 export const SendModal = () => {
-    const { setIsSend, userPkey, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
+    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
@@ -48,6 +48,9 @@ export const SendModal = () => {
                  <input onChange={(e) => setAmount(e.target.value)} type="number" className="outline-none bg-transparent text-end text-3xl ml- w-[50%] h-[100%] " value={amount} />
                  <p className="mt-5 text-xl font-light ml-1 mr-auto">ETH</p>
                 </div>
+                   <div className="bg-black/20 rounded-2xl w-20 h-9">
+                      <p className="text-black text-center py-1.5">{ethPrice * amount}</p>
+                    </div>
                </div>
                <div>
                 <div className="h-12 w-[100%] flex items-center justify-between py-1 px-2 bg-red-500/0 mt-8">

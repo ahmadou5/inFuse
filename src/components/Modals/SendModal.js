@@ -7,7 +7,7 @@ import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
 import { Supabase } from "@/Utils/supabasedb"
 export const SendModal = () => {
-    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess } = GlobalContext()
+    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')

@@ -21,13 +21,12 @@ export const SendModal = () => {
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        const tx = await signedTx.wait()
-
-        const txHash = tx.hash()
-        alert(txHash)
-        //const receipt = await Provider.getTransactionReceipt(txHash)
-        setComment(txHash)
         setIsTxSuccess(true)
+        const tx = await Provider.getTransactionReceipt(signedTx.hash())
+
+       
+        //const receipt = await Provider.getTransactionReceipt(txHash)
+        setComment(tx.toJSON())
         console.log(txHash)
     }
     return(

@@ -25,13 +25,13 @@ export const SendModal = () => {
         const txHash = signedTx.hash()
         //const receipt = await Provider.getTransactionReceipt(txHash)
         console.log(txHash, receipt)
-        alert(receipt,'Hash')
+        window.alert(receipt,'Hash')
     }
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
-        <div className="w-[100%] py-4 px-4 bg-white/85 border-white rounded-t-3xl h-auto mt-[100px]">
+        <div className="w-[100%] py-4 px-4 bg-white/95 rounded-t-3xl h-auto mt-[90px]">
             <div className="">
-                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-white">
+                <div onClick={() => setIsSend(false)} className="w-20 rounded-xl text-xl font-light flex items-center justify-center h-9 bg-black/85">
                     <p>esc</p>
                 </div>
             </div>

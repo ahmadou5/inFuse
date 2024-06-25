@@ -13,7 +13,9 @@ export const SendModal = () => {
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://sepolia.gateway.tenderly.co')
     const wallet = new ethers.Wallet(userPkey,Provider)
-
+    const multiple = (x,y) => {
+        return x*y;
+      }
     const handleSendETH = async() => {
        
         //const signer = Provider.getSigner(user)
@@ -45,11 +47,11 @@ export const SendModal = () => {
                </div>
                <div className="w-[98%] mt-4 ml-auto mr-auto h-[230px] py-3 px-2 flex flex-col items-center justify-center rounded-2xl bg-black/20">
                 <div className="w-[100%] ml-auto mr-auto text-black rounded-xl  flex  h-16">
-                 <input onChange={(e) => setAmount(e.target.value)} type="number" className="outline-none bg-transparent text-end text-3xl ml- w-[50%] h-[100%] " value={amount} />
+                 <input onChange={(e) => setAmount(e.target.value)} type="text" className="outline-none bg-transparent text-end text-3xl ml- w-[50%] h-[100%] " value={amount} />
                  <p className="mt-5 text-xl font-light ml-1 mr-auto">ETH</p>
                 </div>
-                   <div className="bg-black/20 rounded-2xl w-20 h-9">
-                      <p className="text-black text-center py-1.5">{ethPrice * amount}</p>
+                   <div className="bg-black/0 rounded-2xl w-[120px] border border-black h-9">
+                      <p className="text-black text-center py-1.5">{multiple(ethPrice,amount).toString().slice(0,6)}</p>
                     </div>
                </div>
                <div>

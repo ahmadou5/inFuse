@@ -1,5 +1,6 @@
 import { GlobalContext } from "@/Context/AppContext"
 import { useGetUserId } from "@/hooks/useGetUserId"
+import { formatAddress } from "@/Utils/format"
 
 export const TransactionSuccessModal = ({hash,amount}) => {
     const { setWelcome, userName,isTxSuccess,setIsTxSuccess, setIsSend } = GlobalContext()
@@ -14,7 +15,7 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                   <p className="text-black/85 font-light ml-auto mr-auto ">{`You just send ${amount} ETH now`}</p>
                 </div>
                 <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
-                  <p className="text-black/85 font-light ml-auto mr-auto ">{`Tx Hash: ${hash}`}</p>
+                  <p className="text-black/85 font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
                 </div>
                 <div onClick={() => {
                     setIsSend(false)

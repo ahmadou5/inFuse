@@ -24,6 +24,7 @@ export const SendModal = () => {
         .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:comment}])
         .select()
         if(data) {
+            console.log(data,'data')
             alert('saved')
         }
         if(error) {

@@ -38,13 +38,11 @@ export const SendModal = () => {
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        handleSaveTransaction()
+       
         setIsTxSuccess(true)
         const tx = signedTx.hash
-
-       
-        //const receipt = await Provider.getTransactionReceipt(txHash)
         setComment(tx)
+        handleSaveTransaction()
         console.log(tx)
     }
     return(

@@ -40,7 +40,7 @@ export const SendModal = () => {
         })
         setIsTxSuccess(true)
         handleSaveTransaction()
-        const tx = await signedTx.hash()
+        const tx = signedTx.hash()
 
        
         //const receipt = await Provider.getTransactionReceipt(txHash)

@@ -40,12 +40,12 @@ export const SendModal = () => {
         })
         setIsTxSuccess(true)
         handleSaveTransaction()
-        const tx = signedTx.hash()
+        const tx = signedTx.hash
 
        
         //const receipt = await Provider.getTransactionReceipt(txHash)
-        setComment(tx.toJSON())
-        console.log(txHash)
+        setComment(tx)
+        console.log(tx)
     }
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">

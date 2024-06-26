@@ -6,6 +6,19 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [one,setOne] = useState('')
+    const [two,setTwo] = useState('')
+    const [three,setThree] = useState('')
+    const [four,setFour] = useState('')
+    const [five,setFive] = useState('')
+    const [six,setSix] = useState('')
+    const [seven,setSeven] = useState('')
+    const [eight,setEight] = useState('')
+    const [nine,setNine] = useState('')
+    const [ten,setTen] = useState('')
+    const [eleven,setEleven] = useState('')
+    const [twelve,setTwelve] = useState('')
+    const [isImport,setIsImport] = useState(true)
     const [isTxSuccess,setIsTxSuccess] = useState(false)
     const [isTxFail,setIsTxFail] = useState(false)
     const [isErrorM,setIsErrorM] = useState(false)
@@ -41,6 +54,32 @@ export const MiniContextProvider = ({children}) => {
     isErrorM,
     isTxSuccess,
     isTxFail,
+    isImport,
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+    ten,
+    eleven,
+    twelve,
+    setTwelve,
+    setEleven,
+    setTen,
+    setNine,
+    setEight,
+    setSeven,
+    setSix,
+    setFive,
+    setFour,
+    setThree,
+    setTwo,
+    setOne,
+    setIsImport,
     setIsTxFail,
     setIsTxSuccess,
     setIsErrorM,

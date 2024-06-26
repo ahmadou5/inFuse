@@ -47,7 +47,7 @@ export const useGetUserId = () => {
           const timeoutId = setTimeout(() => {
             setIsLoading(false);
             //setWelcome(true)
-          }, 15000); // 5 seconds in milliseconds
+          }, 9000); // 5 seconds in milliseconds
           setIsAuthenticate(false);
           return () => clearTimeout(timeoutId);
         }
@@ -60,7 +60,7 @@ export const useGetUserId = () => {
           const timeoutId = setTimeout(() => {
             setIsLoading(false);
             setWelcome(true);
-          }, 10000); // 5 seconds in milliseconds
+          }, 9000); // 5 seconds in milliseconds
           setIsAuthenticate(true);
           return () => clearTimeout(timeoutId);
         }

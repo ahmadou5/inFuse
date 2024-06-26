@@ -6,7 +6,9 @@ import { ethers, parseUnits } from "ethers"
 import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
 import { Supabase } from "@/Utils/supabasedb"
+import { SpinningCircles } from "react-loading-icons"
 export const SendModal = () => {
+    const [loading, setIsLoading] = useState(false)
     const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
@@ -33,7 +35,7 @@ export const SendModal = () => {
        
     }
     const handleSendETH = async() => {
-       
+        setIsLoading(true)
         //const signer = Provider.getSigner(user)
         const signedTx = await wallet.sendTransaction({
             to: receiveAddress,
@@ -41,6 +43,7 @@ export const SendModal = () => {
         })
        
         setIsTxSuccess(true)
+        setIsLoading(false)
         const tx = signedTx.hash
         setComment(tx)
         handleSaveTransaction()
@@ -84,7 +87,7 @@ export const SendModal = () => {
                     if(receiveAddress !== '' && amount > 0) {
                         handleSendETH()
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">Continue</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles /> : 'Continue'}</button>
              </div>
             </div>
             {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}

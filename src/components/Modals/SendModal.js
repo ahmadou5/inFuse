@@ -33,14 +33,24 @@ export const SendModal = () => {
         setIsLoading(false)
         const tx = signedTx.hash
         await setComment(tx)
-        handleSaveTransaction()
+        const {data, error} = await Supabase
+        .from('History')
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:tx}])
+        .select()
+        if(data) {
+            console.log(data,'data')
+            alert('saved')
+        }
+        if(error) {
+            console.log(error)
+        }
         console.log(tx)
     }
     const handleSaveTransaction = async () => {
         console.log(comment,'kme')
         const {data, error} = await Supabase
         .from('History')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:comment}])
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash: await comment}])
         .select()
         if(data) {
             console.log(data,'data')

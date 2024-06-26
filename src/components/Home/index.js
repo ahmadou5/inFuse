@@ -32,6 +32,7 @@ export const Home2 = () => {
     setIsTokens,
     setIsWallet,
   } = GlobalContext();
+  const [history, setHistory] = useState(null)
   const Provider = new ethers.JsonRpcProvider(
     "https://sepolia.gateway.tenderly.co"
   );
@@ -42,6 +43,22 @@ export const Home2 = () => {
     return x*y;
   }
   useEffect(() => {
+    const getUserTransaction = async () => {
+      const { data, error } = await Supabase
+      .from('History')
+      .select('*')
+      .eq('id', user?.initDataUnsafe?.user?.id)
+
+      if(data) {
+        console.log(data,'userData')
+        setHistory(data)
+      }
+      if(error) {
+        console.log(error)
+        alert(error)
+      }
+    }
+    getUserTransaction()
     const getUserEthBalance = async () => {
       try {
         const balance = await Provider.getBalance(userAddress);
@@ -56,6 +73,7 @@ export const Home2 = () => {
         return null; // Handle errors gracefully
       }
     };
+   
     getUserEthBalance();
     console.log("useTelegram");
     function initTg() {
@@ -90,8 +108,19 @@ export const Home2 = () => {
         </div>
       </>)}
       { isHistory && (<>
-        <div className="bg-gothic-950/0 mt-1 flex  text-black mb-2 flex-col items-center justify-center w-[100%] h-auto">
-        hey this is History
+        <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
+          <div>
+
+          </div>
+          <div>
+            {history && history.map((item,i) => (
+             <>
+              <div key={i}>
+                <p>{item.id}</p>
+              </div>
+             </>
+            ))}
+          </div>
         </div>
       </>)}
       { isWallet && (

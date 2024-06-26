@@ -31,9 +31,11 @@ export const SendModal = () => {
        
         setIsTxSuccess(true)
         setIsLoading(false)
-        const tx = signedTx.hash
-        await setComment(tx)
-        const {data, error} = await Supabase
+        const txr = signedTx.hash
+        await setComment(txr)
+        if (signedTx && signedTx.hash) {
+            const tx = signedTx.hash
+         const {data, error} = await Supabase
         .from('History')
         .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:tx}])
         .select()
@@ -44,7 +46,8 @@ export const SendModal = () => {
         if(error) {
             console.log(error)
         }
-        console.log(tx)
+        }
+       
     }
     const handleSaveTransaction = async () => {
         console.log(comment,'kme')

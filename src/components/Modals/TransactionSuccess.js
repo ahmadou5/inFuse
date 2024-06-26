@@ -16,10 +16,11 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                   <p className="text-black/85 font-light ml-auto mr-auto ">{`You just send ${amount} ETH now`}</p>
                 </div>
                 <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
-                  <p className="text-black/85 font-light ml-auto mr-2 ">{`Tx Hash:`}</p>
+                  <div className="text-black/85 flex font-light ml-auto mr-auto ">
                   <Link href={`https://sepolia.etherscan.io/tx/${hash}`} target="_blank">
-                   <p className="text-black font-light ml-2 mr-auto ">{`${formatAddress(hash)}`}</p>
+                   <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
                   </Link> 
+                  </div>
                 </div>
                 <div onClick={() => {
                     setIsSend(false)

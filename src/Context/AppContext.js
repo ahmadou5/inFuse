@@ -18,7 +18,7 @@ export const MiniContextProvider = ({children}) => {
     const [ten,setTen] = useState('')
     const [eleven,setEleven] = useState('')
     const [twelve,setTwelve] = useState('')
-    const [isImport,setIsImport] = useState(true)
+    const [isImport,setIsImport] = useState(false)
     const [isTxSuccess,setIsTxSuccess] = useState(false)
     const [isTxFail,setIsTxFail] = useState(false)
     const [isErrorM,setIsErrorM] = useState(false)

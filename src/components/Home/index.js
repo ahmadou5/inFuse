@@ -25,12 +25,19 @@ export const Home2 = () => {
     ethBalance,
     setEthBalance,
     welcome,
+    isWallet,
+    isTokens,
+    isHistory,
+    setIsHistory,
+    setIsTokens,
+    setIsWallet,
   } = GlobalContext();
   const Provider = new ethers.JsonRpcProvider(
     "https://sepolia.gateway.tenderly.co"
   );
   const { isSend, isReceive, isScan, setIsScan, setIsReceive, setIsSend } =
     GlobalContext();
+
   const multiple = (x,y) => {
     return x*y;
   }
@@ -77,7 +84,19 @@ export const Home2 = () => {
           <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-black/85" />
         </div>
       </div>
-      <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
+      { isTokens && (<>
+        <div className="bg-gothic-950/0 mt-1 flex  text-black mb-2 flex-col items-center justify-center w-[100%] h-auto">
+        hey this is token view
+        </div>
+      </>)}
+      { isHistory && (<>
+        <div className="bg-gothic-950/0 mt-1 flex  text-black mb-2 flex-col items-center justify-center w-[100%] h-auto">
+        hey this is History
+        </div>
+      </>)}
+      { isWallet && (
+        <>
+        <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
         <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
           <p className="text-4xl  text-black/85">{`$${
             multiple(ethBalance,ethPrice).toString().slice(0,6)
@@ -141,6 +160,8 @@ export const Home2 = () => {
           </div>
         </div>
       </div>
+        </>
+      )}
       <div className="mt-auto mb-auto">
         <Menu />
       </div>

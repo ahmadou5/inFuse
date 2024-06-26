@@ -6,15 +6,21 @@ import { IoFlash, IoHome, IoWallet } from "react-icons/io5";
 import { GiTwoCoins } from "react-icons/gi";
 import { RiCoinsLine } from "react-icons/ri";
 import { BsCoin } from "react-icons/bs";
+import { GlobalContext } from "@/Context/AppContext";
 
 
 
 
 export const Menu = () => {
-   const [isHome, setIsHome] = useState(true)
-   const [isHistory, setIsHistory] = useState(false)
-   const [isTokens, setIsTokens] = useState(false)
-  
+   
+   const {
+    isWallet,
+    isTokens,
+    isHistory,
+    setIsHistory,
+    setIsTokens,
+    setIsWallet,
+   } = GlobalContext()
     const router = useRouter()
     const handleCopy = (value) => {
       navigator.clipboard.writeText(value).then(
@@ -59,15 +65,15 @@ export const Menu = () => {
             <div onClick={() => {
               setIsHistory(false)
               setIsTokens(false)
-              setIsHome(true)
+              setIsWallet(true)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoWallet size={28} className={`${ isHome ? 'text-white/85' : 'text-gothic-600/85'}`} />
-                {isHome && <p className={`font-light ${isHome ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Wallet</p>}
+                <IoWallet size={28} className={`${ isWallet ? 'text-white/85' : 'text-gothic-600/85'}`} />
+                {isWallet && <p className={`font-light ${isWallet ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Wallet</p>}
             </div>
             <div onClick={() => {
               setIsHistory(true)
               setIsTokens(false)
-              setIsHome(false)
+              setIsWallet(false)
             }}
              className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
                 <IoFlash size={28} className={`${ isHistory ? 'text-white/85' : 'text-gothic-600/85'}`} />
@@ -76,7 +82,7 @@ export const Menu = () => {
             <div onClick={() => {
               setIsHistory(false)
               setIsTokens(true)
-              setIsHome(false)
+              setIsWallet(false)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
                 <BsCoin size={28} className={`${ isTokens ? 'text-white/85' : 'text-gothic-600/85'}`} />
                 {isTokens && <p className={`font-light ${isTokens ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Tokens</p>}

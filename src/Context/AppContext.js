@@ -6,6 +6,9 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [isWallet,setIsWallet] = useState(true)
+    const [isTokens,setIsTokens] = useState(false)
+    const [isHistory,setIsHistory] = useState(false)
     const [one,setOne] = useState('')
     const [two,setTwo] = useState('')
     const [three,setThree] = useState('')
@@ -67,6 +70,12 @@ export const MiniContextProvider = ({children}) => {
     ten,
     eleven,
     twelve,
+    isWallet,
+    isTokens,
+    isHistory,
+    setIsHistory,
+    setIsTokens,
+    setIsWallet,
     setTwelve,
     setEleven,
     setTen,

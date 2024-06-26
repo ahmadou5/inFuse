@@ -70,6 +70,6 @@ export const useGetUserId = () => {
      
     };
     fetchUser();
-  }, []);
+  }, [user]);
   return true;
 };

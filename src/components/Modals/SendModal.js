@@ -34,8 +34,9 @@ export const SendModal = () => {
         const txr = signedTx.hash
         await setComment(txr)
         if (signedTx && signedTx.hash) {
-            const tx = signedTx.hash
-         const {data, error} = await Supabase
+        const tx = signedTx.hash
+        console.log(tx,'tx here')
+        const {data, error} = await Supabase
         .from('History')
         .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:tx}])
         .select()

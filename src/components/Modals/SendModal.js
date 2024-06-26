@@ -32,7 +32,7 @@ export const SendModal = () => {
         setIsTxSuccess(true)
         setIsLoading(false)
         const tx = signedTx.hash
-        setComment(tx)
+        await setComment(tx)
         handleSaveTransaction()
         console.log(tx)
     }

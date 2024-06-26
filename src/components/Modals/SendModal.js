@@ -20,20 +20,7 @@ export const SendModal = () => {
         return x*y;
       }
     const id = user?.initDataUnsafe?.user?.id
-    const handleSaveTransaction = async () => {
-        const {data, error} = await Supabase
-        .from('History')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:comment}])
-        .select()
-        if(data) {
-            console.log(data,'data')
-            alert('saved')
-        }
-        if(error) {
-            console.log(error)
-        }
-       
-    }
+    
     const handleSendETH = async() => {
         setIsLoading(true)
         //const signer = Provider.getSigner(user)
@@ -48,6 +35,21 @@ export const SendModal = () => {
         setComment(tx)
         handleSaveTransaction()
         console.log(tx)
+    }
+    const handleSaveTransaction = async () => {
+        console.log(comment,'kme')
+        const {data, error} = await Supabase
+        .from('History')
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:comment}])
+        .select()
+        if(data) {
+            console.log(data,'data')
+            alert('saved')
+        }
+        if(error) {
+            console.log(error)
+        }
+       
     }
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
@@ -87,7 +89,7 @@ export const SendModal = () => {
                     if(receiveAddress !== '' && amount > 0) {
                         handleSendETH()
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles /> : 'Continue'}</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles className="ml-auto mr-auto" /> : 'Continue'}</button>
              </div>
             </div>
             {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}

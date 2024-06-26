@@ -115,8 +115,15 @@ export const Home2 = () => {
           <div>
             {history && history.map((item,i) => (
              <>
-              <div key={i}>
-                <p>{item.id}</p>
+              <div className="bg-black/85 w-[90%] h-20 flex flex-col" key={i}>
+                <div className="flex">
+                  <p className="mt-2 mb-2">{formatAddress(item.sender)}</p>
+                  <p className="mt-2 mb-2">{item.amount}</p>
+                </div>
+                <div>
+                <p className="mt-2 mb-2">{item.sender}</p>
+                <p className="mt-2 mb-2">{item.created_at}</p>
+                </div>
               </div>
              </>
             ))}

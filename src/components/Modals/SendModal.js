@@ -42,7 +42,7 @@ export const SendModal = () => {
         .select()
         if(data) {
             console.log(data,'data')
-            alert('saved')
+            
         }
         if(error) {
             console.log(error)
@@ -50,21 +50,7 @@ export const SendModal = () => {
         }
        
     }
-    const handleSaveTransaction = async () => {
-        console.log(comment,'kme')
-        const {data, error} = await Supabase
-        .from('History')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash: await comment}])
-        .select()
-        if(data) {
-            console.log(data,'data')
-            alert('saved')
-        }
-        if(error) {
-            console.log(error)
-        }
-       
-    }
+   
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
         <div className="w-[100%] py-4 px-4 bg-white/95 rounded-t-3xl h-auto mt-[70px]">
@@ -94,16 +80,16 @@ export const SendModal = () => {
                       <p className="text-black text-center py-1.5">MAX</p>
                     </div>
                     <div className="text-s-gray-950">
-                      <p>{`Available: ${ethBalance.toString().slice(0,4)} ETH`}</p>
+                      <p>{`Available: ${ethBalance.toString().slice(0,5)} ETH`}</p>
                     </div>
                 </div>
                <div className="mt-10 w-[100%] ml-auto mr-auto">
-             <div className="w-[98%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
+             <div className="w-[98%] ml-auto mr-auto py-1 rounded-xl bg-black/90 h-14">
                  <button onClick={() => {
                     if(receiveAddress !== '' && amount > 0) {
                         handleSendETH()
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles className="ml-auto mr-auto" /> : 'Continue'}</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles className="ml-auto mr-auto h-7 w-7" /> : 'Continue'}</button>
              </div>
             </div>
             {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}

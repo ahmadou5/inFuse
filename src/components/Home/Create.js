@@ -43,7 +43,7 @@ export const Create = () => {
             if(data) {
                 //alert('data',data)
                 setIsSuccess(true)
-                setIsAuthenticate(true)
+                //setIsAuthenticate(true)
                 
             }
            

@@ -16,7 +16,7 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                   <p className="text-black/85 font-light ml-auto mr-auto ">{`You just send ${amount} ETH now`}</p>
                 </div>
                 <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
-                  <p className="text-black/85 font-light ml-auto mr-1 ">{`Tx Hash:`}</p>
+                  <p className="text-black/85 font-light ml-2 mr-auto ">{`Tx Hash:`}</p>
                   <Link href={`https://sepolia.etherscan.io/tx/${hash}`} target="_blank">
                    <p className="text-black font-light ml-auto mr-1 ">{`${formatAddress(hash)}`}</p>
                   </Link> 

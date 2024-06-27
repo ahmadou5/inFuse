@@ -126,7 +126,7 @@ export const Home2 = () => {
                             className="text-white/90 w-[100%] text-white h-[100%] text-2xl"
                           />
                         </div>
-                        <div className="ml-[25px] text-black/85 mr-auto px-3">
+                        <div className="ml-[8px] text-black/85 mr-auto px-3">
                           <p className="text-sm mb-1.5">{`Send to:${formatAddress(
                             item.receiver
                           )}`}</p>

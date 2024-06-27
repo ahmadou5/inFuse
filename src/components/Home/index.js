@@ -133,7 +133,7 @@ export const Home2 = () => {
                           <p className="text-sm">{`${item.amount}`}</p>
                         </div>
                         <div className="ml-[10px] mt-3 text-black/85 mr-4 px-3">
-                          <p className="text-[23] mt-2 mb-1.5">{item.created_at}</p>
+                         
                         </div>
                       </div>
                     </div>

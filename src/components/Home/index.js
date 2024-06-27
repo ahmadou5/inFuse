@@ -119,7 +119,7 @@ export const Home2 = () => {
                 history.map((item, i) => (
                   <>
                     <div className="bg-gothic-950/0 mt-8 flex items-center justify-center w-[100%] h-auto">
-                      <div className="bg-white/55 w-[100%] flex items-center justify-center rounded-3xl h-[100px]">
+                      <div className="bg-white/55 w-[100%] flex items-center justify-center rounded-3xl h-[87px]">
                         <div className="bg-gothic-600/0 w-[49px] flex items-center justify-center h-12 ml-[13px] mr-[10px] rounded-full">
                           <img
                             src="./assets/send2.png"

@@ -114,7 +114,7 @@ export const Home2 = () => {
             <div className="w-[40%] mt-0 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
               <p className="text-black">Transactions</p>
             </div>
-            <div className="w-[96%] mt-2 py-2 px-3 h-auto rounded-md bg-black/0">
+            <div className="w-[96%] mt-2 py-2 px-3 h-auto mb-20 rounded-md bg-black/0">
               {history &&
                 history.map((item, i) => (
                   <>

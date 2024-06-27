@@ -22,7 +22,7 @@ export const SendModal = () => {
     const id = user?.initDataUnsafe?.user?.id
     const filter = userAddress ? {
         address: userAddress,
-        topics: [ethers.utils.id("Transfer(address,address,uint256)")]
+        topics: [ethers?.utils?.id("Transfer(address,address,uint256)")]
     } : {}
 
     Provider.on(filter, async (transaction) => {

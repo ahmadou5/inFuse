@@ -20,7 +20,20 @@ export const SendModal = () => {
         return x*y;
       }
     const id = user?.initDataUnsafe?.user?.id
-    
+    const filter = userAddress ? {
+        address: userAddress,
+        topics: [ethers.utils.id("Transfer(address,address,uint256)")]
+    } : {}
+
+    Provider.on(filter, async (transaction) => {
+        const txData = {
+            from: transaction.from,
+            to: transaction.to,
+            value: transaction.value.toString(),
+            hash: transaction.hash
+        }
+        console.log(txData)
+    })
     const handleSendETH = async() => {
         setIsLoading(true)
         //const signer = Provider.getSigner(user)

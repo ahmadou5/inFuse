@@ -126,11 +126,11 @@ export const Home2 = () => {
                             className="text-white/90 w-[100%] text-white h-[100%] text-2xl"
                           />
                         </div>
-                        <div className="ml-[5px] text-black/85 mr-auto px-3">
-                          <p className="text-sm mb-1.5">{`to:${formatAddress(
+                        <div className="ml-[25px] text-black/85 mr-auto px-3">
+                          <p className="text-sm mb-1.5">{`Send to:${formatAddress(
                             item.receiver
                           )}`}</p>
-                          <p className="text-sm">{`${item.amount}`}</p>
+                          <p className="text-sm">{`amount: ${item.amount}`}</p>
                         </div>
                         <div className="ml-[10px] mt-3 text-black/85 mr-4 px-3">
                          

@@ -132,9 +132,7 @@ export const Home2 = () => {
                           )}`}</p>
                           <p className="text-sm">{`amount: ${item.amount}`}</p>
                         </div>
-                        <div className="ml-[10px] mt-3 text-black/85 mr-4 px-3">
-                         
-                        </div>
+                       
                       </div>
                     </div>
                   </>

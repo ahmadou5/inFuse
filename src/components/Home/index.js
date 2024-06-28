@@ -34,7 +34,7 @@ export const Home2 = () => {
   } = GlobalContext();
   const [history, setHistory] = useState(null);
   const Provider = new ethers.JsonRpcProvider(
-    "https://rpc2.sepolia.org"
+    "https://ethereum-sepolia-rpc.publicnode.com"
   );
   const { isSend, isReceive, isScan, setIsScan, setIsReceive, setIsSend } =
     GlobalContext();

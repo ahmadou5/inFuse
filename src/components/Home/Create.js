@@ -20,7 +20,7 @@ export const Create = () => {
     const {user,setUser,userPkey, isLoading, isErrorM,setIsErrorM, isImport,setIsImport, isSuccess,setIsSuccess,setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
-    const Provider = 'https://rpc2.sepolia.org'
+    const Provider = 'https://ethereum-sepolia-rpc.publicnode.com'
     const createWallet = async () => {
             const name = user?.initDataUnsafe?.user?.username
             const id = user?.initDataUnsafe?.user?.id

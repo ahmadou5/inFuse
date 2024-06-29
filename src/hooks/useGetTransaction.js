@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ethers,parseUnits } from "ethers";
+import { Supabase } from "@/Utils/supabasedb";
 import { GlobalContext } from "@/Context/AppContext";
 export const useGetTransaction = () => {
   const {

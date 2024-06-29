@@ -17,6 +17,8 @@ export const useGetTransaction = () => {
               try {
                 const transaction = await Provider.getTransaction(hash);
                 console.log('trxxxx',transaction)
+                const UserTx = transaction.filter((tx) => tx.to === userAddress)
+                console.log('USERs:',UserTx)
                 return transaction;
               } catch (error) {
                 console.error('Error fetching transaction info:', error);

@@ -48,6 +48,34 @@ export const Create = () => {
             }
            
     }
+
+    const importWallet = async () => {
+        //const phrase = `${} `
+        const name = user?.initDataUnsafe?.user?.username
+        const id = user?.initDataUnsafe?.user?.id
+        const userWallet =  ethers.Wallet.fromPhrase('',Provider);
+        console.log(userWallet.address)
+        setAddress(userWallet.address)
+        setPhrase(userWallet.mnemonic.phrase)
+        setPrivKey(userWallet.privateKey)
+        console.log(userWallet.privateKey)
+        console.log(userWallet.mnemonic.phrase)
+        const {data ,error} = await Supabase
+        .from('Wallets')
+        .insert([{id:id,username:name,address:userWallet.address,privateKey:userWallet.privateKey,phrase:userWallet.mnemonic.phrase}])
+        .select()
+        if(error) {
+            setIsErrorM(true)
+            setErrorMess(error.message)
+            console.log(error)
+        }
+        if(data) {
+            //alert('data',data)
+            setIsSuccess(true)
+            //setIsAuthenticate(true)
+            
+        }
+    }
     
     useEffect(() => {
         //console.log(Supabase)

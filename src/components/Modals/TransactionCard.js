@@ -62,7 +62,7 @@ export const TransactionModal = () => {
                   <p className="text-sm mb-1.5">{`${hIsSend ? 'To' : 'From'}`}</p>
                 </div>
                 <div className="ml-[10px]  mr-4 px-3">
-                  <p className="text-[23] mb-1.5">{hReceiver}</p>
+                  <p className="text-[23] mb-1.5">{formatAddress(hReceiver)}</p>
                 </div>
               </div>
               <div className="bg-white/0 border-b-black/0 border-t-black/25 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">

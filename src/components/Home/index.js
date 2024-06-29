@@ -133,7 +133,7 @@ export const Home2 = () => {
                         setHDate(item.created_at)
                         setHHash(item.hash)
                       }} className=" w-[100%] bg-white/60 flex items-center justify-start rounded-full h-[68px]">
-                        <div className={`${item.isSend === true ? 'bg-red-600/35' : 'bg-green-500/35'} text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-xl`}>
+                        <div className={`${item.isSend === true ? 'bg-red-600/35' : 'bg-green-500/35'} text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-full`}>
                           {item.isSend === true ? <IoArrowUp className="text-black text-xl"/> : <IoArrowDown className="text-black text-xl" />}
                         </div>
                         <div className="ml-1 mt-1 text-black/85 mr-1 px-0">

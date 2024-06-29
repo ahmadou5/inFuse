@@ -15,6 +15,7 @@ import { Supabase } from "@/Utils/supabasedb";
 import { Welcome } from "../Modals/WelcomeModal";
 import { formatAddress, truncate, handleCopy } from "@/Utils/format";
 import { ethers, formatEther } from "ethers";
+import { useGetTransaction } from "@/hooks/useGetTransaction";
 
 export const Home2 = () => {
   const {
@@ -38,7 +39,8 @@ export const Home2 = () => {
   );
   const { isSend, isReceive, isScan, setIsScan, setIsReceive, setIsSend } =
     GlobalContext();
-
+  const transaction = useGetTransaction()
+  console.log(transaction)
   const multiple = (x, y) => {
     return x * y;
   };

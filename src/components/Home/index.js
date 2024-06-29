@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import {
   IoArrowDown,
+  IoArrowForward,
   IoArrowUp,
   IoKey,
   IoScan,
@@ -43,6 +44,17 @@ export const Home2 = () => {
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
+  const tokens = [
+    {
+      name:'InFuse'
+    },
+    {
+      name:'Asma'
+    },
+    {
+      name:'Ahmadou'
+    },
+  ]
   const multiple = (x, y) => {
     return x * y;
   };
@@ -106,7 +118,33 @@ export const Home2 = () => {
               <p className="text-black font-bold">Settings</p>
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
-            
+            <div className="w-[100%] h-[100%] flex flex-col items-center justify-center">
+              <div className="bg-white/0 border-b-black/25 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
+                <div className="ml-[5px]   text-black  mr-auto px-3">
+                  <p className="text-sm mb-1.5">Account</p>
+                </div>
+                <div className="ml-[10px]   text-black mr-4 px-3">
+                  <IoArrowForward />
+                </div>
+              </div>
+              <div className="bg-white/0 border-b-black/25 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
+                <div className="ml-[5px]   text-black  mr-auto px-3">
+                  <p className="text-sm mb-1.5">Show Recovery Phrases</p>
+                </div>
+                <div className="ml-[10px]   text-black mr-4 px-3">
+                  <IoArrowForward />
+                </div>
+              </div>  
+              <div className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
+                <div className="ml-[5px]   text-black  mr-auto px-3">
+                  <p className="text-sm mb-1.5">Show Private Key</p>
+                </div>
+                <div className="ml-[10px]   text-black mr-4 px-3">
+                  <IoArrowForward />
+                </div>
+              </div>  
+                
+            </div>
               
             </div>
           </div>
@@ -207,8 +245,8 @@ export const Home2 = () => {
                 </div>
             </div>
     </div> **/}
-          <div className="bg-gothic-950/0 mt-8 flex items-center justify-center w-[100%] h-auto">
-            <div className="bg-white/55 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
+          <div className="bg-gothic-950/0 mt-8 flex flex-col items-center justify-center w-[100%] h-auto">
+            <div className="bg-white/55 w-[90%] mb-3 flex items-center justify-center rounded-3xl h-[70px]">
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
                   src="./assets/chain1.svg"
@@ -225,6 +263,36 @@ export const Home2 = () => {
                 </p>
               </div>
             </div>
+            {
+              tokens && tokens.map((token,i) => (
+                <>
+                <div className="bg-white/55 mt-2 mb-2 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
+              <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
+                <img
+                  src="./assets/chain1.svg"
+                  className="text-white/90 w-full h-full text-2xl"
+                />
+              </div>
+              <div className="ml-[5px] text-black/85 mr-auto px-3">
+                <p className="text-sm mb-1.5">{token.name}</p>
+                <p className="text-sm">{`$${ethPrice}`}</p>
+              </div>
+              <div className="ml-[10px]  text-black/85 mr-4 px-3">
+                <p className="text-[23] mb-1.5">
+                  {ethBalance.toString().slice(0, 4)}
+                </p>
+              </div>
+            </div>
+                </>
+              ))
+            }
+          <div 
+                className="w-[295px] mb-[55px]   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
+              >
+                <p className="text-white font-light text-[18px] ml-auto mr-auto ">
+                  Add custom tokens
+                </p>
+              </div>
           </div>
           
         </>

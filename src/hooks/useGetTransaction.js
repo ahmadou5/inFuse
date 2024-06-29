@@ -21,7 +21,7 @@ export const useGetTransaction = () => {
         const userTransactions = block.transactions.filter((tx) => tx.to === userAddress)
         setTrx(newReceivedTransactions)
         console.log('block',blockN)
-        console.log('User',userTransactions)
+        console.log('User',JSON.parse(userTransactions))
       }
       Provider.on('block',listener)
 

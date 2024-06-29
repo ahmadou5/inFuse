@@ -12,7 +12,7 @@ export const MiniContextProvider = ({children}) => {
     const [hIsSend,setHIsSend] = useState(false)
     const [hDate,setHDate] = useState(null)
     const [hAmount,setHAmount] = useState(0)
-    const [isTCard,setIsTCard] = useState(true)
+    const [isTCard,setIsTCard] = useState(false)
     const [isWallet,setIsWallet] = useState(true)
     const [isTokens,setIsTokens] = useState(false)
     const [isHistory,setIsHistory] = useState(false)
@@ -38,7 +38,7 @@ export const MiniContextProvider = ({children}) => {
     const [isSend,setIsSend] = useState(false)
     const [isReceive,setIsReceive] = useState(false)
     const [isScan,setIsScan] = useState(false)
-    const [isAuthenticate,setIsAuthenticate] = useState(true)
+    const [isAuthenticate,setIsAuthenticate] = useState(false)
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
     const [userName, setUserName] = useState('')

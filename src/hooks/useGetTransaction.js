@@ -33,9 +33,6 @@ export const useGetTransaction = () => {
             const transaction = await Provider.getTransaction(hash);
             //console.log('trxxxx',transaction)
             if (transaction.to === userAddress) {
-              console.log('data na farko ',transaction.to, transaction.from, transaction.value, transaction.hash)
-              alert("Shine gashinan");
-             
               const { data, error } = await Supabase.from("History")
                 .insert([
                   {
@@ -49,13 +46,12 @@ export const useGetTransaction = () => {
                 ])
                 .select();
               if (data) {
-                console.log(data, "data");
-                alert();
+                 console.log('pass')
               }
               if (error) {
                 console.log(error);
               }
-              console.log(transaction);
+             
               return transaction;
             }
             console.log("block", blockN);

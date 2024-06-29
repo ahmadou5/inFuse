@@ -40,7 +40,7 @@ export const Home2 = () => {
   const { isSend, isReceive, isScan, setIsScan, setIsReceive, setIsSend } =
     GlobalContext();
   const transaction = useGetTransaction()
-  console.log(JSON.parse(transaction))
+  console.log(transaction)
   const multiple = (x, y) => {
     return x * y;
   };

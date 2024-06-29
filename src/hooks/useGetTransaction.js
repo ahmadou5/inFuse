@@ -5,7 +5,7 @@ import { GlobalContext } from "@/Context/AppContext"
 export const useGetTransaction = () => {
     const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
     const Provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com')
-    const [trx,setTrx] = useState([])
+    const [trx,setTrx] = useState(true)
     useEffect(() => {
       const listener = async () => {
         const blockN = await Provider.getBlockNumber()
@@ -17,6 +17,7 @@ export const useGetTransaction = () => {
               try {
                 const transaction = await Provider.getTransaction(hash);
                 //console.log('trxxxx',transaction)
+                console.log('block',blockN)
                 const UserTx = transaction.map((tx) => tx.to === userAddress)
                 console.log('USERs:',UserTx)
                 return transaction;
@@ -27,7 +28,7 @@ export const useGetTransaction = () => {
             })
           );
         CheckuserTransactions()
-        setTrx(null)
+        
         console.log('block',blockN)
         console.log('User',userTransactions.toJSON())
       }

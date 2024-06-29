@@ -24,8 +24,6 @@ export const useGetTransaction = () => {
         console.log('User',userTransactions)
       }
       Provider.on('block',listener)
-
-      listener()
       const startBlock = () => {}
     },[])
     return trx;

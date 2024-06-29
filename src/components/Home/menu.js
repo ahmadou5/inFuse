@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { IoFlash, IoHome, IoWallet } from "react-icons/io5";
+import { IoFlash, IoHome, IoSettings, IoWallet } from "react-icons/io5";
 import { GiTwoCoins } from "react-icons/gi";
 import { RiCoinsLine } from "react-icons/ri";
 import { BsCoin } from "react-icons/bs";
@@ -59,7 +59,7 @@ export const Menu = () => {
         {/**for desktop view **/}
         <div
           style={{ "backdrop-filter": "blur(12px)" }}
-          className=" w-[93%] ml-auto mr-auto rounded-full py-1 px-1.5 z-100  fixed inset-x-0 bottom-4 flex justify-center items-center"
+          className=" w-[93%] ml-auto mr-auto rounded-full py-1 px-1.5 z-100  fixed inset-x-0 bottom-1 flex justify-center items-center"
         >
           <div className="lg:py-2.5 py-1.5 lg:px-2.5 px-1.5  mt-auto mb-auto ml-auto mr-auto w-[98%] flex flex-row  h-[90%]">
             <div onClick={() => {
@@ -84,8 +84,8 @@ export const Menu = () => {
               setIsTokens(true)
               setIsWallet(false)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <BsCoin size={28} className={`${ isTokens ? 'text-white/85' : 'text-gothic-600/85'}`} />
-                {isTokens && <p className={`font-light ${isTokens ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Tokens</p>}
+                <IoSettings size={28} className={`${ isTokens ? 'text-white/85' : 'text-gothic-600/85'}`} />
+                {isTokens && <p className={`font-light ${isTokens ? 'text-white/85' : 'text-gothic-200'} text-[12px]`}>Settings</p>}
             </div>
           </div>          
         </div>

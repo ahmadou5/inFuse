@@ -95,12 +95,6 @@ export const Home2 = () => {
 
   return (
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
-      <div className="w-[100%] h-12 flex  py-3 ">
-        <div className="w-[85%]"></div>
-        <div className="w-[15%]">
-          <IoSettings className="w-7 mt-0.5 h-7 ml-auto mr-5 text-black/85" />
-        </div>
-      </div>
       {isTokens && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  text-black mb-2 flex-col items-center justify-center w-[100%] h-auto">
@@ -111,28 +105,28 @@ export const Home2 = () => {
       {isHistory && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
-            <div className="w-[40%] mt-0 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
+            <div className="w-[40%] mt-8 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
               <p className="text-black">Transactions</p>
             </div>
-            <div className="w-[96%] mt-2 py-2 px-3 h-auto mb-20 rounded-md bg-black/0">
+            <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
+            
               {history &&
                 history.map((item, i) => (
                   <>
-                    <div className="bg-gothic-950/0 mt-4 mb-4 flex items-center justify-center w-[100%] h-auto">
-                      <div className="bg-white/55 w-[100%] flex items-center justify-center rounded-3xl h-[87px]">
-                        <div className="bg-gothic-600/0 w-[49px] flex items-center justify-center h-12 ml-[13px] mr-[10px] rounded-full">
-                          <img
-                            src="./assets/send2.png"
-                            className="text-white/90 w-[100%] text-white h-[100%] text-2xl"
-                          />
+                   <div className="bg-gothic-950/0 mt-4 mb-4 flex items-center justify-center w-[100%] h-auto">
+                      <div className=" w-[100%] bg-white/60 flex items-center justify-start rounded-3xl h-[68px]">
+                        <div className="bg-gothic-600/35 text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-full">
+                          <IoArrowUp className="text-black text-xl"/>
                         </div>
-                        <div className="ml-auto text-black/85 mr-4 text-end px-3">
-                          <p className="text-sm mb-1.5">{`Send to:${formatAddress(
+                        <div className="ml-1 mt-1 text-black/85 mr-1 px-0">
+                        <p className="text-md">{`Transfer`}</p>
+                          <p className="text-sm mb-1.5">{`To:${formatAddress(
                             item.receiver
                           )}`}</p>
-                          <p className="text-sm">{`amount: ${item.amount}`}</p>
                         </div>
-                       
+                        <div className="bg-gothic-600/0 w-[49px] flex items-center justify-center h-12 ml-auto mr-7 rounded-full">
+                          <p className="text-md text-red-500">{`-${item.amount}`}</p>
+                        </div>
                       </div>
                     </div>
                   </>
@@ -196,7 +190,7 @@ export const Home2 = () => {
             </div>
     </div> **/}
           <div className="bg-gothic-950/0 mt-8 flex items-center justify-center w-[100%] h-auto">
-            <div className="bg-white/55 w-[90%] flex items-center justify-center rounded-3xl h-[100px]">
+            <div className="bg-white/55 w-[90%] flex items-center justify-center rounded-3xl h-[87px]">
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
                   src="./assets/chain1.svg"

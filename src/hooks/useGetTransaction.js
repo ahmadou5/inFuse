@@ -19,6 +19,19 @@ export const useGetTransaction = () => {
             self.findIndex((t) => t.hash === tx.hash) === index
           );
         const userTransactions = block.transactions
+        const CheckuserTransactions = await Promise.all(
+            userTransactions.map(async (hash) => {
+              try {
+                const transaction = await Provider.getTransaction(hash);
+                console.log('trxxxx',transaction)
+                return transaction;
+              } catch (error) {
+                console.error('Error fetching transaction info:', error);
+                return null; // Handle errors gracefully
+              }
+            })
+          );
+        CheckuserTransactions()
         setTrx(newReceivedTransactions)
         console.log('block',blockN)
         console.log('User',userTransactions.toJSON())

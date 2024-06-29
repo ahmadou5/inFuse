@@ -18,7 +18,7 @@ export const useGetTransaction = () => {
           const newReceivedTransactions = pastTransactions.filter((tx) => tx.to === userAddress).filter((tx, index, self) => tx.to === userAddress &&
             self.findIndex((t) => t.hash === tx.hash) === index
           );
-        const userTransactions = block.transactions()
+        const userTransactions = block.transactions
         setTrx(newReceivedTransactions)
         console.log('block',blockN)
         console.log('User',userTransactions)

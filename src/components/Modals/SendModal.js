@@ -20,21 +20,7 @@ export const SendModal = () => {
         return x*y;
       }
     const id = user?.initDataUnsafe?.user?.id
-    const filter = userAddress ? {
-        address: userAddress,
-        topics: [ethers?.utils?.id("Transfer(address,address,uint256)")]
-    } : {}
-
-    Provider.on(filter, async (transaction) => {
-        const txData = {
-            from: transaction.from,
-            to: transaction.to,
-            value: transaction.value.toString(),
-            hash: transaction.hash
-        }
-        console.log(txData)
-        alert(txData)
-    })
+    
     const handleSendETH = async() => {
         setIsLoading(true)
         //const signer = Provider.getSigner(user)
@@ -52,7 +38,7 @@ export const SendModal = () => {
         console.log(tx,'tx here')
         const {data, error} = await Supabase
         .from('History')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:tx}])
+        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:tx,isSend:true}])
         .select()
         if(data) {
             console.log(data,'data')

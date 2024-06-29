@@ -122,8 +122,8 @@ export const Home2 = () => {
                 history.map((item, i) => (
                   <>
                    <div className="bg-gothic-950/0 mt-4 mb-4 flex items-center justify-center w-[100%] h-auto">
-                      <div className=" w-[100%] bg-white/60 flex items-center justify-start rounded-3xl h-[68px]">
-                        <div className={`${item.isSend === true ? 'bg-gothic-600/35' : 'bg-green-500/75'} text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-xl`}>
+                      <div className=" w-[100%] bg-white/60 flex items-center justify-start rounded-full h-[68px]">
+                        <div className={`${item.isSend === true ? 'bg-red-600/35' : 'bg-green-500/35'} text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-xl`}>
                           {item.isSend === true ? <IoArrowUp className="text-black text-xl"/> : <IoArrowDown className="text-black text-xl" />}
                         </div>
                         <div className="ml-1 mt-1 text-black/85 mr-1 px-0">

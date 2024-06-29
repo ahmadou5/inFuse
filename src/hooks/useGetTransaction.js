@@ -12,6 +12,7 @@ export const useGetTransaction = () => {
         const block = await Provider.getBlock(blockN);
         const newTx = block.transactions.filter((tx) => tx.to === userAddress)
         setTrx(newTx)
+        console.log('block',blockN)
         console.log(newTx)
       }
       Provider.on('block',listener)

@@ -39,8 +39,8 @@ export const useGetTransaction = () => {
                 .insert([
                   {
                     id: id,
-                    sender: 'test',
-                    receiver:'test',
+                    sender: transaction.from,
+                    receiver:transaction.to,
                     amount: 8,
                     hash: 'test',
                     isSend:false

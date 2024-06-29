@@ -18,7 +18,7 @@ export const useGetTransaction = () => {
                 const transaction = await Provider.getTransaction(hash);
                 //console.log('trxxxx',transaction)
                 console.log('block',blockN)
-                const UserTx = transaction.map((tx) => tx.to === userAddress)
+                const UserTx = transaction.to
                 console.log('USERs:',UserTx)
                 return transaction;
               } catch (error) {

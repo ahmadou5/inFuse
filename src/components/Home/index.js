@@ -108,7 +108,7 @@ export const Home2 = () => {
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="w-[40%] mt-8 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
-              <p className="text-black">Transactions</p>
+              <p className="text-black font-bold">Activities</p>
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
             
@@ -121,7 +121,7 @@ export const Home2 = () => {
                           {item.isSend === true ? <IoArrowUp className="text-black text-xl"/> : <IoArrowDown className="text-black text-xl" />}
                         </div>
                         <div className="ml-1 mt-1 text-black/85 mr-1 px-0">
-                        <p className="text-md">{`${item.isSend === true ? 'Transfer' : 'Receive'}`}</p>
+                        <p className="text-[20px]">{`${item.isSend === true ? 'Transfer' : 'Receive'}`}</p>
                           <p className="text-sm mb-1.5">{`${item.isSend === true ? 'to' : 'from'}:${formatAddress(
                             item.receiver
                           )}`}</p>

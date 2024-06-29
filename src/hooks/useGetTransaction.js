@@ -17,9 +17,15 @@ export const useGetTransaction = () => {
               try {
                 const transaction = await Provider.getTransaction(hash);
                 //console.log('trxxxx',transaction)
+                if ( transaction.to === userAddress ) {
+                    alert('Shine gashinan');
+                    console.log(transaction)
+                    return transaction
+                }
                 console.log('block',blockN)
                 const UserTx = transaction.to
-                console.log('USERs:',UserTx)
+               // console.log('USERs:',UserTx)
+                
                 return transaction;
               } catch (error) {
                 console.error('Error fetching transaction info:', error);

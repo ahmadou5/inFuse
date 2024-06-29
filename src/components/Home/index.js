@@ -107,7 +107,7 @@ export const Home2 = () => {
       {isHistory && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
-            <div className="w-[40%] mt-8 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
+            <div className="w-[40%] mt-4 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
               <p className="text-black font-bold">Activities</p>
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
@@ -117,7 +117,7 @@ export const Home2 = () => {
                   <>
                    <div className="bg-gothic-950/0 mt-4 mb-4 flex items-center justify-center w-[100%] h-auto">
                       <div className=" w-[100%] bg-white/60 flex items-center justify-start rounded-3xl h-[68px]">
-                        <div className={`${item.isSend === true ? 'bg-gothic-600/35' : 'text-green-500/75'} text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-xl`}>
+                        <div className={`${item.isSend === true ? 'bg-red-500/75' : 'bg-green-500/75'} text-gothic-600/85 w-[49px] flex items-center justify-center h-12 ml-[12px] mr-[12px] rounded-xl`}>
                           {item.isSend === true ? <IoArrowUp className="text-black text-xl"/> : <IoArrowDown className="text-black text-xl" />}
                         </div>
                         <div className="ml-1 mt-1 text-black/85 mr-1 px-0">

@@ -10,14 +10,7 @@ export const useGetTransaction = () => {
       const listener = async () => {
         const blockN = await Provider.getBlockNumber()
         const block = await Provider.getBlock(blockN);
-        const pastTransactions = await Provider.getLogs({
-            fromBlock: Math.max(0, blockN - 100), // Check past 100 blocks
-            toBlock: blockN,
-            address:userAddress,
-          });
-          const newReceivedTransactions = pastTransactions.filter((tx) => tx.to === userAddress).filter((tx, index, self) => tx.to === userAddress &&
-            self.findIndex((t) => t.hash === tx.hash) === index
-          );
+        
         const userTransactions = block.transactions
         const CheckuserTransactions = await Promise.all(
             userTransactions.map(async (hash) => {
@@ -32,7 +25,7 @@ export const useGetTransaction = () => {
             })
           );
         CheckuserTransactions()
-        setTrx(newReceivedTransactions)
+        setTrx(null)
         console.log('block',blockN)
         console.log('User',userTransactions.toJSON())
       }

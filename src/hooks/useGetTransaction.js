@@ -10,8 +10,16 @@ export const useGetTransaction = () => {
       const listener = async () => {
         const blockN = await Provider.getBlockNumber()
         const block = await Provider.getBlock(blockN);
+        const pastTransactions = await Provider.getLogs({
+            fromBlock: Math.max(0, blockN - 1000), // Check past 100 blocks
+            toBlock: blockN,
+            address:userAddress,
+          });
+          const newReceivedTransactions = pastTransactions.filter((tx) => tx.to === userAddress).filter((tx, index, self) =>
+            self.findIndex((t) => t.hash === tx.hash) === index
+          );
         const newTx = block.transactions.filter((tx) => tx.to === userAddress)
-        setTrx(newTx)
+        setTrx(newReceivedTransactions)
         console.log('block',blockN)
         console.log('newTx',newTx)
       }

@@ -33,6 +33,7 @@ export const SendModal = () => {
             hash: transaction.hash
         }
         console.log(txData)
+        alert(txData)
     })
     const handleSendETH = async() => {
         setIsLoading(true)
@@ -55,7 +56,7 @@ export const SendModal = () => {
         .select()
         if(data) {
             console.log(data,'data')
-            
+            alert()
         }
         if(error) {
             console.log(error)

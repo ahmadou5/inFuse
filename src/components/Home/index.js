@@ -121,7 +121,7 @@ export const Home2 = () => {
                           {item.isSend === true ? <IoArrowUp className="text-black text-xl"/> : <IoArrowDown className="text-black text-xl" />}
                         </div>
                         <div className="ml-1 mt-1 text-black/85 mr-1 px-0">
-                        <p className="text-[20px]">{`${item.isSend === true ? 'Transfer' : 'Receive'}`}</p>
+                        <p className="text-[18px font-bold]">{`${item.isSend === true ? 'Transfer' : 'Receive'}`}</p>
                           <p className="text-sm mb-1.5">{`${item.isSend === true ? 'to' : 'from'}:${formatAddress(
                             item.receiver
                           )}`}</p>

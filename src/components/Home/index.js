@@ -121,13 +121,13 @@ export const Home2 = () => {
                           {item.isSend === true ? <IoArrowUp className="text-black text-xl"/> : <IoArrowDown className="text-black text-xl" />}
                         </div>
                         <div className="ml-1 mt-1 text-black/85 mr-1 px-0">
-                        <p className="text-md">{`Transfer`}</p>
+                        <p className="text-md">{`${item.isSend === true ? 'Transfer' : 'Receive'}`}</p>
                           <p className="text-sm mb-1.5">{`${item.isSend === true ? 'to' : 'from'}:${formatAddress(
                             item.receiver
                           )}`}</p>
                         </div>
                         <div className="bg-gothic-600/0 w-[49px] flex items-center justify-center h-12 ml-auto mr-7 rounded-full">
-                          <p className={`text-md ${item.isSend === true ? 'text-red-500' : 'text-green-500'}`}>{`-${item.amount}`}</p>
+                          <p className={`text-md ${item.isSend === true ? 'text-red-500' : 'text-green-500'}`}>{`${item.isSend === true ? '-' : '+'}${item.amount}`}</p>
                         </div>
                       </div>
                     </div>

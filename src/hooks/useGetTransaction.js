@@ -41,8 +41,8 @@ export const useGetTransaction = () => {
                     id: id,
                     sender: transaction.from,
                     receiver:transaction.to,
-                    amount: 8,
-                    hash: 'test',
+                    amount: transaction.value,
+                    hash: transaction.hash,
                     isSend:false
                   },
                 ])

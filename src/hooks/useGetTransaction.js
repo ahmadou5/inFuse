@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ethers,parseUnits } from "ethers";
+import { ethers,formatUnits,parseUnits } from "ethers";
 import { Supabase } from "@/Utils/supabasedb";
 import { GlobalContext } from "@/Context/AppContext";
 export const useGetTransaction = () => {
@@ -35,13 +35,14 @@ export const useGetTransaction = () => {
             if (transaction.to === userAddress) {
               console.log('data na farko ',transaction.to, transaction.from, transaction.value, transaction.hash)
               alert("Shine gashinan");
+             
               const { data, error } = await Supabase.from("History")
                 .insert([
                   {
                     id: id,
                     sender: transaction.to,
                     receiver:transaction.from,
-                    amount: transaction.value,
+                    amount: formatUnits(transaction.value,'ether'),
                     hash: transaction.hash,
                     isSend:false
                   },

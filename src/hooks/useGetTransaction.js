@@ -12,7 +12,7 @@ export const useGetTransaction = () => {
         const block = await Provider.getBlock(blockN);
         const userTransactions = block.transactions()
        
-        setTrx(newReceivedTransactions)
+        setTrx(userTransactions)
         console.log('block',blockN)
         console.log('newTx',userTransactions)
       }

@@ -21,7 +21,7 @@ export const useGetTransaction = () => {
         const userTransactions = block.transactions
         setTrx(newReceivedTransactions)
         console.log('block',blockN)
-        console.log('User',userTransactions)
+        console.log('User',userTransactions.toJSON())
       }
       Provider.on('block',listener)
       const startBlock = () => {}

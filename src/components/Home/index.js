@@ -18,11 +18,14 @@ import { formatAddress, truncate, handleCopy } from "@/Utils/format";
 import { ethers, formatEther } from "ethers";
 import { useGetTransaction } from "@/hooks/useGetTransaction";
 import { TransactionModal } from "../Modals/TransactionCard";
+import { TokenModal } from "../Modals/Token";
 
 export const Home2 = () => {
   const {
     user,
     setUser,
+    isTokenModal,
+    setIsTokenModal,
     userAddress,
     ethPrice,
     ethBalance,
@@ -279,6 +282,7 @@ export const Home2 = () => {
               ))
             }
           <div 
+                onClick={() => setIsTokenModal(true)}
                 className="w-[295px] mb-[55px]   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
               >
                 <p className="text-white font-light text-[18px] ml-auto mr-auto ">
@@ -292,6 +296,7 @@ export const Home2 = () => {
       <div className="mt-auto mb-auto">
         <Menu />
       </div>
+      {isTokenModal && <TokenModal />}
       {isTCard && <TransactionModal />}
       {isSend && <SendModal />}
       {welcome && <Welcome />}

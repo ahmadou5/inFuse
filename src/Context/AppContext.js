@@ -7,6 +7,7 @@ const MiniContext = createContext()
 
 export const MiniContextProvider = ({children}) => {
     const [isPrivate,setIsPrivate] = useState(false)
+    const [isPhrase,setIsPhrase] = useState(false)
     const [tokenAddress,setTokenAddress] = useState('')
     const [tokenName,setTokenName] = useState('')
     const [tokenTicker,setTokenTicker] = useState('')
@@ -99,6 +100,8 @@ export const MiniContextProvider = ({children}) => {
     tokenDecimals,
     isTokenModal,
     isPrivate,
+    isPhrase,
+    setIsPhrase,
     setIsPrivate,
     setIsTokenModal,
     setTokenDecimals,

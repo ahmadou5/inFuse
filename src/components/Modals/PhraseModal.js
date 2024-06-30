@@ -15,6 +15,7 @@ export const PhraseModal = () => {
     tokenTicker,
     tokenDecimals,
     setTokenDecimals,
+    isPhrase,setIsPhrase,
     setTokenTicker,
     setTokenName,
     isTokenModal,setIsTokenModal,
@@ -41,7 +42,7 @@ export const PhraseModal = () => {
       <div className="w-[100%] py-4 px-4 bg-white/95 rounded-t-3xl h-auto mt-[70px]">
         <div>
           <div
-            onClick={() => setIsTokenModal(false)}
+            onClick={() => setIsPhrase(false)}
             className="w-20 rounded-xl text-xl text-white font-light flex items-center justify-center h-9 bg-black/85"
           >
             <p>esc</p>

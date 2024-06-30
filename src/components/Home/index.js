@@ -19,6 +19,8 @@ import { ethers, formatEther } from "ethers";
 import { useGetTransaction } from "@/hooks/useGetTransaction";
 import { TransactionModal } from "../Modals/TransactionCard";
 import { TokenModal } from "../Modals/Token";
+import { PhraseModal } from "../Modals/PhraseModal";
+import { PkeyModal } from "../Modals/PrivateKeyModal";
 
 export const Home2 = () => {
   const {
@@ -44,7 +46,7 @@ export const Home2 = () => {
   const Provider = new ethers.JsonRpcProvider(
     "https://ethereum-sepolia-rpc.publicnode.com"
   );
-  const { isSend, isReceive, isScan, setIsScan, hDate,setHDate, hHash,setHHash, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
+  const { isSend, isReceive, isScan, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
@@ -136,20 +138,14 @@ export const Home2 = () => {
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
             <div className="w-[100%] h-[100%] flex flex-col items-center justify-center">
               
-              <div className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
+              <div onClick={() => setIsPhrase(true)} className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
                 <div className="ml-[5px]   text-black  mr-auto px-3">
                   <p className="text-sm mb-1.5">Show Recovery Phrases</p>
                 </div>
-                <div className="ml-[10px]   text-black mr-4 px-3">
-                  <IoArrowForward />
-                </div>
               </div>  
-              <div className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
+              <div onClick={() => setIsPrivate(true)} className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
                 <div className="ml-[5px]   text-black  mr-auto px-3">
                   <p className="text-sm mb-1.5">Show Private Key</p>
-                </div>
-                <div className="ml-[10px]   text-black mr-4 px-3">
-                  <IoArrowForward />
                 </div>
               </div>  
                 
@@ -310,6 +306,8 @@ export const Home2 = () => {
       <div className="mt-auto mb-auto">
         <Menu />
       </div>
+      {isPrivate && <PkeyModal />}
+      {isPhrase && <PhraseModal />}
       {isTokenModal && <TokenModal />}
       {isTCard && <TransactionModal />}
       {isSend && <SendModal />}

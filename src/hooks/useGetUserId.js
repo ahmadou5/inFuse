@@ -78,23 +78,6 @@ export const useGetUserId = () => {
     };
 
     getUserEthBalance();
-   
-    const getUserTokens = async() => {
-      const { data, error } = await Supabase
-      .from("Tokens")
-      .select("*")
-      .eq("id", user?.initDataUnsafe?.user?.id);
-
-    if (data) {
-      console.log(data, "user Tokens Data");
-      setTokens(data);
-    }
-    if (error) {
-      console.log(error);
-      //alert(error);
-    }
-    }
-    getUserTokens()
     const fetchUser = async () => {
       try {
         const { data, error } = await Supabase.from("Wallets")

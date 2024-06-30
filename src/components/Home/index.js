@@ -290,7 +290,7 @@ export const Home2 = () => {
             }
           <div 
                 onClick={() => setIsTokenModal(true)}
-                className={`w-[205px] ${tokens.length > 0 ? 'mt-[30px]' : 'mt-[80px]'}   ${tokens.length > 0 ? 'mb-[100px]' : 'mb-[30px]'}   ml-auto mr-auto py-1 mb-5 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11`}
+                className={`w-[205px] ${tokens?.length > 0 ? 'mt-[30px]' : 'mt-[80px]'}   ${tokens?.length > 0 ? 'mb-[100px]' : 'mb-[30px]'}   ml-auto mr-auto py-1 mb-5 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11`}
               >
                 <p className="text-white font-light text-[18px] ml-auto mr-auto ">
                   Custom token

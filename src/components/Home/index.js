@@ -40,6 +40,7 @@ export const Home2 = () => {
     setIsWallet,
   } = GlobalContext();
   const [history, setHistory] = useState(null);
+  const [tokens1,setTokens] = useState(null)
   const Provider = new ethers.JsonRpcProvider(
     "https://ethereum-sepolia-rpc.publicnode.com"
   );
@@ -69,10 +70,26 @@ export const Home2 = () => {
       }
       if (error) {
         console.log(error);
-        alert(error);
+       // alert(error);
       }
     };
     getUserTransaction();
+    const getUserTokens = async() => {
+      const { data, error } = await Supabase
+      .from("Tokens")
+      .select("*")
+      .eq("id", user?.initDataUnsafe?.user?.id);
+
+    if (data) {
+      console.log(data, "user Tokens Data");
+      setTokens(data);
+    }
+    if (error) {
+      console.log(error);
+      //alert(error);
+    }
+    }
+    getUserTokens()
     const getUserEthBalance = async () => {
       try {
         const balance = await Provider.getBalance(userAddress);

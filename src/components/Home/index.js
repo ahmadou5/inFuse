@@ -276,12 +276,12 @@ export const Home2 = () => {
                 />
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
-                <p className="text-sm mb-1.5">{token.tick}</p>
-                <p className="text-sm">{`$${0.0345}`}</p>
+                <p className="text-sm mb-1.5">{token.ticker}</p>
+                <p className="text-sm">{`$${0}`}</p>
               </div>
               <div className="ml-[10px]  text-black/85 mr-4 px-3">
                 <p className="text-[23] mb-1.5">
-                  {100}
+                  {0}
                 </p>
               </div>
             </div>

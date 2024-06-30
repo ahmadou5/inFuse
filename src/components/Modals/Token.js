@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useQRCode } from "next-qrcode";
 import { formatAddress, handleCopy } from "@/Utils/format";
 import { useState } from "react";
+import { useGetUserId } from "@/hooks/useGetUserId";
 
 export const TokenModal = () => {
-  
+  const token = useGetUserId()
   const {
     user,
     setIsReceive,
@@ -81,6 +82,7 @@ export const TokenModal = () => {
                 onClick={() => {
                   if(tokenAddress !== '' && tokenName !== '') {
                     uploadTokenData()
+                    console.log(token)
                   } else {
                     console.log('add token info')
                   }

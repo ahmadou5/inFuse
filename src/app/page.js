@@ -9,8 +9,7 @@ import { useState } from "react";
 
 export default function Home() {
   const {isAuthenticate} = GlobalContext()
-  const data = useGetUserId()
-  console.log(data)
+ 
   //const [isAuthenticate,setIsAuthenticate] = useState(false)
   return (
     <main className="flex min-h-screen flex-col bg-[#d1d1d1] items-center justify-between ">

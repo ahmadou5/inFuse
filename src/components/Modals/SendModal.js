@@ -17,7 +17,7 @@ export const SendModal = () => {
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com')
     const wallet = new ethers.Wallet(userPkey,Provider)
-    const Data = useGetUserId()
+   
     const multiple = (x,y) => {
         return x*y;
       }

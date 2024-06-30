@@ -45,7 +45,29 @@ export const PhraseModal = () => {
     if (error) {
       console.log(error, "uploading tokens");
     }
+
   };
+  
+  const getMnemonicPhrase = (text) => {
+    const mnemonic = text
+    if (!mnemonic) {
+      throw new Error('Missing MNEMONIC_PHRASE environment variable');
+    }
+    return mnemonic.split(' ');
+  };
+  const MnemonicList = () => {
+    const words = getMnemonicPhrase(userMnemonic);
+  
+    const renderWords = () =>
+      words.map((word, index) => (
+        <li key={index}>
+          {index + 1}. {word}
+        </li>
+      ));
+  
+    return <ul>{renderWords()}</ul>;
+  };
+  
   return (
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
       <div className="w-[100%] py-4 px-4 bg-white/95 rounded-t-3xl h-auto mt-[70px]">
@@ -68,7 +90,9 @@ export const PhraseModal = () => {
           </div>
           <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto bg-black/45 h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl">
           <div className="text-white">
-            {userMnemonic}
+           {
+            <MnemonicList/>
+           }
           </div>
           
           </div>

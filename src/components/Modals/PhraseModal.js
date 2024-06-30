@@ -58,23 +58,31 @@ export const PhraseModal = () => {
           </div>
         </div>
         <div className="mt-1 px-2 py-3 mb-10 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">
-          <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl bg-black/0">
+          <div className="flex items-center justify-center mt-2">
+            <p className="text-black font-extrabold text-xl">Secret Recovery Phrase</p>
+          </div>
+          <div className="w-[100%] mt-5 text-center bg-black/0 rounded-xl h-20">
+            <p className="text-black/75">
+               This is the only way you will be able to Recover Your account, Please ensure you save it some where safe!
+            </p>
+          </div>
+          <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto bg-black/45 h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl bg-black/0">
+          <div className="text-white">
           {userMnemonic}
+          </div>
+          
           </div>
           <div>
             <div className="mt-4 w-[100%] ml-auto mr-auto">
               <div
                 onClick={() => {
-                  if (tokenAddress !== "" && tokenName !== "") {
-                    uploadTokenData();
-                  } else {
-                    console.log("add token info");
-                  }
+                 handleCopy(userMnemonic)
+                 setIsPhrase(false)
                 }}
-                className="w-[180px] mb-5   ml-auto mr-auto py-3 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11"
+                className="w-[290px] mb-5   ml-auto mr-auto py-3 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11"
               >
                 <p className="text-white font-light text-[18px] ml-auto mr-auto ">
-                  Add Token
+                  Copy Seed Phrase
                 </p>
               </div>
             </div>

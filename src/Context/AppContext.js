@@ -43,7 +43,7 @@ export const MiniContextProvider = ({children}) => {
     const [isSend,setIsSend] = useState(false)
     const [isReceive,setIsReceive] = useState(false)
     const [isScan,setIsScan] = useState(false)
-    const [isAuthenticate,setIsAuthenticate] = useState(false)
+    const [isAuthenticate,setIsAuthenticate] = useState(true)
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
     const [userName, setUserName] = useState('')
@@ -96,6 +96,8 @@ export const MiniContextProvider = ({children}) => {
     tokenName,
     tokenTicker,
     tokenDecimals,
+    isTokenModal,
+    setIsTokenModal,
     setTokenDecimals,
     setTokenTicker,
     setTokenName,

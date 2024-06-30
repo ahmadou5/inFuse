@@ -7,53 +7,68 @@ import { formatAddress, handleCopy } from "@/Utils/format";
 export const TokenModal = () => {
   const {
     setIsReceive,
-    userAddress,
-    isTCard,
-    setIsTCard,
-    hAmount,
-    setHAmount,
-    hReceiver,
-    setHReceiver,
-    hSender,
-    setHSender,
-    hDate,
-    hHash,
-    setHHash,
-    setHDate,
-    hIsSend,
+    tokenAddress,
+    tokenName,
+    tokenTicker,
+    tokenDecimals,
+    setTokenDecimals,
+    setTokenTicker,
+    setTokenName,
+    isTokenModal,setIsTokenModal,
+    setTokenAddress,
     setHIsSend,
   } = GlobalContext();
+  const uploadTokenData = async () => {
 
+  }
   return (
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
       <div className="w-[100%] py-4 px-4 bg-white/95 rounded-t-3xl h-auto mt-[70px]">
         <div>
           <div
-            onClick={() => setIsTCard(false)}
+            onClick={() => setIsTokenModal(false)}
             className="w-20 rounded-xl text-xl text-white font-light flex items-center justify-center h-9 bg-black/85"
           >
             <p>esc</p>
           </div>
         </div>
-        <div className="w-[40%] mt-4 mb-3 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
-          <p className="text-black font-bold">{`${hIsSend === true ? 'Sent' : 'Received'}`}</p>
-        </div>
         <div className="mt-1 px-2 py-3 mb-10 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">
-          <div className="w-[98%] mt-1 mb-10 ml-auto mr-auto h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl bg-black/60">
-     
+          <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl bg-black/0">
+          <div className="w-[100%] mt-2 mb-2">
+          
+          <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Address" />
+             </div>
+          </div>
+          <div className="w-[100%] mt-2 mb-2">
+          
+          <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Name" />
+             </div>
+          </div>
+          <div className="w-[100%] mt-2 mb-2">
+          
+          <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Symbol" />
+             </div>
+          </div>
+          <div className="w-[100%] mt-2 mb-2">
+          
+          <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Decimal" />
+             </div>
+          </div>
           </div>
           <div>
             <div className="mt-4 w-[100%] ml-auto mr-auto">
-            <Link href={`https://sepolia.etherscan.io/tx/${hHash}`} target="_blank">
             <div
                 
-                className="w-[205px] mb-5   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
+                className="w-[180px] mb-5   ml-auto mr-auto py-3 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11"
               >
                 <p className="text-white font-light text-[18px] ml-auto mr-auto ">
                   Add Token
                 </p>
               </div>
-            </Link> 
             </div>
           </div>
         </div>

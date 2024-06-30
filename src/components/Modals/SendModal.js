@@ -102,8 +102,8 @@ export const SendModal = () => {
                <p className=" text-black font-light">From:</p>
                <p className=" text-black font-light">{formatAddress(userAddress)}</p>
              </div>
-             <div className="w-[100%] ml-auto mr-auto rounded-xl text-xl border border-black bg-black/0 h-16">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-black/75 bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Address" />
+             <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Address" />
              </div>
             </div>
             

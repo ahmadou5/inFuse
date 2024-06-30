@@ -48,7 +48,11 @@ export const Home2 = () => {
   const transaction = useGetTransaction()
   console.log(transaction)
   const tokens = [
-    
+    {
+      name: 'Not Coin',
+      tick: 'NOT',
+      logo: './assets/f2.png',
+    },
   ]
   const multiple = (x, y) => {
     return x * y;
@@ -114,15 +118,8 @@ export const Home2 = () => {
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
             <div className="w-[100%] h-[100%] flex flex-col items-center justify-center">
-              <div className="bg-white/0 border-b-black/25 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
-                <div className="ml-[5px]   text-black  mr-auto px-3">
-                  <p className="text-sm mb-1.5">Account</p>
-                </div>
-                <div className="ml-[10px]   text-black mr-4 px-3">
-                  <IoArrowForward />
-                </div>
-              </div>
-              <div className="bg-white/0 border-b-black/25 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
+              
+              <div className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
                 <div className="ml-[5px]   text-black  mr-auto px-3">
                   <p className="text-sm mb-1.5">Show Recovery Phrases</p>
                 </div>
@@ -149,7 +146,7 @@ export const Home2 = () => {
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="w-[40%] mt-4 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
-              <p className="text-black font-bold">Activities</p>
+              <p className="text-black font-bold">Transactions</p>
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
             
@@ -189,7 +186,7 @@ export const Home2 = () => {
       {isWallet && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
-            <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[140px]">
+            <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
                 ethBalance,
                 ethPrice
@@ -249,7 +246,7 @@ export const Home2 = () => {
                 />
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
-                <p className="text-sm mb-1.5">Ethereum</p>
+                <p className="text-sm mb-1.5">ETH</p>
                 <p className="text-sm">{`$${ethPrice}`}</p>
               </div>
               <div className="ml-[10px]  text-black/85 mr-4 px-3">
@@ -264,17 +261,17 @@ export const Home2 = () => {
                 <div className="bg-white/55 mt-2 mb-2 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
-                  src="./assets/chain1.svg"
-                  className="text-white/90 w-full h-full text-2xl"
+                  src={token.logo}
+                  className="text-white/90 w-full h-full rounded-full text-2xl"
                 />
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
-                <p className="text-sm mb-1.5">{token.name}</p>
-                <p className="text-sm">{`$${ethPrice}`}</p>
+                <p className="text-sm mb-1.5">{token.tick}</p>
+                <p className="text-sm">{`$${0.0345}`}</p>
               </div>
               <div className="ml-[10px]  text-black/85 mr-4 px-3">
                 <p className="text-[23] mb-1.5">
-                  {ethBalance.toString().slice(0, 4)}
+                  {100}
                 </p>
               </div>
             </div>
@@ -283,10 +280,10 @@ export const Home2 = () => {
             }
           <div 
                 onClick={() => setIsTokenModal(true)}
-                className="w-[295px] mb-[55px]   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
+                className={`w-[205px] ${tokens.length > 0 ? 'mt-[30px]' : 'mt-[80px]'}   ${tokens.length > 0 ? 'mb-[100px]' : 'mb-[30px]'}   ml-auto mr-auto py-1 mb-5 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11`}
               >
                 <p className="text-white font-light text-[18px] ml-auto mr-auto ">
-                  Add custom tokens
+                  Custom token
                 </p>
               </div>
           </div>

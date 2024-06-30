@@ -50,7 +50,7 @@ export const MiniContextProvider = ({children}) => {
     const [userAddress,setUserAddress] = useState('')
     const [userName, setUserName] = useState('')
     const [userPkey,setUserPkey] = useState('')
-    const [userMnemonic,setUserMnemonic] = useState([])
+    const [userMnemonic,setUserMnemonic] = useState(null)
     const [welcome,setWelcome] = useState(false)
     const [isLoading,setIsLoading] = useState(true)
    const value = {

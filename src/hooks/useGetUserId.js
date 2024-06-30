@@ -13,6 +13,7 @@ export const useGetUserId = () => {
     ethPrice,
     setEthPrice,
     userName,
+    userMnemonic,setUserMnemonic,
     setUserName,
     setUserAddress,
     isLoading,
@@ -57,6 +58,7 @@ export const useGetUserId = () => {
           setUserAddress(data?.address);
           setUserName(data?.username);
           setUserPkey(data?.privateKey);
+          setUserMnemonic(data?.phrase)
           const timeoutId = setTimeout(() => {
             setIsLoading(false);
             setWelcome(true);

@@ -4,6 +4,7 @@ import { formatAddress } from "@/Utils/format"
 import Link from "next/link"
 
 export const TransactionSuccessModal = ({hash,amount}) => {
+   const Data = useGetUserId()
     const { setWelcome, userName,isTxSuccess,setIsTxSuccess, setIsSend } = GlobalContext()
     return(
     <div className="inset-0 fixed bg-black/85 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">

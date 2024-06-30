@@ -1,6 +1,7 @@
 import { GlobalContext } from "@/Context/AppContext";
 import { Supabase } from "@/Utils/supabasedb";
 import { useEffect } from "react";
+import { formatEther ,ethers} from "ethers";
 import axios from "axios";
 export const useGetUserId = () => {
   const baseUrl = "https://api.coingecko.com/api/v3/simple/price";
@@ -12,7 +13,13 @@ export const useGetUserId = () => {
     setUserPkey,
     ethPrice,
     setEthPrice,
+    setEthBalance,
+    userAddress,
     userName,
+    tokens,
+    history, 
+    setHistory,
+    setTokens,
     userMnemonic,setUserMnemonic,
     setUserName,
     setUserAddress,
@@ -21,7 +28,9 @@ export const useGetUserId = () => {
     setWelcome,
     user,
   } = GlobalContext();
-  
+  const Provider =  new ethers.JsonRpcProvider(
+    "https://ethereum-sepolia-rpc.publicnode.com"
+  );
   useEffect(() => {
     const getEthPrice = async () => {
       try {
@@ -38,6 +47,54 @@ export const useGetUserId = () => {
       }
     };
     getEthPrice();
+    const getUserTransaction = async () => {
+      const { data, error } = await Supabase.from("History")
+        .select("*")
+        .eq("id", user?.initDataUnsafe?.user?.id);
+
+      if (data) {
+        console.log(data, "userData");
+        setHistory(data);
+      }
+      if (error) {
+        console.log(error);
+       // alert(error);
+      }
+    };
+    getUserTransaction();
+    const getUserEthBalance = async () => {
+      try {
+        const balance = await Provider.getBalance(userAddress);
+        console.log(balance, "1 blnc");
+        const formattedBalance = formatEther(balance);
+        console.log("User ETH balance:", formattedBalance);
+
+        setEthBalance(formattedBalance);
+        return formattedBalance;
+      } catch (error) {
+        console.error("Error fetching ETH balance:", error);
+        return null; // Handle errors gracefully
+      }
+    };
+
+    getUserEthBalance();
+   
+    const getUserTokens = async() => {
+      const { data, error } = await Supabase
+      .from("Tokens")
+      .select("*")
+      .eq("id", user?.initDataUnsafe?.user?.id);
+
+    if (data) {
+      console.log(data, "user Tokens Data");
+      setTokens(data);
+    }
+    if (error) {
+      console.log(error);
+      //alert(error);
+    }
+    }
+    getUserTokens()
     const fetchUser = async () => {
       try {
         const { data, error } = await Supabase.from("Wallets")
@@ -53,7 +110,7 @@ export const useGetUserId = () => {
           return () => clearTimeout(timeoutId);
         }
         if (data) {
-          console.log(data, "data222");
+          //console.log(data, "data222");
           //setIsAuthenticate(true)
           setUserAddress(data?.address);
           setUserName(data?.username);

@@ -37,12 +37,15 @@ export const Home2 = () => {
     isTokens,
     isHistory,
     isTCard,setIsTCard,
+    tokens,
+    history, 
+    setHistory,
+    setTokens,
     setIsHistory,
     setIsTokens,
     setIsWallet,
   } = GlobalContext();
-  const [history, setHistory] = useState(null);
-  const [tokens1,setTokens] = useState(null)
+  
   const Provider = new ethers.JsonRpcProvider(
     "https://ethereum-sepolia-rpc.publicnode.com"
   );
@@ -50,13 +53,7 @@ export const Home2 = () => {
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
-  const tokens = [
-    {
-      name: 'Not Coin',
-      tick: 'NOT',
-      logo: './assets/f2.png',
-    },
-  ]
+ 
   const multiple = (x, y) => {
     return x * y;
   };
@@ -274,7 +271,7 @@ export const Home2 = () => {
                 <div className="bg-white/55 mt-2 mb-2 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
-                  src={token.logo}
+                  src={'./assets/wewe.png'}
                   className="text-white/90 w-full h-full rounded-full text-2xl"
                 />
               </div>

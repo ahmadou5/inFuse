@@ -7,6 +7,7 @@ import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
 import { Supabase } from "@/Utils/supabasedb"
 import { SpinningCircles } from "react-loading-icons"
+import { useGetUserId } from "@/hooks/useGetUserId"
 export const SendModal = () => {
     const [loading, setIsLoading] = useState(false)
     const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
@@ -16,6 +17,7 @@ export const SendModal = () => {
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com')
     const wallet = new ethers.Wallet(userPkey,Provider)
+    const Data = useGetUserId()
     const multiple = (x,y) => {
         return x*y;
       }

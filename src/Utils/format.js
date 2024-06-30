@@ -17,11 +17,11 @@ export const formatAddress = (value) => {
     navigator.clipboard.writeText(value).then(
       () => {
        
-        alert('address copied to clip Board')
+        alert('Copied to clip Board')
       },
       (err) => {
         // Failed to copy to clipboard
-        console.error('Could not copy address: ', err);
+        console.error('Could not copy: ', err);
       }
     );
   }

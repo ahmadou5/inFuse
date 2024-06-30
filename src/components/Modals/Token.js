@@ -78,7 +78,7 @@ export const TokenModal = () => {
             <div className="mt-4 w-[100%] ml-auto mr-auto">
             <div
                 onClick={() => {
-                  if(tokenAddress === '' && tokenName === '') {
+                  if(tokenAddress !== '' && tokenName !== '') {
                     uploadTokenData()
                   } else {
                     console.log('add token info')

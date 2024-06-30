@@ -57,14 +57,29 @@ export const PhraseModal = () => {
   };
   const MnemonicList = () => {
     const words = getMnemonicPhrase(userMnemonic);
-  
-    const renderWords = () =>
-      words.map((word, index) => (
-        <li key={index}>
-          {index + 1}. {word}
-        </li>
-      ));
-  
+    const renderWords = () => {
+        const firstHalf = words.slice(0, 6);
+        const secondHalf = words.slice(6);
+    
+        return (
+          <>
+            <ul>
+              {firstHalf.map((word, index) => (
+                <li key={index}>
+                  {index + 1}. {word}
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {secondHalf.map((word, index) => (
+                <li key={index}>
+                  {index + 7}. {word}
+                </li>
+              ))}
+            </ul>
+          </>
+        );
+      };
     return <ul>{renderWords()}</ul>;
   };
   

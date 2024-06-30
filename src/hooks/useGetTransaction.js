@@ -55,8 +55,7 @@ export const useGetTransaction = () => {
               return transaction;
             }
             console.log("block", blockN);
-            // const UserTx = transaction.to
-            // console.log('USERs:',UserTx)
+            
           } catch (error) {
             console.error("Error fetching transaction info:", error);
             return null; // Handle errors gracefully
@@ -64,9 +63,6 @@ export const useGetTransaction = () => {
         })
       );
       CheckuserTransactions();
-
-      console.log("block", blockN);
-      console.log("User", userTransactions.toJSON());
     };
     Provider.on("block", listener);
     const startBlock = () => {};

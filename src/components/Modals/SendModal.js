@@ -42,7 +42,7 @@ export const SendModal = () => {
         .select()
         if(data) {
             console.log(data,'data')
-            alert()
+            
         }
         if(error) {
             console.log(error)

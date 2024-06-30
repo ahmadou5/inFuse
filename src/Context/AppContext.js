@@ -6,6 +6,11 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [tokenAddress,setTokenAddress] = useState('')
+    const [tokenName,setTokenName] = useState('')
+    const [tokenTicker,setTokenTicker] = useState('')
+    const [tokenDecimals,setTokenDecimals] = useState(18)
+    const [isTokenModal,setIsTokenModal] = useState(false)
     const [hReceiver,setHReceiver] = useState('')
     const [hSender,setHSender] = useState('')
     const [hHash,setHHash] = useState('')
@@ -87,6 +92,14 @@ export const MiniContextProvider = ({children}) => {
     hAmount,
     hDate,
     hHash,
+    tokenAddress,
+    tokenName,
+    tokenTicker,
+    tokenDecimals,
+    setTokenDecimals,
+    setTokenTicker,
+    setTokenName,
+    setTokenAddress,
     setHHash,
     setHDate,
     setHAmount,

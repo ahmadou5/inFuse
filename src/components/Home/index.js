@@ -45,15 +45,7 @@ export const Home2 = () => {
   const transaction = useGetTransaction()
   console.log(transaction)
   const tokens = [
-    {
-      name:'InFuse'
-    },
-    {
-      name:'Asma'
-    },
-    {
-      name:'Ahmadou'
-    },
+    
   ]
   const multiple = (x, y) => {
     return x * y;

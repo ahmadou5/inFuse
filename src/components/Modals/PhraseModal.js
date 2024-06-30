@@ -1,12 +1,11 @@
 "use client";
 import { GlobalContext } from "@/Context/AppContext";
-import { Supabase } from "@/Utils/supabasedb";
 import Link from "next/link";
 import { useQRCode } from "next-qrcode";
 import { formatAddress, handleCopy } from "@/Utils/format";
 import { useState } from "react";
 
-export const TokenModal = () => {
+export const PhraseModal = () => {
   
   const {
     user,

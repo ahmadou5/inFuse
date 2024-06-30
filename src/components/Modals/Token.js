@@ -3,9 +3,12 @@ import { GlobalContext } from "@/Context/AppContext";
 import Link from "next/link";
 import { useQRCode } from "next-qrcode";
 import { formatAddress, handleCopy } from "@/Utils/format";
+import { useState } from "react";
 
 export const TokenModal = () => {
+  
   const {
+    user,
     setIsReceive,
     tokenAddress,
     tokenName,
@@ -15,11 +18,23 @@ export const TokenModal = () => {
     setTokenTicker,
     setTokenName,
     isTokenModal,setIsTokenModal,
+    userAddress,
     setTokenAddress,
     setHIsSend,
   } = GlobalContext();
+  const id = user?.initDataUnsafe?.user?.id
   const uploadTokenData = async () => {
-
+    const {data, error} = await Supabase
+    .from('Tokens')
+    .insert([{id:id,userAddress:userAddress,tokenAddress:tokenAddress,tokenName:tokenName,ticker:tokenTicker}])
+    .select()
+    if(data) {
+        console.log(data,'data')
+        
+    }
+    if(error) {
+        console.log(error,'uploading tokens')
+    }
   }
   return (
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
@@ -37,32 +52,38 @@ export const TokenModal = () => {
           <div className="w-[100%] mt-2 mb-2">
           
           <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Address" />
+                 <input onChange={(e) => setTokenAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Address" />
              </div>
           </div>
           <div className="w-[100%] mt-2 mb-2">
           
           <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Name" />
+                 <input onChange={(e) => setTokenName(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Name" />
              </div>
           </div>
           <div className="w-[100%] mt-2 mb-2">
           
           <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Symbol" />
+                 <input onChange={(e) => setTokenTicker(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Symbol" />
              </div>
           </div>
           <div className="w-[100%] mt-2 mb-2">
           
           <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Decimal" />
+                 <input onChange={(e) => setTokenDecimals(e.target.value)} type="number" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Token Decimal" />
              </div>
           </div>
           </div>
           <div>
             <div className="mt-4 w-[100%] ml-auto mr-auto">
             <div
-                
+                onClick={() => {
+                  if(tokenAddress === '' && tokenName === '') {
+                    uploadTokenData()
+                  } else {
+                    console.log('add token info')
+                  }
+                }}
                 className="w-[180px] mb-5   ml-auto mr-auto py-3 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11"
               >
                 <p className="text-white font-light text-[18px] ml-auto mr-auto ">

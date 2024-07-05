@@ -10,6 +10,7 @@ export const useGetTransaction = () => {
     ethPrice,
     ethBalance,
     userAddress,
+    providerURL,
     isTxFail,
     setIsTxFail,
     isTxSuccess,
@@ -17,7 +18,7 @@ export const useGetTransaction = () => {
     user,
   } = GlobalContext();
   const Provider = new ethers.JsonRpcProvider(
-    "https://ethereum-sepolia-rpc.publicnode.com"
+    providerURL
   );
   const [trx, setTrx] = useState(true);
   const id = user?.initDataUnsafe?.user?.id

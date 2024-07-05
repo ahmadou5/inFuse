@@ -11,7 +11,7 @@ export const ChainSelector = () => {
             scan: 'https://holesky.fraxscan.com'
         },
         {
-            name: 'Arbitrum Sepolia',
+            name: 'Arb Sepolia',
             providerUrl: 'https://sepolia-rollup.arbitrum.io/rpc',
             imgUrl: './assets/arb.png',
             Tick: 'ETH',

@@ -131,6 +131,8 @@ export const Home2 = () => {
       }
     }
     initTg();
+    Provider.on("block", getUserEthBalance);
+    Provider.on("block", getUserTransaction);
   }, []);
 
   return (
@@ -146,12 +148,12 @@ export const Home2 = () => {
               
               <div onClick={() => setIsPhrase(true)} className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
                 <div className="ml-[5px]   text-black  mr-auto px-3">
-                  <p className="text-sm mb-1.5">Show Recovery Phrases</p>
+                  <p className="text-[19] font-bold mb-1.5">Show Recovery Phrases</p>
                 </div>
               </div>  
               <div onClick={() => setIsPrivate(true)} className="bg-white/0 border-b-black/5 border-t-black/5 border border-white/0 w-[99%] flex items-center justify-center rounded-sm h-[70px]">
                 <div className="ml-[5px]   text-black  mr-auto px-3">
-                  <p className="text-sm mb-1.5">Show Private Key</p>
+                  <p className="text-[19] font-bold mb-1.5">Show Private Key</p>
                 </div>
               </div>  
                 

@@ -10,13 +10,13 @@ import { SpinningCircles } from "react-loading-icons"
 import { useGetUserId } from "@/hooks/useGetUserId"
 export const SendModal = () => {
     const [loading, setIsLoading] = useState(false)
-    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
+    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, providerURL, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com')
-    const wallet = new ethers.Wallet(userPkey,Provider)
+    const wallet = new ethers.Wallet(userPkey,providerURL)
    
     const multiple = (x,y) => {
         return x*y;
@@ -30,7 +30,7 @@ export const SendModal = () => {
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-       
+        signedTx.wait(1)
         setIsTxSuccess(true)
         setIsLoading(false)
         const txr = signedTx.hash

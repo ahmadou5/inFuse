@@ -17,14 +17,14 @@ export const Create = () => {
     const [privKey,setPrivKey] = useState('');
     const [phrase, setPhrase] = useState('')
    // const [isLoading,setIsLoading] = useState(true)
-    const {user,setUser,userPkey, isLoading, isErrorM,setIsErrorM, isImport,setIsImport, isSuccess,setIsSuccess,setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
+    const {user,setUser,userPkey, isLoading, providerURL, isErrorM,setIsErrorM, isImport,setIsImport, isSuccess,setIsSuccess,setUserPkey, welcome,setWelcome,userAddress,setUserAddress,userMnemonic,setUserMnemonic, setIsAuthenticate, isAuthenticate} = GlobalContext()
     const userID = useGetUserId()
     console.log(userID)
     const Provider = 'https://ethereum-sepolia-rpc.publicnode.com'
     const createWallet = async () => {
             const name = user?.initDataUnsafe?.user?.username
             const id = user?.initDataUnsafe?.user?.id
-            const userWallet =  ethers.Wallet.createRandom(Provider);
+            const userWallet =  ethers.Wallet.createRandom(providerURL);
             console.log(userWallet.address)
             setAddress(userWallet.address)
             setPhrase(userWallet.mnemonic.phrase)

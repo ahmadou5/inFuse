@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { FaHandHoldingWater } from "react-icons/fa";
 import {
   IoArrowDown,
   IoArrowForward,
@@ -21,6 +23,7 @@ import { TransactionModal } from "../Modals/TransactionCard";
 import { TokenModal } from "../Modals/Token";
 import { PhraseModal } from "../Modals/PhraseModal";
 import { PkeyModal } from "../Modals/PrivateKeyModal";
+import { ChainSelector } from "../Modals/ChainSelector";
 
 export const Home2 = () => {
   const {
@@ -41,13 +44,19 @@ export const Home2 = () => {
     history, 
     setHistory,
     setTokens,
+    providerName,
+    providerImg,
+    providerURL,
+    providerTick,
     setIsHistory,
     setIsTokens,
     setIsWallet,
+    isChainList,
+    setIsChainList,
   } = GlobalContext();
-  
+ 
   const Provider = new ethers.JsonRpcProvider(
-    "https://ethereum-sepolia-rpc.publicnode.com"
+    providerURL
   );
   const { isSend, isReceive, isScan, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();
@@ -196,8 +205,12 @@ export const Home2 = () => {
       {isWallet && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
-            <div>
-              hey
+            <div className="mt-1 mb-0 w-full">
+             <div onClick={() => setIsChainList(true)} className="bg-black/10 text-black mt-1 rounded-xl p-1.5 flex ml-3 mr-auto w-[51%] h-9">
+             <img src={providerImg} className="mr-1 rounded-full"/>
+              <div>{providerName}</div>
+              <MdKeyboardArrowDown className="text-2xl ml-auto mr-1 mb-2" />
+             </div>
             </div>
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
@@ -235,8 +248,8 @@ export const Home2 = () => {
                 </p>
               </div>
               <div className="text-xl  bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
-                <IoScan className="text-2xl text-black/85" />
-                <p className="text-sm mt-2.5 text-black/85 font-light ">Scan</p>
+                <FaHandHoldingWater className="text-2xl text-black/85" />
+                <p className="text-sm mt-2.5 text-black/85 font-light ">Faucets</p>
               </div>
             </div>
           </div>
@@ -259,7 +272,7 @@ export const Home2 = () => {
                 />
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
-                <p className="text-sm mb-1.5">ETH</p>
+                <p className="text-sm mb-1.5">{providerTick}</p>
                 <p className="text-sm">{`$${ethPrice}`}</p>
               </div>
               <div className="ml-[10px]  text-black/85 mr-4 px-3">
@@ -306,6 +319,7 @@ export const Home2 = () => {
       <div className="mt-auto mb-auto">
         <Menu />
       </div>
+      {isChainList && <ChainSelector/>}
       {isPrivate && <PkeyModal />}
       {isPhrase && <PhraseModal />}
       {isTokenModal && <TokenModal />}

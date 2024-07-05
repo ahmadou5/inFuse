@@ -58,7 +58,7 @@ export const PkeyModal = () => {
             </p>
           </div>
           <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto bg-black/75 h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl">
-          <div className="text-white text-[18px] font-light">
+          <div className="text-white text-sm font-light">
            {userPkey}
           </div>
           

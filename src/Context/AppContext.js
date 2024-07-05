@@ -6,6 +6,12 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
+    const [scan,setScan] = useState('https://holesky.fraxscan.com')
+    const [providerURL,setProviderURL] = useState('https://rpc.testnet.frax.com')
+    const [providerName,setProviderName] = useState('Fraxtal Testnet')
+    const [providerTick,setProviderTick] = useState('frxETH')
+    const [providerImg,setProviderImg] = useState('./assets/frx.png')
+    const [isChainList,setIsChainList] = useState(false)
     const [history, setHistory] = useState(null);
     const [tokens,setTokens] = useState(null)
     const [isPrivate,setIsPrivate] = useState(false)
@@ -105,6 +111,18 @@ export const MiniContextProvider = ({children}) => {
     isPhrase,
     tokens,
     history, 
+    providerURL,
+    providerImg,
+    isChainList,
+    providerName,
+    providerTick,
+    scan,
+    setScan,
+    setProviderTick,
+    setProviderName,
+    setIsChainList,
+    setProviderImg,
+    setProviderURL,
     setHistory,
     setTokens,
     setIsPhrase,

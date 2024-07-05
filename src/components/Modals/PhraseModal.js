@@ -64,14 +64,14 @@ export const PhraseModal = () => {
         return (
           <>
           <div className=" flex items-center justify-between text-[18px] font-light ">
-            <ul>
+            <ul className="ml-auto mr-auto">
               {firstHalf.map((word, index) => (
                 <li key={index}>
                   {index + 1}. {word}
                 </li>
               ))}
             </ul>
-            <ul>
+            <ul className="ml-auto mr-auto">
               {secondHalf.map((word, index) => (
                 <li key={index}>
                   {index + 7}. {word}

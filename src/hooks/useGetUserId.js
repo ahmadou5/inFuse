@@ -18,6 +18,7 @@ export const useGetUserId = () => {
     userName,
     tokens,
     history, 
+    providerURL,
     setHistory,
     setTokens,
     userMnemonic,setUserMnemonic,
@@ -29,7 +30,7 @@ export const useGetUserId = () => {
     user,
   } = GlobalContext();
   const Provider =  new ethers.JsonRpcProvider(
-    "https://ethereum-sepolia-rpc.publicnode.com"
+    providerURL
   );
   useEffect(() => {
     const getEthPrice = async () => {

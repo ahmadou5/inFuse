@@ -42,6 +42,7 @@ export const ChainSelector = () => {
                     chains && chains.map((item,i) => (
                         <>
                         <div onClick={() => {
+                            setIsChainList(false)
                             setProviderImg(item.imgUrl)
                             setProviderURL(item.providerUrl)
                             setProviderName(item.name)

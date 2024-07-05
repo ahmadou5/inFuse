@@ -7,7 +7,7 @@ const MiniContext = createContext()
 
 export const MiniContextProvider = ({children}) => {
     const [scan,setScan] = useState('https://holesky.fraxscan.com')
-    const [providerURL,setProviderURL] = useState('https://rpc.testnet.frax.com')
+    const [providerURL,setProviderURL] = useState('https://ethereum-sepolia-rpc.publicnode.com')
     const [providerName,setProviderName] = useState('Fraxtal Testnet')
     const [providerTick,setProviderTick] = useState('frxETH')
     const [providerImg,setProviderImg] = useState('./assets/frx.png')

@@ -67,6 +67,6 @@ export const useGetTransaction = () => {
     };
     Provider.on("block", listener);
     const startBlock = () => {};
-  }, []);
+  }, [providerURL]);
   return trx;
 };

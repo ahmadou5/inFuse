@@ -63,7 +63,7 @@ export const PhraseModal = () => {
     
         return (
           <>
-          <div className=" flex ">
+          <div className=" flex items-center justify-between text-[18px] font-light ">
             <ul>
               {firstHalf.map((word, index) => (
                 <li key={index}>
@@ -105,7 +105,7 @@ export const PhraseModal = () => {
                This is the only way you will be able to Recover Your account, Please ensure you save it some where safe!
             </p>
           </div>
-          <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto bg-black/45 h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl">
+          <div className="w-[98%] mt-12 mb-10 ml-auto mr-auto bg-black/75 h-[290px] py-3 px-1 flex flex-col items-center justify-center rounded-2xl">
           <div className="text-white">
            {
             <MnemonicList/>

@@ -196,6 +196,9 @@ export const Home2 = () => {
       {isWallet && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
+            <div>
+              hey
+            </div>
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
                 ethBalance,

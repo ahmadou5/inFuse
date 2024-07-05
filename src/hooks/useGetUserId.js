@@ -17,6 +17,7 @@ export const useGetUserId = () => {
     userAddress,
     userName,
     tokens,
+    
     history, 
     providerURL,
     setHistory,
@@ -66,7 +67,7 @@ export const useGetUserId = () => {
     const getUserEthBalance = async () => {
       try {
         const balance = await Provider.getBalance(userAddress);
-        console.log(balance, "1 blnc");
+        console.log(balance, "1 non blnc");
         const formattedBalance = formatEther(balance);
         console.log("User ETH balance:", formattedBalance);
 
@@ -113,6 +114,6 @@ export const useGetUserId = () => {
      
     };
     fetchUser();
-  }, [user]);
+  }, [user,providerURL]);
   return true;
 };

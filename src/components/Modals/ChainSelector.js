@@ -25,6 +25,23 @@ export const ChainSelector = () => {
             scan: 'https://sepolia.basescan.org/'
         }
     ]
+    const Provider = new ethers.JsonRpcProvider(
+        providerURL
+      );
+    const getUserEthBalance = async () => {
+        try {
+          const balance = await Provider.getBalance(userAddress);
+          console.log(balance, "1 blnc");
+          const formattedBalance = formatEther(balance);
+          console.log("User ETH balance:", formattedBalance);
+  
+          setEthBalance(formattedBalance);
+          return formattedBalance;
+        } catch (error) {
+          console.error("Error fetching ETH balance:", error);
+          return null; // Handle errors gracefully
+        }
+      };
     return(
     <div className="inset-0 fixed bg-black/75 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
         <div className="w-[100%] flex items-center px- justify-center">
@@ -48,6 +65,7 @@ export const ChainSelector = () => {
                             setProviderName(item.name)
                             setProviderTick(item.Tick)
                             setScan(item.scan)
+                            getUserEthBalance()
                         }} key={i} className="w-[97%] mt-1 mb-1 bg-black/15 flex rounded-2xl h-18">
                 <div className="h-[100%] w-[30%] py-1.5 px-2">
                 <img src={item.imgUrl} className="h-[83%] rounded-full mt-0 w-[80%]"/>

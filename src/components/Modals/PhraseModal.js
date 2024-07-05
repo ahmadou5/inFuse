@@ -63,6 +63,7 @@ export const PhraseModal = () => {
     
         return (
           <>
+          <div className=" flex ">
             <ul>
               {firstHalf.map((word, index) => (
                 <li key={index}>
@@ -77,6 +78,7 @@ export const PhraseModal = () => {
                 </li>
               ))}
             </ul>
+          </div>
           </>
         );
       };

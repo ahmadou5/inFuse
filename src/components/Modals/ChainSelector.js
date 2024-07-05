@@ -1,4 +1,5 @@
 import { GlobalContext } from "@/Context/AppContext"
+import { ethers } from "ethers"
 
 export const ChainSelector = () => {
     const { setWelcome, userName, providerURL,setProviderURL,providerImg,setProviderImg , scan,setScan, providerTick,setProviderTick,providerName,setProviderName,isChainList,setIsChainList } = GlobalContext()

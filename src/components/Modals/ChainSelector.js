@@ -2,7 +2,7 @@ import { GlobalContext } from "@/Context/AppContext"
 import { ethers } from "ethers"
 
 export const ChainSelector = () => {
-    const { setWelcome, userName, providerURL,setProviderURL,providerImg,setProviderImg , scan,setScan, providerTick,setProviderTick,providerName,setProviderName,isChainList,setIsChainList } = GlobalContext()
+    const { setWelcome, userName, providerURL,setProviderURL,providerImg,setProviderImg ,userAddress, scan,setScan, providerTick,setProviderTick,providerName,setProviderName,isChainList,setIsChainList } = GlobalContext()
     const chains = [
         {
             name: 'Fraxtal Testnet',

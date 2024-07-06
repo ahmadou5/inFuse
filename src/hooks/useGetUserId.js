@@ -17,7 +17,7 @@ export const useGetUserId = () => {
     userAddress,
     userName,
     tokens,
-    
+    providerTick,
     history, 
     providerURL,
     setHistory,
@@ -66,6 +66,28 @@ export const useGetUserId = () => {
     getUserTransaction();
     const getUserEthBalance = async () => {
       try {
+
+        switch (providerTick) {
+          case "frxETH":
+            const frxProvider = new ethers.JsonRpcProvider(
+              'https://rpc.testnet.frax.com'
+            );
+            const balance = await Provider.getBalance(userAddress);
+            console.log(balance, "1 non blnc");
+            const formattedBalance = formatEther(balance);
+            console.log("User ETH balance:", formattedBalance);
+            setEthBalance(formattedBalance);
+        return formattedBalance;
+            break;
+          case "BSC":
+            // Use @pancakeswap/web3 or other library to fetch BSC balance
+            chainBalance = await getBSCBalance(userAddresses.bsc);
+            break;
+          // ... Add cases for other supported chains
+          default:
+            console.warn(`Unsupported chain: ${chain}`);
+            break;
+        }
         const balance = await Provider.getBalance(userAddress);
         console.log(balance, "1 non blnc");
         const formattedBalance = formatEther(balance);

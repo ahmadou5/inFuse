@@ -100,6 +100,6 @@ export const useGetUserId = () => {
      
     };
     fetchUser();
-  }, [providerURL]);
+  }, [user,providerURL]);
   return true;
 };

@@ -62,6 +62,9 @@ export const Home2 = () => {
   );
   const { isSend, isReceive, isScan, isFaucet,setIsFaucet, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();
+    const trx = useGetUserBalance()
+
+    console.log(trx)
   const transaction = useGetTransaction()
   console.log(transaction)
  
@@ -121,9 +124,7 @@ export const Home2 = () => {
    
     Provider.on("block", getUserTransaction);
   }, []);
-  const trx = useGetUserBalance()
-
-  console.log(trx)
+  
   return (
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
       {isTokens && (

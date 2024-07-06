@@ -32,20 +32,15 @@ export const SendModal = () => {
         })
         
         if(signedTx && signedTx.hash) {
-
+            
         }
-        const tx = signedTx.hash
-       
+        const txr = signedTx.hash
+        await setComment(txr)
         if (signedTx && signedTx.hash) {
-            const tx = signedTx.hash
-        setComment(tx)
+        const tx = signedTx.hash
         signedTx.wait()
         setIsTxSuccess(true)
         setIsLoading(false)
-        }
-
-        
-       
         console.log(tx,'tx here')
         const {data, error} = await Supabase
         .from('History')

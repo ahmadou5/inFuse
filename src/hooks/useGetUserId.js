@@ -72,16 +72,22 @@ export const useGetUserId = () => {
             const frxProvider = new ethers.JsonRpcProvider(
               'https://rpc.testnet.frax.com'
             );
-            const balance = await Provider.getBalance(userAddress);
-            console.log(balance, "1 non blnc");
-            const formattedBalance = formatEther(balance);
-            console.log("User ETH balance:", formattedBalance);
-            setEthBalance(formattedBalance);
-        return formattedBalance;
+            const fbalance = await frxProvider.getBalance(userAddress);
+            console.log(fbalance, "1  frxnon blnc");
+            const formattedfBalance = formatEther(fbalance);
+            console.log("User ETH balance:", formattedfBalance);
+            setEthBalance(formattedfBalance);
+      
             break;
-          case "BSC":
-            // Use @pancakeswap/web3 or other library to fetch BSC balance
-            chainBalance = await getBSCBalance(userAddresses.bsc);
+          case "ETH":
+            const OPProvider = new ethers.JsonRpcProvider(
+              'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public'
+            );
+            const Obalance = await OPProvider.getBalance(userAddress);
+            console.log(Obalance, "1 op non blnc");
+            const formattedOBalance = formatEther(Obalance);
+            console.log("User ETH balance:", formattedOBalance);
+            setEthBalance(formattedOBalance);
             break;
           // ... Add cases for other supported chains
           default:

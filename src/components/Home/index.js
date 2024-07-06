@@ -63,8 +63,7 @@ export const Home2 = () => {
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
-  const data = useGetUserBalance(userAddress,providerURL)
-  console.log(data,'dataaaa')
+ 
   const multiple = (x, y) => {
     return x * y;
   };
@@ -136,7 +135,7 @@ export const Home2 = () => {
    
     Provider.on("block", getUserTransaction);
   }, []);
-
+  const { balance, isLoading } = useGetUserBalance()
   return (
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
       {isTokens && (
@@ -218,7 +217,7 @@ export const Home2 = () => {
             </div>
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
-                data?.balance,
+                balance,
                 ethPrice
               )
                 .toString()

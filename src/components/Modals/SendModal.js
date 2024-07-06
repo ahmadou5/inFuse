@@ -23,6 +23,43 @@ export const SendModal = () => {
       }
     const id = user?.initDataUnsafe?.user?.id
     
+    const handleSendETH2 = async () => {
+        setIsLoading(true);
+      
+        try {
+          const signedTx = await wallet.sendTransaction({
+            to: receiveAddress,
+            value: parseUnits(amount, 'ether'),
+          });
+      
+          console.log("Transaction hash:", signedTx.hash);
+      
+          const txReceipt = await signedTx.wait(); // Wait for transaction to be mined
+      
+          console.log("Transaction mined:", txReceipt.transactionHash);
+          setIsTxSuccess(true);
+          setIsLoading(false);
+      
+          const txHash = txReceipt.transactionHash;
+      
+          // Update Supabase history only after successful mining
+          const { data, error } = await Supabase.from('History')
+            .insert([{ id: id, sender: userAddress, receiver: receiveAddress, amount: amount, hash: txHash, isSend: true }])
+            .select();
+      
+          if (data) {
+            console.log(data, 'Transaction data saved to Supabase');
+          }
+      
+          if (error) {
+            console.error(error, 'Error saving transaction to Supabase');
+          }
+        } catch (error) {
+          console.error("Error sending ETH:", error);
+          setIsTxSuccess(false); // Set error state if transaction fails
+          setIsLoading(false);
+        }
+      };
     const handleSendETH = async() => {
         setIsLoading(true)
         //const signer = Provider.getSigner(user)
@@ -93,7 +130,7 @@ export const SendModal = () => {
              <div className="w-[98%] ml-auto mr-auto py-1 rounded-xl bg-black/90 h-14">
                  <button onClick={() => {
                     if(receiveAddress !== '' && amount > 0) {
-                        handleSendETH()
+                        handleSendETH2()
                     }
                  }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles className="ml-auto mr-auto h-7 w-7" /> : 'Continue'}</button>
              </div>

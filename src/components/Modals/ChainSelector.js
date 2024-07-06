@@ -6,9 +6,9 @@ export const ChainSelector = () => {
     const chains = [
         {
             name: 'Sepolia',
-            providerUrl: 'https://rpc.testnet.frax.com',
+            providerUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
             imgUrl: './assets/chain1.svg',
-            Tick: 'frxETH',
+            Tick: 'ETH',
             scan: 'https://holesky.fraxscan.com'
         },
         {
@@ -55,12 +55,12 @@ export const ChainSelector = () => {
                             setScan(item.scan)
 
                         }} key={i} className="w-[97%] mt-1 mb-1 bg-black/15 flex rounded-2xl h-18">
-                <div className="h-[100%] w-[30%] py-1.5 px-2">
+                <div className="h-[80%] w-[26%] py-1.5 px-2">
                 <img src={item.imgUrl} className="h-[83%] rounded-full mt-0 w-[80%]"/>
                 </div>
                 <div className="h-[100%] text-black ml-auto mr-2 font-light  mt-1 w-[60%] py-1 px-2">
                  <div className="mt-1">
-                 <p className="text-xl">{item.Tick}</p>
+                 <p className="text-sm">{item.Tick}</p>
                  <p>{item.name}</p>
                  </div>
                 </div>

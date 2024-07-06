@@ -30,13 +30,16 @@ export const SendModal = () => {
             to: receiveAddress,
             value: parseUnits(amount,'ether')
         })
-        signedTx.wait(1)
+        
         setIsTxSuccess(true)
         setIsLoading(false)
         const txr = signedTx.hash
         await setComment(txr)
         if (signedTx && signedTx.hash) {
         const tx = signedTx.hash
+        signedTx.wait(1)
+        setIsTxSuccess(true)
+        setIsLoading(false)
         console.log(tx,'tx here')
         const {data, error} = await Supabase
         .from('History')

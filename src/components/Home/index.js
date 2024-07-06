@@ -24,6 +24,7 @@ import { TokenModal } from "../Modals/Token";
 import { PhraseModal } from "../Modals/PhraseModal";
 import { PkeyModal } from "../Modals/PrivateKeyModal";
 import { ChainSelector } from "../Modals/ChainSelector";
+import { useGetUserBalance } from "@/hooks/useFetch";
 
 export const Home2 = () => {
   const {
@@ -62,7 +63,7 @@ export const Home2 = () => {
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
- 
+  const balance = useGetUserBalance(userAddress,providerURL)
   const multiple = (x, y) => {
     return x * y;
   };
@@ -216,7 +217,7 @@ export const Home2 = () => {
             </div>
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
-                ethBalance,
+                balance,
                 ethPrice
               )
                 .toString()

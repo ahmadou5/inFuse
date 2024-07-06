@@ -31,7 +31,7 @@ export const useGetUserId = () => {
     user,
   } = GlobalContext();
   const Provider =  new ethers.JsonRpcProvider(
-    'https://ethereum-sepolia-rpc.publicnode.com'
+    providerURL
   );
   useEffect(() => {
     const getEthPrice = async () => {
@@ -56,6 +56,7 @@ export const useGetUserId = () => {
 
       if (data) {
         console.log(data, "userData");
+        console.log(providerURL,'URL')
         setHistory(data);
       }
       if (error) {
@@ -67,7 +68,7 @@ export const useGetUserId = () => {
     const getUserEthBalance = async () => {
       try {
         const balance = await Provider.getBalance(userAddress);
-        console.log(balance, "1 non blnc");
+        console.log(balance, "1 non  blnc");
         const formattedBalance = formatEther(balance);
         console.log("User ETH balance:", formattedBalance);
 

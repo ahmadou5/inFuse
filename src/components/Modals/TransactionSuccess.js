@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export const TransactionSuccessModal = ({hash,amount}) => {
   
-    const { setWelcome, userName,isTxSuccess,setIsTxSuccess, setIsSend } = GlobalContext()
+    const { setWelcome, userName,isTxSuccess,setIsTxSuccess, setIsSend,scan } = GlobalContext()
     return(
     <div className="inset-0 fixed bg-black/85 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
         <div className="w-[100%] flex items-center px-3 justify-center">
@@ -18,7 +18,7 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                 </div>
                 <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
                   <div className="text-black/85 flex font-light ml-auto mr-auto ">
-                  <Link href={`https://sepolia.etherscan.io/tx/${hash}`} target="_blank">
+                  <Link href={`${scan}/${hash}`} target="_blank">
                    <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
                   </Link> 
                   </div>
@@ -26,8 +26,8 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                 <div onClick={() => {
                     setIsSend(false)
                     setIsTxSuccess(false)
-                    }} className="w-[175px] mt-3  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-black/90 rounded-full h-9">
-                  <p>Next</p>
+                    }} className="w-[175px] mt-3  ml-auto mr-auto py-1 px-3 flex  items-center justify-center text-white bg-black/90 rounded-full h-9">
+                  <p>Continue</p>
                 </div>
             </div>
             </div>

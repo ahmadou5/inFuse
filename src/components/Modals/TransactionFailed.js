@@ -17,8 +17,8 @@ export const FailedTxModal = () => {
                 <div onClick={() => {
                     setIsSuccess(false)
                     console.log(Data)
-                    }} className="w-[175px] mt-6  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-black/90 rounded-full h-9">
-                  <p>Next</p>
+                    }} className="w-[175px] mt-6  ml-auto mr-auto py-1 px-3 flex  items-center justify-center text-white bg-black/90 rounded-full h-9">
+                  <p>Exit</p>
                 </div>
             </div>
             </div>

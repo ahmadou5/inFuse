@@ -99,22 +99,7 @@ export const Home2 = () => {
     }
     }
     getUserTokens()
-    const getUserEthBalance = async () => {
-      try {
-        const balance = await Provider.getBalance(userAddress);
-        console.log(balance, "1 blnc");
-        const formattedBalance = formatEther(balance);
-        console.log("User ETH balance:", formattedBalance);
-
-        setEthBalance(formattedBalance);
-        return formattedBalance;
-      } catch (error) {
-        console.error("Error fetching ETH balance:", error);
-        return null; // Handle errors gracefully
-      }
-    };
-
-    getUserEthBalance();
+   
     console.log("useTelegram");
     function initTg() {
       if (

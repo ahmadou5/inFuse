@@ -59,7 +59,7 @@ export const useGetTransaction = () => {
             
           } catch (error) {
             console.error("Error fetching transaction info:", error);
-            return null; // Handle errors gracefully
+             // Handle errors gracefully
           }
         })
       );

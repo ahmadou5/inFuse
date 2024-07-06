@@ -120,7 +120,9 @@ export const Home2 = () => {
    
     Provider.on("block", getUserTransaction);
   }, []);
-  const { balance, isLoading } = useGetUserBalance()
+  const trx = useGetUserBalance()
+
+  console.log(trx)
   return (
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
       {isTokens && (

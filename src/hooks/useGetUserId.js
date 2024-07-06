@@ -65,22 +65,7 @@ export const useGetUserId = () => {
       }
     };
     getUserTransaction();
-    const getUserEthBalance = async () => {
-      try {
-        const balance = await Provider.getBalance(userAddress);
-        console.log(balance, "1 non  blnc");
-        const formattedBalance = formatEther(balance);
-        console.log("User ETH balance:", formattedBalance);
-
-        setEthBalance(formattedBalance);
-        return formattedBalance;
-      } catch (error) {
-        console.error("Error fetching ETH balance:", error);
-        return null; // Handle errors gracefully
-      }
-    };
-
-    getUserEthBalance();
+    
     const fetchUser = async () => {
       try {
         const { data, error } = await Supabase.from("Wallets")
@@ -115,6 +100,6 @@ export const useGetUserId = () => {
      
     };
     fetchUser();
-  }, [user,providerURL]);
+  }, [providerURL]);
   return true;
 };

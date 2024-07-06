@@ -1,39 +1,49 @@
+"use client";
 import { useEffect, useState } from "react";
-import { ethers, formatEther } from "ethers";
-
-export const useGetUserBalance = (userAddress, providerURL) => {
-  const [balance, setBalance] = useState(null); // Stores the fetched balance
-  const [isLoading, setIsLoading] = useState(false); // Tracks loading state
-  const [error, setError] = useState(null); // Stores any errors
-
+import { ethers,formatUnits,parseUnits, formatEther } from "ethers";
+import { Supabase } from "@/Utils/supabasedb";
+import { GlobalContext } from "@/Context/AppContext";
+export const useGetTransaction = () => {
+  const {
+    setIsSend,
+    userPkey,
+    ethPrice,
+    ethBalance,
+    setEthBalance,
+    userAddress,
+    providerURL,
+    isTxFail,
+    setIsTxFail,
+    isTxSuccess,
+    setIsTxSuccess,
+    user,
+  } = GlobalContext();
+  const Provider = new ethers.JsonRpcProvider(
+    providerURL
+  );
+  const [trx, setTrx] = useState(true);
+  const id = user?.initDataUnsafe?.user?.id
   useEffect(() => {
-    const fetchBalance = async () => {
-      setIsLoading(true);
-      setError(null); // Clear any previous errors
-
-      try {
-        // Create a new provider
-        const provider = new ethers.JsonRpcProvider(providerURL);
-
-        // Get the user's balance
-        const weiBalance = await provider.getBalance(userAddress);
-
-        // Format balance for display
-        const formattedBalance = formatEther(weiBalance);
-
-        setBalance(formattedBalance);
-      } catch (error) {
-        console.error("Error fetching user balance:", error);
-        setError(error.message); // Set error message
-      } finally {
-        setIsLoading(false);
-      }
+    const listener = async () => {
+      const getUserEthBalance = async () => {
+        try {
+          const balance = await Provider.getBalance(userAddress);
+          console.log(balance, providerURL, "1 non  blnc");
+          const formattedBalance = formatEther(balance);
+          console.log("User ETH balance:", formattedBalance);
+          setTrx(true) 
+          setEthBalance(formattedBalance);
+          return formattedBalance;
+        } catch (error) {
+          console.error("Error fetching ETH balance:", error);
+          return null; // Handle errors gracefully
+        }
+      };
+  
+      getUserEthBalance();
     };
-
-    if (userAddress && providerURL) {
-      fetchBalance();
-    }
-  }, [userAddress, providerURL]);
-
-  return { balance, isLoading, error };
+    Provider.on("block", listener);
+    const startBlock = () => {};
+  }, []);
+  return trx;
 };

@@ -59,7 +59,7 @@ export const Home2 = () => {
   const Provider = new ethers.JsonRpcProvider(
     `${providerURL}`
   );
-  const { isSend, isReceive, isScan, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
+  const { isSend, isReceive, isScan, isFaucet,setIsFaucet, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
@@ -237,7 +237,9 @@ export const Home2 = () => {
                   Receive
                 </p>
               </div>
-              <div className="text-xl  bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
+              <div
+              onClick={() => setIsFaucet(true)} 
+              className="text-xl  bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
                 <FaHandHoldingWater className="text-2xl text-black/85" />
                 <p className="text-sm mt-2.5 text-black/85 font-light ">Faucets</p>
               </div>

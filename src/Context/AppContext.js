@@ -6,7 +6,8 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
-    const [scan,setScan] = useState('https://holesky.fraxscan.com')
+    const [isFaucet,setIsFaucet] = useState(false);
+    const [scan,setScan] = useState('https://sepolia.etherscan.io/')
     const [providerURL,setProviderURL] = useState('https://ethereum-sepolia-rpc.publicnode.com')
     const [providerName,setProviderName] = useState('Sepolia')
     const [providerTick,setProviderTick] = useState('ETH')
@@ -117,6 +118,8 @@ export const MiniContextProvider = ({children}) => {
     providerName,
     providerTick,
     scan,
+    isFaucet,
+    setIsFaucet,
     setScan,
     setProviderTick,
     setProviderName,

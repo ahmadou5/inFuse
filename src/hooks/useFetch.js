@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ethers,formatUnits,parseUnits, formatEther } from "ethers";
 import { Supabase } from "@/Utils/supabasedb";
 import { GlobalContext } from "@/Context/AppContext";
-export const useGetTransaction = () => {
+export const useGetUserBalance = () => {
   const {
     setIsSend,
     userPkey,

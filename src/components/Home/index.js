@@ -57,7 +57,7 @@ export const Home2 = () => {
   } = GlobalContext();
  
   const Provider = new ethers.JsonRpcProvider(
-    providerURL
+    `${providerURL}`
   );
   const { isSend, isReceive, isScan, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();

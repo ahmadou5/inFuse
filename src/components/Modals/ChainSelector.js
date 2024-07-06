@@ -21,7 +21,7 @@ export const ChainSelector = () => {
         
     ]
     const Provider = new ethers.JsonRpcProvider(
-        providerURL
+        `${providerURL}`
       );
     
     return(

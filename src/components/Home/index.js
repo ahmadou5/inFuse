@@ -261,7 +261,7 @@ export const Home2 = () => {
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
                   src={providerImg}
-                  className="text-white/90 w-full h-full text-2xl"
+                  className="text-white/90 w-full h-full rounded-full text-2xl"
                 />
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
@@ -301,8 +301,8 @@ export const Home2 = () => {
                 onClick={() => setIsTokenModal(true)}
                 className={`w-[205px] ${tokens?.length > 0 ? 'mt-[30px]' : 'mt-[80px]'}   ${tokens?.length > 0 ? 'mb-[100px]' : 'mb-[30px]'}   ml-auto mr-auto py-1 mb-5 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11`}
               >
-                <p className="text-white font-light text-[18px] ml-auto mr-auto ">
-                  Custom token
+                <p className="text-white font-light text-[14px] ml-auto mr-auto ">
+                  Add Custom token
                 </p>
               </div>
           </div>

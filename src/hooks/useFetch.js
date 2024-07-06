@@ -42,7 +42,7 @@ export const useGetUserBalance = () => {
   
       getUserEthBalance();
     };
-    Provider.on("block", listener);
+    //Provider.on("block", listener);
     const startBlock = () => {};
   }, [providerURL]);
   return trx;

@@ -2,6 +2,7 @@
 import { GlobalContext } from "@/Context/AppContext"
 import { useQRCode } from "next-qrcode"
 import { formatAddress, handleCopy } from "@/Utils/format"
+import Link from "next/link"
 
 export const FaucetModal = () => {
     const { setIsReceive, userAddress,isFaucet,setIsFaucet } = GlobalContext()
@@ -31,6 +32,9 @@ export const FaucetModal = () => {
                <div onClick={() => handleCopy(userAddress)} className="w-[105px] mb-5   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9">
                  <p className="text-white font-light text-[18px] ml-auto mr-auto ">copy</p>
                </div>
+               <Link href={`${scan}/${hash}`} target="_blank">
+                   <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
+                  </Link> 
              </div>
                </div>
             </div>

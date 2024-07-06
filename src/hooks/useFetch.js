@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { ethers, formatEther } from "ethers";
 
 export const useGetUserBalance = (userAddress, providerURL) => {
- 
+  const [balance, setBalance] = useState(null); // Stores the fetched balance
+  const [isLoading, setIsLoading] = useState(false); // Tracks loading state
+  const [error, setError] = useState(null); // Stores any errors
+
   useEffect(() => {
     const fetchBalance = async () => {
       setIsLoading(true);

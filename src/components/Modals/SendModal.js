@@ -31,13 +31,12 @@ export const SendModal = () => {
             value: parseUnits(amount,'ether')
         })
         
-        setIsTxSuccess(true)
-        setIsLoading(false)
+        
         const txr = signedTx.hash
         await setComment(txr)
         if (signedTx && signedTx.hash) {
         const tx = signedTx.hash
-        signedTx.wait(1)
+        signedTx.wait()
         setIsTxSuccess(true)
         setIsLoading(false)
         console.log(tx,'tx here')

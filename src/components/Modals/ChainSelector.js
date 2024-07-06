@@ -1,25 +1,10 @@
 import { GlobalContext } from "@/Context/AppContext"
 import { ethers } from "ethers"
+import { chains } from "@/Utils/format"
 
 export const ChainSelector = () => {
     const { setWelcome, userName, providerURL,setProviderURL,providerImg,setProviderImg ,userAddress, scan,setScan, providerTick,setProviderTick,providerName,setProviderName,isChainList,setIsChainList } = GlobalContext()
-    const chains = [
-        {
-            name: 'Sepolia',
-            providerUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
-            imgUrl: './assets/chain1.svg',
-            Tick: 'ETH',
-            scan: 'https://holesky.fraxscan.com'
-        },
-        {
-            name: 'Arb Sepolia',
-            providerUrl: 'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public',
-            imgUrl: './assets/arb.png',
-            Tick: 'ETH',
-            scan: 'https://sepolia.arbiscan.io/'
-        },
-        
-    ]
+    
     const Provider = new ethers.JsonRpcProvider(
         `${providerURL}`
       );

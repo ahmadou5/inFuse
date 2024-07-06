@@ -25,3 +25,31 @@ export const formatAddress = (value) => {
       }
     );
   }
+
+  export const chains = [
+    {
+        name: 'Sepolia',
+        providerUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
+        imgUrl: './assets/chain1.svg',
+        Tick: 'ETH',
+        scan: 'https://sepolia.etherscan.io/',
+        faucet: 'https://www.alchemy.com/faucets/ethereum-sepolia'
+    },
+    {
+        name: 'Arb Sepolia',
+        providerUrl: 'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public',
+        imgUrl: './assets/arb.png',
+        Tick: 'ETH',
+        scan: 'https://sepolia.arbiscan.io/',
+        faucet: 'https://t.me/ArbitrumFaucetBot'
+    },
+    {
+      name: 'Base Sepolia',
+      providerUrl: 'https://sepolia.base.org',
+      imgUrl: './assets/ba.png',
+      Tick: 'ETH',
+      scan: 'https://sepolia.basescan.org/',
+      faucet: 'https://t.me/BaseFaucetBot'
+  },
+    
+]

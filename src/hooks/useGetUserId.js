@@ -17,7 +17,7 @@ export const useGetUserId = () => {
     userAddress,
     userName,
     tokens,
-    providerTick,
+    
     history, 
     providerURL,
     setHistory,
@@ -66,34 +66,6 @@ export const useGetUserId = () => {
     getUserTransaction();
     const getUserEthBalance = async () => {
       try {
-
-        switch (providerTick) {
-          case "frxETH":
-            const frxProvider = new ethers.JsonRpcProvider(
-              'https://rpc.testnet.frax.com'
-            );
-            const fbalance = await frxProvider.getBalance(userAddress);
-            console.log(fbalance, "1  frxnon blnc");
-            const formattedfBalance = formatEther(fbalance);
-            console.log("User ETH balance:", formattedfBalance);
-            setEthBalance(formattedfBalance);
-      
-            break;
-          case "ETH":
-            const OPProvider = new ethers.JsonRpcProvider(
-              'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public'
-            );
-            const Obalance = await OPProvider.getBalance(userAddress);
-            console.log(Obalance, "1 op non blnc");
-            const formattedOBalance = formatEther(Obalance);
-            console.log("User ETH balance:", formattedOBalance);
-            setEthBalance(formattedOBalance);
-            break;
-          // ... Add cases for other supported chains
-          default:
-            console.warn(`Unsupported chain: ${chain}`);
-            break;
-        }
         const balance = await Provider.getBalance(userAddress);
         console.log(balance, "1 non blnc");
         const formattedBalance = formatEther(balance);

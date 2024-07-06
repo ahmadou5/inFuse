@@ -5,15 +5,15 @@ export const ChainSelector = () => {
     const { setWelcome, userName, providerURL,setProviderURL,providerImg,setProviderImg ,userAddress, scan,setScan, providerTick,setProviderTick,providerName,setProviderName,isChainList,setIsChainList } = GlobalContext()
     const chains = [
         {
-            name: 'Fraxtal Testnet',
+            name: 'Sepolia',
             providerUrl: 'https://rpc.testnet.frax.com',
-            imgUrl: './assets/frx.png',
+            imgUrl: './assets/chain1.svg',
             Tick: 'frxETH',
             scan: 'https://holesky.fraxscan.com'
         },
         {
             name: 'Arb Sepolia',
-            providerUrl: 'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public',
+            providerUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
             imgUrl: './assets/arb.png',
             Tick: 'ETH',
             scan: 'https://sepolia.arbiscan.io/'

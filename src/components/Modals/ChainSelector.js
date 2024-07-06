@@ -18,13 +18,7 @@ export const ChainSelector = () => {
             Tick: 'ETH',
             scan: 'https://sepolia.arbiscan.io/'
         },
-        {
-            name: 'Base Sepolia',
-            providerUrl: 'https://sepolia.base.org',
-            imgUrl: './assets/bas.png',
-            Tick: 'ETH',
-            scan: 'https://sepolia.basescan.org/'
-        }
+        
     ]
     const Provider = new ethers.JsonRpcProvider(
         providerURL

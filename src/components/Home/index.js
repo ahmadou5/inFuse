@@ -25,6 +25,7 @@ import { PhraseModal } from "../Modals/PhraseModal";
 import { PkeyModal } from "../Modals/PrivateKeyModal";
 import { ChainSelector } from "../Modals/ChainSelector";
 import { useGetUserBalance } from "@/hooks/useFetch";
+import { FaucetModal } from "../Modals/FaucetModal";
 
 export const Home2 = () => {
   const {
@@ -259,7 +260,7 @@ export const Home2 = () => {
             <div className="bg-white/55 w-[90%] mb-3 flex items-center justify-center rounded-3xl h-[70px]">
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
-                  src="./assets/chain1.svg"
+                  src={providerImg}
                   className="text-white/90 w-full h-full text-2xl"
                 />
               </div>
@@ -311,6 +312,7 @@ export const Home2 = () => {
       <div className="mt-auto mb-auto">
         <Menu />
       </div>
+      {isFaucet && <FaucetModal/>}
       {isChainList && <ChainSelector/>}
       {isPrivate && <PkeyModal />}
       {isPhrase && <PhraseModal />}

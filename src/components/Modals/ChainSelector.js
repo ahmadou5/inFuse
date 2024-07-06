@@ -13,7 +13,7 @@ export const ChainSelector = () => {
         },
         {
             name: 'Arb Sepolia',
-            providerUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
+            providerUrl: 'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public',
             imgUrl: './assets/arb.png',
             Tick: 'ETH',
             scan: 'https://sepolia.arbiscan.io/'

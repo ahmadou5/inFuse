@@ -130,7 +130,7 @@ export const SendModal = () => {
              <div className="w-[98%] ml-auto mr-auto py-1 rounded-xl bg-black/90 h-14">
                  <button onClick={() => {
                     if(receiveAddress !== '' && amount > 0) {
-                        handleSendETH()
+                        handleSendETH2()
                     }
                  }} className="outline-none bg-transparent w-[100%] h-[100%] text-white  py-2 px-4">{loading ? <SpinningCircles className="ml-auto mr-auto h-7 w-7" /> : 'Continue'}</button>
              </div>

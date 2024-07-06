@@ -63,7 +63,8 @@ export const Home2 = () => {
     GlobalContext();
   const transaction = useGetTransaction()
   console.log(transaction)
-  const balance = useGetUserBalance(userAddress,providerURL)
+  const data = useGetUserBalance(userAddress,providerURL)
+  console.log(data,'dataaaa')
   const multiple = (x, y) => {
     return x * y;
   };
@@ -132,7 +133,7 @@ export const Home2 = () => {
       }
     }
     initTg();
-    Provider.on("block", getUserEthBalance);
+   
     Provider.on("block", getUserTransaction);
   }, []);
 
@@ -217,7 +218,7 @@ export const Home2 = () => {
             </div>
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
-                balance?.balance,
+                data?.balance,
                 ethPrice
               )
                 .toString()

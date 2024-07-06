@@ -5,7 +5,7 @@ import { formatAddress, handleCopy } from "@/Utils/format"
 import Link from "next/link"
 
 export const FaucetModal = () => {
-    const { setIsReceive, userAddress,isFaucet,setIsFaucet } = GlobalContext()
+    const { setIsReceive, userAddress,isFaucet, setIsFaucet } = GlobalContext()
     const { Canvas } = useQRCode()
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">
@@ -25,7 +25,7 @@ export const FaucetModal = () => {
                </div>
             </div>
         </div>
-        <Link href={`${scan}/${hash}`} target="_blank">
+        <Link  target="_blank">
                    <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
                   </Link> 
     </div>

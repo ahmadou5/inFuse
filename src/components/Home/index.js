@@ -202,7 +202,7 @@ export const Home2 = () => {
             </div>
             <div className="bg-s-gray-300/0 w-[90%] flex items-center justify-center rounded-3xl h-[120px]">
               <p className="text-4xl  text-black/85">{`$${multiple(
-                balance,
+                ethBalance,
                 ethPrice
               )
                 .toString()

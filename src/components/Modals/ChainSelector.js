@@ -23,6 +23,21 @@ export const ChainSelector = () => {
     const Provider = new ethers.JsonRpcProvider(
         `${providerURL}`
       );
+
+      const getUserEthBalance = async () => {
+        try {
+          const balance = await Provider.getBalance(userAddress);
+          console.log(balance, "1 non  blnc");
+          const formattedBalance = formatEther(balance);
+          console.log("User OPETH balance:", formattedBalance);
+  
+          setEthBalance(formattedBalance);
+          return formattedBalance;
+        } catch (error) {
+          console.error("Error fetching ETH balance:", error);
+          return null; // Handle errors gracefully
+        }
+      };
     
     return(
     <div className="inset-0 fixed bg-black/75 bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">

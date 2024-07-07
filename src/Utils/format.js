@@ -29,10 +29,10 @@ export const formatAddress = (value) => {
   export const chains = [
     {
       name: 'Fraxtal',
-      providerUrl: 'https://holesky.drpc.org',
+      providerUrl: 'https://rpc.testnet.frax.com',
       imgUrl: './assets/frx.png',
       Tick: 'frxETH',
-      scan: 'https://holesky.fraxscan.com',
+      scan: 'https://holesky.fraxscan.com/',
       faucet: 'https://www.alchemy.com/faucets/ethereum-sepolia'
     },
     {

@@ -184,7 +184,7 @@ export const Home2 = () => {
                           )}`}</p>
                         </div>
                         <div className="bg-gothic-600/0 w-[49px] flex items-center justify-center h-12 ml-auto mr-7 rounded-full">
-                          <p className={`text-md ${item.isSend === true ? 'text-red-500' : 'text-green-500'}`}>{`${item.isSend === true ? '-' : '+'}${item.amount.slice(0,4)}`}</p>
+                          <p className={`text-md ${item.isSend === true ? 'text-red-500' : 'text-green-500'}`}>{`${item.isSend === true ? '-' : '+'}${item.amount.toString().slice(0,4)}`}</p>
                         </div>
                       </div>
                     </div>

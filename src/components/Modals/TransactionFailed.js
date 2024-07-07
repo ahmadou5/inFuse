@@ -12,7 +12,7 @@ export const FailedTxModal = ({message}) => {
             <div className="mt-5 ml-auto mr-auto flex flex-col items-center justify-center text-center">
                 <p className="text-center text-black font-light text-[20px] mb-4">{`Transaction Failed`} </p>
                 <div className="w-[175px] mb-8 ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
-                  <p className="text-black/85 font-light ml-auto mr-auto ">{`${message.include('insufficient funds') ? 'Not Enough Balance' : 'Erro'}`}</p>
+                  <p className="text-black/85 font-light ml-auto mr-auto ">{`We' Encounter an Error`}</p>
                 </div>
                 
                 <div onClick={() => {

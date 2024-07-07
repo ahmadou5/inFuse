@@ -83,7 +83,7 @@ export const TransactionModal = () => {
                 
                 className="w-[205px] mb-5   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
               >
-                <p className="text-white font-light text-[18px] ml-auto mr-auto ">
+                <p className="text-white font-light text-[15px] ml-auto mr-auto ">
                   View on Explorer
                 </p>
               </div>

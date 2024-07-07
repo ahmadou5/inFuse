@@ -1,7 +1,7 @@
 import { GlobalContext } from "@/Context/AppContext"
 import { useGetUserId } from "@/hooks/useGetUserId"
 
-export const FailedTxModal = () => {
+export const FailedTxModal = ({message}) => {
     const Data = useGetUserId()
     const { setWelcome, userName, isTxFail,setIsTxFail} = GlobalContext()
     return(
@@ -10,15 +10,22 @@ export const FailedTxModal = () => {
             <div className="h-[190px] ml-auto mr-auto py-2 px-2 w-[90%] bg-white/95 rounded-xl">
             
             <div className="mt-5 ml-auto mr-auto flex flex-col items-center justify-center text-center">
-                <p className="text-center text-black font-light text-[18px] mb-4">{`🎉🎉 Congratulations 🎉🎉`} </p>
+                <p className="text-center text-black font-light text-[20px] mb-4">{`Transaction Failed`} </p>
                 <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
-                  <p className="text-black/85 font-light ml-auto mr-auto ">{'You Just Create Your Ethereum Wallet'}</p>
+                  <p className="text-black/85 font-light ml-auto mr-auto ">{`${message}`}</p>
+                </div>
+                <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
+                  <div className="text-black/85 flex font-light ml-auto mr-auto ">
+                  {/**<Link href={`${scan}${hash}`} target="_blank">
+                   <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
+                  </Link> **/}
+                  </div>
                 </div>
                 <div onClick={() => {
-                    setIsSuccess(false)
-                    console.log(Data)
-                    }} className="w-[175px] mt-6  ml-auto mr-auto py-1 px-3 flex  items-center justify-center text-white bg-black/90 rounded-full h-9">
-                  <p>Exit</p>
+                    setIsSend(false)
+                    setIsTxFail(false)
+                    }} className="w-[175px] mt-3  ml-auto mr-auto py-1 px-3 flex  items-center justify-center text-white bg-black/90 rounded-full h-9">
+                  <p>Continue</p>
                 </div>
             </div>
             </div>

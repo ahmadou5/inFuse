@@ -14,6 +14,7 @@ export const SendModal = () => {
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
+    const [failedcomment, setFailedComment] = useState('')
     const [amount,setAmount] = useState(0)
     const Provider = new ethers.JsonRpcProvider(`${providerURL}`)
     const wallet = new ethers.Wallet(userPkey,Provider)
@@ -56,7 +57,9 @@ export const SendModal = () => {
           }
         } catch (error) {
           console.error("Error sending ETH:", error);
+          setFailedComment(error?.message)
           setIsTxSuccess(false); // Set error state if transaction fails
+          setIsTxFail(true)
           setIsLoading(false);
         }
       };
@@ -136,7 +139,7 @@ export const SendModal = () => {
              </div>
             </div>
             {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}
-            {isTxFail && <FailedTxModal/>}
+            {isTxFail && <FailedTxModal message={errorM}/>}
                </div>
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">

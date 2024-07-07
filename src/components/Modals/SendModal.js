@@ -45,7 +45,7 @@ export const SendModal = () => {
       
           // Update Supabase history only after successful mining
           const { data, error } = await Supabase.from('NewHistory')
-            .insert([{ id: id, sender: userAddress, receiver: receiveAddress, amount: amount, hash: txHash, isSend: true, chain: providerName  }])
+            .insert([{ id: id, sender: userAddress, receiver: receiveAddress, amount: amount, hash: txReceipt.hash, isSend: true, chain: providerName  }])
             .select();
       
           if (data) {

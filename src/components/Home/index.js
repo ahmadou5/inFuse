@@ -73,7 +73,7 @@ export const Home2 = () => {
   };
   useEffect(() => {
     const getUserTransaction = async () => {
-      const { data, error } = await Supabase.from("History")
+      const { data, error } = await Supabase.from("NewHistory")
         .select("*")
         .eq("id", user?.initDataUnsafe?.user?.id);
 

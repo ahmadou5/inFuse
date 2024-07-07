@@ -11,18 +11,12 @@ export const FailedTxModal = ({message}) => {
             
             <div className="mt-5 ml-auto mr-auto flex flex-col items-center justify-center text-center">
                 <p className="text-center text-black font-light text-[20px] mb-4">{`Transaction Failed`} </p>
-                <div className="w-[175px]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
+                <div className="w-[175px] mb-8 ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
                   <p className="text-black/85 font-light ml-auto mr-auto ">{`${message}`}</p>
                 </div>
-                <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
-                  <div className="text-black/85 flex font-light ml-auto mr-auto ">
-                  {/**<Link href={`${scan}${hash}`} target="_blank">
-                   <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
-                  </Link> **/}
-                  </div>
-                </div>
+                
                 <div onClick={() => {
-                    setIsSend(false)
+                   
                     setIsTxFail(false)
                     }} className="w-[175px] mt-3  ml-auto mr-auto py-1 px-3 flex  items-center justify-center text-white bg-black/90 rounded-full h-9">
                   <p>Continue</p>

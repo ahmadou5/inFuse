@@ -36,7 +36,7 @@ export const SendModal = () => {
           console.log("Transaction hash:", signedTx.hash);
           setComment(signedTx.hash)
           const txReceipt = await signedTx.wait(); // Wait for transaction to be mined
-      
+          setComment(txReceipt.hash)
           console.log("Transaction mined:", txReceipt.transactionHash);
           setIsTxSuccess(true);
           setIsLoading(false);

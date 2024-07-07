@@ -18,7 +18,7 @@ export const TransactionSuccessModal = ({hash,amount}) => {
                 </div>
                 <div className="w-[100%]  ml-auto mr-auto py-1 px-3 flex  items-center justify-center bg-white/30 rounded-full h-9">
                   {hash != '' ? <div className="text-black/85 flex font-light ml-auto mr-auto ">
-                  <Link href={`${scan}${hash}`} target="_blank">
+                  <Link href={`https://${scan}/${hash}`} target="_blank">
                    <p className="text-black font-light ml-auto mr-auto ">{`Tx Hash: ${formatAddress(hash)}`}</p>
                   </Link> 
                   </div> : 

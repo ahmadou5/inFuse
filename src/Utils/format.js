@@ -29,7 +29,7 @@ export const formatAddress = (value) => {
   export const chains = [
     {
       name: 'Fraxtal',
-      providerUrl: 'https://rpc.testnet.frax.com',
+      providerUrl: 'https://holesky.drpc.org',
       imgUrl: './assets/frx.png',
       Tick: 'frxETH',
       scan: 'https://holesky.fraxscan.com',

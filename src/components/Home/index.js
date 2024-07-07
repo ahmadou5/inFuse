@@ -199,7 +199,7 @@ export const Home2 = () => {
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
             <div className="mt-1 mb-0 w-full">
              <div onClick={() => setIsChainList(true)} className="bg-black/10 text-black mt-1 rounded-xl p-1.5 flex ml-3 mr-auto w-[51%] h-9">
-             <img src={providerImg} className="mr-1 rounded-full"/>
+             <img src={providerImg} className="mr-1 w-6 h-6 rounded-full"/>
               <div>{providerName}</div>
               <MdKeyboardArrowDown className="text-2xl ml-auto mr-1 mb-2" />
              </div>

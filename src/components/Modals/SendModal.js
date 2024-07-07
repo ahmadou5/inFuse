@@ -1,7 +1,7 @@
 'use client'
 import { GlobalContext } from "@/Context/AppContext"
 import { useState } from "react"
-import { formatAddress } from "@/Utils/format"
+import { chains, formatAddress } from "@/Utils/format"
 import { ethers, parseUnits } from "ethers"
 import { TransactionSuccessModal } from "./TransactionSuccess"
 import { FailedTxModal } from "./TransactionFailed"
@@ -10,7 +10,7 @@ import { SpinningCircles } from "react-loading-icons"
 import { useGetUserId } from "@/hooks/useGetUserId"
 export const SendModal = () => {
     const [loading, setIsLoading] = useState(false)
-    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, providerURL, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
+    const { setIsSend, userPkey, ethPrice, ethBalance, userAddress, providerURL, providerName, isTxFail,setIsTxFail,isTxSuccess,setIsTxSuccess,user } = GlobalContext()
     const [isConfirmed, setIsConfirmed] = useState(false)
     const [receiveAddress, setReceiveAddress] = useState('')
     const [comment, setComment] = useState('')
@@ -44,8 +44,8 @@ export const SendModal = () => {
           const txHash = txReceipt.transactionHash;
       
           // Update Supabase history only after successful mining
-          const { data, error } = await Supabase.from('History')
-            .insert([{ id: id, sender: userAddress, receiver: receiveAddress, amount: amount, hash: txHash, isSend: true }])
+          const { data, error } = await Supabase.from('NewHistory')
+            .insert([{ id: id, sender: userAddress, receiver: receiveAddress, amount: amount, hash: txHash, isSend: true, chain: providerName  }])
             .select();
       
           if (data) {

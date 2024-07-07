@@ -89,7 +89,7 @@ export const Home2 = () => {
     getUserTransaction();
     const getUserTokens = async() => {
       const { data, error } = await Supabase
-      .from("Tokens")
+      .from("NewTokens")
       .select("*")
       .eq("id", user?.initDataUnsafe?.user?.id);
 

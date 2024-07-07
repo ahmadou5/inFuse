@@ -11,6 +11,7 @@ export const useGetTransaction = () => {
     ethBalance,
     userAddress,
     providerURL,
+    providerName,
     isTxFail,
     setIsTxFail,
     isTxSuccess,
@@ -34,7 +35,7 @@ export const useGetTransaction = () => {
             const transaction = await Provider.getTransaction(hash);
             //console.log('trxxxx',transaction)
             if (transaction.to === userAddress) {
-              const { data, error } = await Supabase.from("History")
+              const { data, error } = await Supabase.from("NewHistory")
                 .insert([
                   {
                     id: id,
@@ -42,7 +43,8 @@ export const useGetTransaction = () => {
                     receiver:transaction.from,
                     amount: formatUnits(transaction.value,'ether'),
                     hash: transaction.hash,
-                    isSend:false
+                    isSend:false,
+                    chain: providerName
                   },
                 ])
                 .select();

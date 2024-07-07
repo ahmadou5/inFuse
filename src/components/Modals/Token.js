@@ -16,6 +16,7 @@ export const TokenModal = () => {
     tokenName,
     tokenTicker,
     tokenDecimals,
+    providerName,
     setTokenDecimals,
     setTokenTicker,
     setTokenName,
@@ -27,8 +28,8 @@ export const TokenModal = () => {
   const id = user?.initDataUnsafe?.user?.id
   const uploadTokenData = async () => {
     const {data, error} = await Supabase
-    .from('Tokens')
-    .insert([{id:id,userAddress:userAddress,tokenAddress:tokenAddress,tokenName:tokenName,ticker:tokenTicker}])
+    .from('NewTokens')
+    .insert([{id:id,userAddress:userAddress,tokenAddress:tokenAddress,tokenName:tokenName,ticker:tokenTicker, chain: providerName}])
     .select()
     if(data) {
         console.log(data,'data')

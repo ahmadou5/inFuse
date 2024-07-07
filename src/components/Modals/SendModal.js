@@ -139,7 +139,7 @@ export const SendModal = () => {
              </div>
             </div>
             {isTxSuccess && <TransactionSuccessModal hash={comment} amount={amount}/>}
-            {isTxFail && <FailedTxModal message={errorM}/>}
+            {isTxFail && <FailedTxModal message={failedcomment}/>}
                </div>
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">

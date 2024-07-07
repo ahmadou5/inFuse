@@ -50,7 +50,7 @@ export const useGetUserId = () => {
     };
     getEthPrice();
     const getUserTransaction = async () => {
-      const { data, error } = await Supabase.from("History")
+      const { data, error } = await Supabase.from("NewHistory")
         .select("*")
         .eq("id", user?.initDataUnsafe?.user?.id);
 

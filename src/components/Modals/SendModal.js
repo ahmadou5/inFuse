@@ -154,7 +154,7 @@ export const SendModal = () => {
             </div>
             
             <div className="mt-20 w-[100%] ml-auto mr-auto">
-             <div className="w-[99%] ml-auto mr-auto rounded-xl bg-black/90 h-10">
+             <div className="w-[99%] ml-auto mr-auto rounded-xl bg-black/90 h-11">
                  <button onClick={() => {
                     if(receiveAddress.length < 42) {
                         alert('not Valid ETH Address')

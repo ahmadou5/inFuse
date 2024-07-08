@@ -33,7 +33,7 @@ export const useGetTransaction = () => {
         userTransactions.map(async (hash) => {
           try {
             const transaction = await Provider.getTransaction(hash);
-            //console.log('trxxxx',transaction)
+            console.log('trxxxx',transaction)
             if (transaction.to === userAddress) {
               const { data, error } = await Supabase.from("NewHistory")
                 .insert([

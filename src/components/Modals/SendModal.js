@@ -122,7 +122,7 @@ export const SendModal = () => {
                </div>
                <div>
                 <div className="h-12 w-[100%] flex items-center justify-between py-1 px-2 bg-red-500/0 mt-8">
-                    <div onClick={() => setAmount(ethBalance)} className="bg-black/20 rounded-2xl w-20 h-9">
+                    <div onClick={() => setAmount(ethBalance.toString().slice(0,6))} className="bg-black/20 rounded-2xl w-20 h-9">
                       <p className="text-black text-center py-1.5">MAX</p>
                     </div>
                     <div className="text-s-gray-950">
@@ -144,7 +144,7 @@ export const SendModal = () => {
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">
             <div className="mt-12 w-[100%] ml-auto mr-auto">
-            <div className="w-[100%] ml-auto mr-auto mb-4 flex rounded-xl text-[19px] text-black/75 py-3 px-3 border items-center justify-center border-black bg-black/0 h-12">
+            <div className="w-[100%] ml-auto mr-auto mb-4 flex rounded-xl text-[19px] text-black/75 py-3 px-3 border items-start border-black bg-black/0 h-12">
                <p className=" text-black font-light">From:</p>
                <p className=" text-black font-light">{formatAddress(userAddress)}</p>
              </div>
@@ -154,7 +154,7 @@ export const SendModal = () => {
             </div>
             
             <div className="mt-20 w-[100%] ml-auto mr-auto">
-             <div className="w-[99%] ml-auto mr-auto rounded-xl bg-black/90 h-12">
+             <div className="w-[99%] ml-auto mr-auto rounded-xl bg-black/90 h-10">
                  <button onClick={() => {
                     if(receiveAddress.length < 42) {
                         alert('not Valid ETH Address')

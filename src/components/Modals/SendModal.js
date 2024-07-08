@@ -34,7 +34,7 @@ export const SendModal = () => {
           });
       
           console.log("Transaction hash:", signedTx.hash);
-          setComment(signedTx.hash)
+        
           const txReceipt = await signedTx.wait(); // Wait for transaction to be mined
           setComment(txReceipt.hash)
           console.log("Transaction mined:", txReceipt.transactionHash);
@@ -63,39 +63,7 @@ export const SendModal = () => {
           setIsLoading(false);
         }
       };
-    const handleSendETH = async() => {
-        setIsLoading(true)
-        //const signer = Provider.getSigner(user)
-        const signedTx = await wallet.sendTransaction({
-            to: receiveAddress,
-            value: parseUnits(amount,'ether')
-        })
-        
-        if(signedTx && signedTx.hash) {
-            
-        }
-        const txr = signedTx.hash
-        await setComment(txr)
-        if (signedTx && signedTx.hash) {
-        const tx = signedTx.hash
-        signedTx.wait()
-        setIsTxSuccess(true)
-        setIsLoading(false)
-        console.log(tx,'tx here')
-        const {data, error} = await Supabase
-        .from('History')
-        .insert([{id:id,sender:userAddress,receiver:receiveAddress,amount:amount,hash:tx,isSend:true}])
-        .select()
-        if(data) {
-            console.log(data,'data')
-            
-        }
-        if(error) {
-            console.log(error)
-        }
-        }
-       
-    }
+  
    
     return(
     <div className="inset-0 fixed bg-black bg-opacity-100 w-[100%] z-[99999999] min-h-screen h-auto backdrop-blur-sm flex ">

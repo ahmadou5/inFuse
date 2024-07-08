@@ -78,7 +78,7 @@ export const TransactionModal = () => {
           </div>
           <div>
             <div className="mt-4 w-[100%] ml-auto mr-auto">
-            <Link href={`https://${scan}/${hHash}`} target="_blank">
+            <Link href={`https://${scan}${hHash}`} target="_blank">
             <div
                 
                 className="w-[100%] mb-5   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-xl h-14"

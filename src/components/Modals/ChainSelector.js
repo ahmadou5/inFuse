@@ -49,8 +49,8 @@ export const ChainSelector = () => {
                             setScan(item.scan)
 
                         }} key={i} className="w-[97%] mt-1 mb-1 bg-black/15 flex rounded-2xl h-18">
-                <div className="h-[80%] w-[26%] py-1.5 px-2">
-                <img src={item.imgUrl} className="h-[83%] rounded-full mt-0 w-[80%]"/>
+                <div className="h-[80%] w-[26%] py-3 px-3">
+                <img src={item.imgUrl} className="h-10 rounded-full mt-0 w-10"/>
                 </div>
                 <div className="h-[100%] text-black ml-auto mr-2 font-light  mt-1 w-[60%] py-1 px-2">
                  <div className="mt-1">

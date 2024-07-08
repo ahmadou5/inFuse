@@ -32,7 +32,7 @@ export const formatAddress = (value) => {
       providerUrl: 'https://rpc.testnet.frax.com',
       imgUrl: './assets/frx.png',
       Tick: 'frxETH',
-      scan: 'https://holesky.fraxscan.com/',
+      scan: 'holesky.fraxscan.com',
       faucet: 'https://www.alchemy.com/faucets/ethereum-sepolia'
     },
     {
@@ -40,7 +40,7 @@ export const formatAddress = (value) => {
         providerUrl: 'https://ethereum-sepolia-rpc.publicnode.com',
         imgUrl: './assets/chain1.svg',
         Tick: 'ETH',
-        scan: 'https://sepolia.etherscan.io/',
+        scan: 'sepolia.etherscan.io',
         faucet: 'https://www.alchemy.com/faucets/ethereum-sepolia'
     },
     {
@@ -48,7 +48,7 @@ export const formatAddress = (value) => {
         providerUrl: 'https://endpoints.omniatech.io/v1/arbitrum/sepolia/public',
         imgUrl: './assets/arb.png',
         Tick: 'ETH',
-        scan: 'https://sepolia.arbiscan.io/',
+        scan: 'sepolia.arbiscan.io',
         faucet: 'https://t.me/ArbitrumFaucetBot'
     },
     {
@@ -56,7 +56,7 @@ export const formatAddress = (value) => {
       providerUrl: 'https://sepolia.base.org',
       imgUrl: './assets/ba.png',
       Tick: 'ETH',
-      scan: 'https://sepolia.basescan.org/',
+      scan: 'sepolia.basescan.org',
       faucet: 'https://t.me/BaseFaucetBot'
   },
     

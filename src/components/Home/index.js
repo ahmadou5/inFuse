@@ -130,8 +130,8 @@ export const Home2 = () => {
       {isTokens && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
-            <div className="w-[40%] mt-4 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
-              <p className="text-black font-bold">Settings</p>
+            <div className="w-[40%] mt-4 ml-auto mr-auto flex items-center justify-center bg-black/25 h-9 rounded-3xl ">
+              <p className="text-black text-[16px] font-bold">Settings</p>
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
             <div className="w-[100%] h-[100%] flex flex-col items-center justify-center">
@@ -156,8 +156,8 @@ export const Home2 = () => {
       {isHistory && (
         <>
           <div className="bg-gothic-950/0 mt-1 flex  mb-2 flex-col items-center justify-center w-[100%] h-auto">
-            <div className="w-[40%] mt-4 ml-auto mr-auto flex items-center justify-center bg-black/25 h-10 rounded-3xl ">
-              <p className="text-black font-bold">Transactions</p>
+            <div className="w-[40%] mt-4 ml-auto mr-auto flex items-center justify-center bg-black/25 h-9 rounded-3xl ">
+              <p className="text-black text-[16px] font-bold">Transactions</p>
             </div>
             <div className="w-[96%] mt-2 py-2 px-2 h-auto mb-20 rounded-md bg-black/0">
             

@@ -122,7 +122,7 @@ export const SendModal = () => {
                </div>
                <div>
                 <div className="h-12 w-[100%] flex items-center justify-between py-1 px-2 bg-red-500/0 mt-8">
-                    <div className="bg-black/20 rounded-2xl w-20 h-9">
+                    <div onClick={() => setAmount(ethBalance)} className="bg-black/20 rounded-2xl w-20 h-9">
                       <p className="text-black text-center py-1.5">MAX</p>
                     </div>
                     <div className="text-s-gray-950">
@@ -148,20 +148,20 @@ export const SendModal = () => {
                <p className=" text-black font-light">From:</p>
                <p className=" text-black font-light">{formatAddress(userAddress)}</p>
              </div>
-             <div className="w-[100%] mt-1 ml-auto mr-auto rounded-xl text-xl border border-black bg-black/75 h-12">
-                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-white bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Address" />
+             <div className="w-[100%] mt-5 ml-auto mr-auto rounded-xl text-xl border border-black/60 bg-black/0 h-12">
+                 <input onChange={(e) => setReceiveAddress(e.target.value)} type="text" className="outline-none text-[19px] text-black/60 bg-transparent w-[100%] h-[100%]  py-2 px-4" placeholder="Enter Address" />
              </div>
             </div>
             
             <div className="mt-20 w-[100%] ml-auto mr-auto">
-             <div className="w-[97%] ml-auto mr-auto rounded-xl bg-black/90 h-14">
+             <div className="w-[99%] ml-auto mr-auto rounded-xl bg-black/90 h-12">
                  <button onClick={() => {
                     if(receiveAddress.length < 42) {
                         alert('not Valid ETH Address')
                     } else {
                         setIsConfirmed(true)
                     }
-                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-white/95  py-2 px-4">Continue</button>
+                 }} className="outline-none bg-transparent w-[100%] h-[100%] text-[16px] text-white/95  py-2 px-4">Continue</button>
              </div>
             </div>
          </div>

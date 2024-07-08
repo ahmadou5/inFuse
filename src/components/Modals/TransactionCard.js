@@ -81,9 +81,9 @@ export const TransactionModal = () => {
             <Link href={`https://${scan}/${hHash}`} target="_blank">
             <div
                 
-                className="w-[205px] mb-5   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
+                className="w-[98%] mb-5   ml-auto mr-auto py-1 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-9"
               >
-                <p className="text-white font-light text-[15px] ml-auto mr-auto ">
+                <p className="text-white font-light text-[16px] ml-auto mr-auto ">
                   View on Explorer
                 </p>
               </div>

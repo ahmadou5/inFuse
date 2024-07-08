@@ -7,7 +7,7 @@ const MiniContext = createContext()
 
 export const MiniContextProvider = ({children}) => {
     const [isFaucet,setIsFaucet] = useState(false);
-    const [scan,setScan] = useState('https://holesky.fraxscan.com/')
+    const [scan,setScan] = useState('holesky.fraxscan.com')
     const [providerURL,setProviderURL] = useState('https://rpc.testnet.frax.com/')
     const [providerName,setProviderName] = useState('Fraxtal')
     const [providerTick,setProviderTick] = useState('frxETH')

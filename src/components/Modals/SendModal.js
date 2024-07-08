@@ -144,7 +144,7 @@ export const SendModal = () => {
             </div> : 
             <div className="mt-8 px-2 py-3 bg-red-600/0 h-[85%] flex flex-col rounded-xl w-[99%] ml-auto mr-auto">
             <div className="mt-12 w-[100%] ml-auto mr-auto">
-            <div className="w-[100%] ml-auto mr-auto mb-4 flex rounded-xl text-[19px] text-black/75 py-3 px-3 border items-start border-black bg-black/0 h-12">
+            <div className="w-[100%] ml-auto mr-auto mb-4 flex rounded-xl text-[19px] text-black/75 py-3 px-3 border items-start justify-center border-black bg-black/0 h-12">
                <p className=" text-black font-light">From:</p>
                <p className=" text-black font-light">{formatAddress(userAddress)}</p>
              </div>

@@ -88,7 +88,7 @@ export const TokenModal = () => {
                     console.log('add token info')
                   }
                 }}
-                className="w-[97%] mb-5   ml-auto mr-auto py-3 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11"
+                className="w-[97%] mb-5   ml-auto mr-auto py-3 mt-3 px-3 flex  items-center justify-center bg-black/80 rounded-xl h-12"
               >
                 <p className="text-white font-light text-[15px] ml-auto mr-auto ">
                   Add Token

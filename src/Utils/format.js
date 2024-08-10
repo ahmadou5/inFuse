@@ -32,7 +32,7 @@ export const formatAddress = (value) => {
       imgUrl: 'https://console.fuse.io/_next/static/media/fuse-icon.46cbae3d.svg',
       Tick: 'Fuse',
       scan: 'https://explorer.fuse.io/',
-      //faucet: 'https://www.alchemy.com/faucets/ethereum-sepolia'
+      faucet: 'https://www.alchemy.com/faucets/ethereum-sepolia'
     },
   ]
   export const chain = [

@@ -97,7 +97,7 @@ export const Create = () => {
     return(
     <div className="w-[100%] py-2 px-1 h-auto bg-red-400/0">
         <div className="bg-gothic-950/0 mt-[80px] mb-[32px] flex items-center justify-center w-[100%] h-auto">
-            <img src="./assets/chain1.svg" className="w-[40%] h-[140px]" />
+            <img src="https://console.fuse.io/_next/static/media/fuse-icon.46cbae3d.svg" className="w-[160px] h-[160px]" />
         </div>
         <div className="bg-gothic-950/0 mt-3 mb-8 flex items-center justify-center w-[100%] h-auto">
             <div className="bg-s-gray-300/0 w-[90%] px-10 flex flex-col items-center justify-center rounded-3xl h-[140px]">

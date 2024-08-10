@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { formatEther ,ethers} from "ethers";
 import axios from "axios";
 export const useGetUserId = () => {
-  const baseUrl = "https://api.coingecko.com/api/v3/simple/price";
+  const baseUrl = "https://explorer.fuse.io/api/v2/stats";
   
   const {
     setIsAuthenticate,
@@ -37,9 +37,9 @@ export const useGetUserId = () => {
     const getEthPrice = async () => {
       try {
         const response = await axios.get(
-          `${baseUrl}?ids=ethereum&vs_currencies=usd`
+          `${baseUrl}`
         );
-        const price = response.data.ethereum.usd;
+        const price = response.data.coin_price;
         setEthPrice(price);
         console.log("Current ETH/USD price:", price);
         return price;

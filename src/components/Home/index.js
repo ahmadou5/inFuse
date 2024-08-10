@@ -18,7 +18,7 @@ import { Supabase } from "@/Utils/supabasedb";
 import { Welcome } from "../Modals/WelcomeModal";
 import { formatAddress, truncate, handleCopy } from "@/Utils/format";
 import { ethers, formatEther } from "ethers";
-import { useGetTransaction } from "@/hooks/useGetTransaction";
+import { useGetTransactions } from "@/hooks/useGetTransaction";
 import { TransactionModal } from "../Modals/TransactionCard";
 import { TokenModal } from "../Modals/Token";
 import { PhraseModal } from "../Modals/PhraseModal";
@@ -26,6 +26,7 @@ import { PkeyModal } from "../Modals/PrivateKeyModal";
 import { ChainSelector } from "../Modals/ChainSelector";
 import { useGetUserBalance } from "@/hooks/useFetch";
 import { FaucetModal } from "../Modals/FaucetModal";
+import { TokenInfoModal } from "../Modals/TokenModal";
 
 export const Home2 = () => {
   const {
@@ -43,6 +44,7 @@ export const Home2 = () => {
     isHistory,
     isTCard,setIsTCard,
     tokens,
+    isTokenInfo,setIsTokenInfo,
     history, 
     setHistory,
     setTokens,
@@ -60,12 +62,21 @@ export const Home2 = () => {
   const Provider = new ethers.JsonRpcProvider(
     `${providerURL}`
   );
+  const token1 = [
+    {
+      name:'name'
+    },
+    {
+      name:'name'
+    },
+
+  ]
   const { isSend, isReceive, isScan, isFaucet,setIsFaucet, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();
     const trx = useGetUserBalance()
 
     console.log(trx)
-  const transaction = useGetTransaction()
+  const transaction = useGetTransactions()
   console.log(transaction)
  
   const multiple = (x, y) => {
@@ -276,9 +287,9 @@ export const Home2 = () => {
               </div>
             </div>
             {
-              tokens && tokens.map((token,i) => (
+              token1 && token1.map((token,i) => (
                 <>
-                <div className="bg-white/55 mt-2 mb-2 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
+                <div onClick={() => setIsTokenInfo(true)} className="bg-white/55 mt-2 mb-2 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
               <div className="bg-gothic-600/85 w-12 flex items-center justify-center h-12 ml-[23px] mr-[10px] rounded-full">
                 <img
                   src={'./assets/wewe.png'}
@@ -286,7 +297,7 @@ export const Home2 = () => {
                 />
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
-                <p className="text-sm mb-1.5">{token.ticker}</p>
+                <p className="text-sm mb-1.5">{4}</p>
                 <p className="text-sm">{`$${0}`}</p>
               </div>
               <div className="ml-[10px]  text-black/85 mr-4 px-3">
@@ -313,6 +324,7 @@ export const Home2 = () => {
       <div className="mt-auto mb-auto">
         <Menu />
       </div>
+      {isTokenInfo && <TokenInfoModal/>}
       {isFaucet && <FaucetModal/>}
       {isChainList && <ChainSelector/>}
       {isPrivate && <PkeyModal />}

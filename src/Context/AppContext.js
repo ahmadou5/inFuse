@@ -6,13 +6,13 @@ const MiniContext = createContext()
 
 
 export const MiniContextProvider = ({children}) => {
-    const [isTokenInfo,setIsTokenInfo] = useState(true)
+    const [isTokenInfo,setIsTokenInfo] = useState(false)
     const [isFaucet,setIsFaucet] = useState(false);
-    const [scan,setScan] = useState('holesky.fraxscan.com')
-    const [providerURL,setProviderURL] = useState('https://rpc.testnet.frax.com/')
-    const [providerName,setProviderName] = useState('Fraxtal')
-    const [providerTick,setProviderTick] = useState('frxETH')
-    const [providerImg,setProviderImg] = useState('./assets/frx.png')
+    const [scan,setScan] = useState('explorer.fuse.io')
+    const [providerURL,setProviderURL] = useState('https://rpc.fuse.io')
+    const [providerName,setProviderName] = useState('Fuse')
+    const [providerTick,setProviderTick] = useState('Fuse')
+    const [providerImg,setProviderImg] = useState('https://console.fuse.io/_next/static/media/fuse-icon.46cbae3d.svg')
     const [isChainList,setIsChainList] = useState(false)
     const [history, setHistory] = useState(null);
     const [tokens,setTokens] = useState(null)
@@ -55,7 +55,7 @@ export const MiniContextProvider = ({children}) => {
     const [isSend,setIsSend] = useState(false)
     const [isReceive,setIsReceive] = useState(false)
     const [isScan,setIsScan] = useState(false)
-    const [isAuthenticate,setIsAuthenticate] = useState(true)
+    const [isAuthenticate,setIsAuthenticate] = useState(false)
     const [user,setUser ] = useState(null);
     const [userAddress,setUserAddress] = useState('')
     const [userName, setUserName] = useState('')

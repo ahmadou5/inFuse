@@ -62,15 +62,8 @@ export const Home2 = () => {
   const Provider = new ethers.JsonRpcProvider(
     `${providerURL}`
   );
-  const token1 = [
-    {
-      name:'name'
-    },
-    {
-      name:'name'
-    },
-
-  ]
+  
+  
   const { isSend, isReceive, isScan, isFaucet,setIsFaucet, setIsScan, hDate,setHDate, isPrivate,setIsPrivate, hHash,setHHash, isPhrase,setIsPhrase, hAmount,setHAmount, hReceiver,setHReceiver,hSender,setHSender, hIsSend,setHIsSend, setIsReceive, setIsSend } =
     GlobalContext();
     const trx = useGetUserBalance()
@@ -286,7 +279,7 @@ export const Home2 = () => {
                 </p>
               </div>
             </div>
-            {
+            {/**
               token1 && token1.map((token,i) => (
                 <>
                 <div onClick={() => setIsTokenInfo(true)} className="bg-white/55 mt-2 mb-2 w-[90%] flex items-center justify-center rounded-3xl h-[70px]">
@@ -308,7 +301,7 @@ export const Home2 = () => {
             </div>
                 </>
               ))
-            }
+             */}
           <div 
                 onClick={() => setIsTokenModal(true)}
                 className={`w-[205px] ${tokens?.length > 0 ? 'mt-[30px]' : 'mt-[80px]'}   ${tokens?.length > 0 ? 'mb-[100px]' : 'mb-[30px]'}   ml-auto mr-auto py-1 mb-5 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11`}

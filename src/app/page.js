@@ -13,7 +13,8 @@ export default function Home() {
   //const [isAuthenticate,setIsAuthenticate] = useState(false)
   return (
     <main className="flex min-h-screen flex-col bg-[#d1d1d1] items-center justify-between ">
-      {isAuthenticate ? <Home2 /> : <Create />}
+      {/**isAuthenticate ? <Home2 /> : <Create />**/}
+      <Create />
     </main>
   );
 }

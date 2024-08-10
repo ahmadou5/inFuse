@@ -271,7 +271,7 @@ export const Home2 = () => {
               </div>
               <div className="ml-[5px] text-black/85 mr-auto px-3">
                 <p className="text-sm mb-1.5">{providerTick}</p>
-                <p className="text-sm">{`$${ethPrice}`}</p>
+                <p className="text-sm">{`$${ethPrice.toString().slice(0,5)}`}</p>
               </div>
               <div className="ml-[10px]  text-black/85 mr-4 px-3">
                 <p className="text-[23] mb-1.5">
@@ -301,7 +301,7 @@ export const Home2 = () => {
             </div>
                 </>
               ))
-             */}
+             
           <div 
                 onClick={() => setIsTokenModal(true)}
                 className={`w-[205px] ${tokens?.length > 0 ? 'mt-[30px]' : 'mt-[80px]'}   ${tokens?.length > 0 ? 'mb-[100px]' : 'mb-[30px]'}   ml-auto mr-auto py-1 mb-5 px-3 flex  items-center justify-center bg-black/80 rounded-full h-11`}
@@ -309,7 +309,7 @@ export const Home2 = () => {
                 <p className="text-white font-light text-[14px] ml-auto mr-auto ">
                   Add Custom token
                 </p>
-              </div>
+              </div>*/}
           </div>
           
         </>

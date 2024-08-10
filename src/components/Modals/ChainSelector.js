@@ -53,7 +53,7 @@ export const ChainSelector = () => {
                 <img src={item.imgUrl} className="h-10 rounded-full mt-0 w-10"/>
                 </div>
                 <div className="h-[100%] text-black ml-auto mr-2 font-light  mt-1 w-[60%] py-1 px-2">
-                 <div className="mt-1.5">
+                 <div className="mt-2">
                 
                  <p className="text-xl">{item.name}</p>
                  </div>

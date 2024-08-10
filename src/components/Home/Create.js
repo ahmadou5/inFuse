@@ -106,7 +106,7 @@ export const Create = () => {
             </div>
         </div>
         <div className="bg-s-gray-300/0 w-[95%] ml-auto mr-auto mt-5 mb-20 px-2 flex flex-col items-center justify-center rounded-2xl h-auto">
-                <button onClick={() => createWallet()} className="text-[15px] bg-[#A3F5AA]/95 border border-black w-[310px] mb-2 h-12 text-gothic-950 rounded-xl font-extrabold ">{`Create New Wallet`}</button>
+                <button onClick={() => createWallet()} className="text-[15px] bg-[#6297e6]/95 border border-black w-[310px] mb-2 h-12 text-gothic-950 rounded-xl font-extrabold ">{`Create New Wallet`}</button>
              {/**  <button onClick={() => setIsImport(true)} className="text-[15px] bg-gothic-950 w-[310px] text-s-gray-200 mt-1 h-12 rounded-xl font-extrabold ">{`Import Existing Wallet`}</button>*/  }
         </div>
         {isLoading && <Loading/>}

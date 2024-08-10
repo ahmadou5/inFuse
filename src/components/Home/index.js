@@ -325,7 +325,7 @@ export const Home2 = () => {
       {isTokenModal && <TokenModal />}
       {isTCard && <TransactionModal />}
       {isSend && <SendModal />}
-      {welcome && <Welcome />}
+      
       {isReceive && <ReceiveModal />}
     </div>
   );

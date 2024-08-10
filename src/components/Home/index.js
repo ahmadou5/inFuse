@@ -243,12 +243,12 @@ export const Home2 = () => {
                   Receive
                 </p>
               </div>
-              <div
+             {/** <div
               onClick={() => setIsFaucet(true)} 
               className="text-xl  bg-white/45 flex flex-col items-center justify-center rounded-3xl h-20 w-20 ml-auto mr-auto  text-white/60">
                 <FaHandHoldingWater className="text-2xl text-black/85" />
                 <p className="text-sm mt-2.5 text-black/85 font-light ">Faucets</p>
-              </div>
+              </div> */}
             </div>
           </div>
           {/**<div className="bg-gothic-950/0 mt-16 flex items-center justify-center w-[100%] h-auto">

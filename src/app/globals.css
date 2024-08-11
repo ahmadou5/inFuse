@@ -22,9 +22,9 @@ body {
       
   to bottom,
   transparent,
-  #A3F5AA
+  rgb(19, 18, 18)
 )
-black
+#A3F5AA
 }
 
 @layer utilities {

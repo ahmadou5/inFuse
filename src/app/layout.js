@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Inter,Montserrat } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { MiniContextProvider } from "@/Context/AppContext";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"], weight:'400' });
 
 export const metadata = {
   title: "Create Next App",

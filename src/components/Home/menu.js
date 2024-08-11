@@ -67,7 +67,7 @@ export const Menu = () => {
               setIsTokens(false)
               setIsWallet(true)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoWallet size={28} className={`${ isWallet ? 'text-[#A3F5AA]' : 'text-gothic-200'}`} />
+                <IoWallet size={28} className={`${ isWallet ? 'text-[#A3F5AA]' : 'text-gothic-600/85'}`} />
                 {isWallet && <p className={`font-light ${isWallet ? 'text-[#A3F5AA]' : 'text-black'} text-[12px]`}>Wallet</p>}
             </div>
             <div onClick={() => {
@@ -76,7 +76,7 @@ export const Menu = () => {
               setIsWallet(false)
             }}
              className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoFlash size={28} className={`${ isHistory ? 'text-[#A3F5AA]' : 'text-gothic-200'}`} />
+                <IoFlash size={28} className={`${ isHistory ? 'text-[#A3F5AA]' : 'text-gothic-600/85'}`} />
                 {isHistory && <p className={`font-light ${isHistory ? 'text-[#A3F5AA]' : 'text-black'} text-[12px]`}>History</p>}
             </div>
             <div onClick={() => {
@@ -84,7 +84,7 @@ export const Menu = () => {
               setIsTokens(true)
               setIsWallet(false)
             }} className={`h-12 ml-auto mr-auto w-[30%] bg-white/0 flex flex-col items-center justify-center`}>
-                <IoSettings size={28} className={`${ isTokens ? 'text-[#A3F5AA]' : 'text-gothic-200'}`} />
+                <IoSettings size={28} className={`${ isTokens ? 'text-[#A3F5AA]' : 'text-gothic-600/85'}`} />
                 {isTokens && <p className={`font-light ${isTokens ? 'text-[#A3F5AA]' : 'text-black'} text-[12px]`}>Settings</p>}
             </div>
           </div>          
